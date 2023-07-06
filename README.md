@@ -1,13 +1,13 @@
-# trip-wizard
-after pulling the repositry into your local git folder
-go to the client folder 
-    $ npm install     //install all dependencies
+# trip-wizard  
+after pulling the repositry into your local git folder  
+go to the client folder     
+    $ npm install     //install all dependencies  
 
-go to the server folder
-    $ npm install     //install all dependencies
+go to the server folder  
+    $ npm install     //install all dependencies  
 
-open two terminals one for the server and one for the client 
-on each terminal run 
+open two terminals one for the server and one for the client   
+on each terminal run   
     $ npm start
 
 to view the server side requests:
