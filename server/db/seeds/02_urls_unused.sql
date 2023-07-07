@@ -1,6 +1,6 @@
 -- seeds/02_urls.sql
 -- Seed Rick
-INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (1, 1, 'www.google.ca', 'XcD3d', false);
+/*INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (1, 1, 'www.google.ca', 'XcD3d', false);
 INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (2, 1, 'www.intergalacticebay.gl', '3fGvG', true);
 INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (3, 1, 'www.plumbus.gl', 'AAfg6', true);
 INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (4, 1, 'www.fedaration.com', 'AcGj4', false);
@@ -28,3 +28,4 @@ INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (19, 4, 'ww
 
 -- Seed Almight
 INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (20, 5, 'www.heroacademia.jp', 'KcF43', true);
+*/
