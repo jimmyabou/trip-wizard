@@ -19,14 +19,17 @@ CREATE TABLE attractions (
   attraction_id SERIAL PRIMARY KEY,
   name varchar NOT NULL,
   description varchar NOT NULL,
-  picture_link varchar NOT NULL,
-  location varchar NOT NULL,
+  country varchar NOT NULL,
+  city varchar NOT NULL,
+  latitude FLOAT,
+  longitude FLOAT,
   category varchar NOT NULL,
   rating numeric NOT NULL,
   price integer NOT NULL,
   duration integer NOT NULL,
   featured boolean NOT NULL,
-  booking_url text NOT NULL
+  booking_url text NOT NULL,
+  pictures TEXT[]
 );
 
 CREATE TABLE favorite_attractions (
@@ -73,21 +76,3 @@ CREATE TABLE days (
   package_id integer REFERENCES custom_packages (package_id) NOT NULL,
   date date NOT NULL
 );
-
--- ALTER TABLE "favorite_attractions" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
-
--- ALTER TABLE "favorite_attractions" ADD FOREIGN KEY ("attraction_id") REFERENCES "attractions" ("attraction_id");
-
--- ALTER TABLE "custom_packages" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
-
--- ALTER TABLE "package_attractions" ADD FOREIGN KEY ("attraction_id") REFERENCES "attractions" ("attraction_id");
-
--- ALTER TABLE "package_attractions" ADD FOREIGN KEY ("day_id") REFERENCES "days" ("day_id");
-
--- ALTER TABLE "orders" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
-
--- ALTER TABLE "line_items" ADD FOREIGN KEY ("order_id") REFERENCES "orders" ("order_id");
-
--- ALTER TABLE "line_items" ADD FOREIGN KEY ("attraction_id") REFERENCES "attractions" ("attraction_id");
-
--- ALTER TABLE "days" ADD FOREIGN KEY ("package_id") REFERENCES "custom_packages" ("package_id");
