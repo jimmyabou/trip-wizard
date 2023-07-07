@@ -14,8 +14,8 @@ to view the server side requests:
 open browser and type:  
     localhost:8080/users  
 
-to view client side open browser and use   
-    localhost:3000/users     //this should display the users table objects returned by axios from the express server on Nodejs that is connected to PG database  
+to view client side open browser and use     
+    localhost:3000/users     //this should display the users table objects returned by axios from the express server on Nodejs that is connected to PG database    
 
 I added a proxy in React pachakge.json file so you dont need to type the full addresss of the server : "proxy": "http://localhost:8080" when sending http requests
 
