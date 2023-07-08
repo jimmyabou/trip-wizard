@@ -1,5 +1,6 @@
 import React from 'react';
-
+import UserForm from './userForm';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 
 
@@ -12,7 +13,8 @@ const NavMenu = () => {
           <a href="#">Favorites</a>
         </li>
         <li>
-          <a href="#">Logout</a>
+        
+        <Link to="/login">Login</Link>
         </li>
         <li>
           <div className="fav-badge">
@@ -26,3 +28,6 @@ const NavMenu = () => {
 };
 
 export default NavMenu;
+
+
+ /* <a href="#">Logout</a> */
