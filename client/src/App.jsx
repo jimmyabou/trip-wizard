@@ -1,21 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.scss';
+
 import Fetch from './hooks/fetchUsers';
+import Navbar from './components/NavBar';
+
+
+
 
 function App() {
-  const{ data}=Fetch();
+
+  const { data } = Fetch();
+
+
   return (
     <div className="App">
-    {data && (
-      <ul>
-        {data.users.map(user => (
-          <li key={user.id}>
-            Email: {user.email}, Password: {user.password}
-          </li>
-        ))}
-      </ul>
-    )}
-  </div>
+      <Navbar />
+    </div>
   );
 }
 
