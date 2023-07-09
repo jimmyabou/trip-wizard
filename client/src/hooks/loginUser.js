@@ -9,8 +9,8 @@ export const loginUser = async (credentials) => {
     console.log(response.data);
     return response.data;
   } catch (error) {
-    console.error('Error logging in:', error);
-    throw new Error('Failed to login');
+    console.error( error);
+
   }
 }
 

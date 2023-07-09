@@ -39,7 +39,6 @@ const NavMenu = (props) => {
       {loggedIn || (props.email) ? (
         <p
           style={{
-            color: 'blue',
             fontWeight: 'bold',
             fontSize: '20px',
             textAlign: 'right',
