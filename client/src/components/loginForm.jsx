@@ -1,35 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { TextField, Button, Box } from '@mui/material';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import {loginUser} from '../hooks/loginUser';
+import React, { useState, useEffect } from "react";
+import { TextField, Button, Box } from "@mui/material";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+const LoginForm = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [emptyform, setEmptyForm] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const credentials = {
       email,
-      password
+      password,
     };
-    loginUser(credentials)
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.error(error);
+    props.handleLogin(credentials).then(() => {
+      setEmptyForm(!emptyform);
+
     });
-    console.log('Submitted email:', email);
-    console.log('Submitted password:', password);
-    setEmptyForm(!emptyform);
+    console.log("Submitted email:", email);
+    console.log("Submitted password:", password);
+
   };
   useEffect(() => {
     setPassword('');
     setEmail('');
   }, [emptyform]);
-
   return (
     <Box
       display="flex"
@@ -39,8 +35,10 @@ const LoginForm = () => {
       bgcolor="#f0f0f0"
       padding={3}
     >
-      <form onSubmit={handleSubmit} style={{ width: '30%' }}>
-        <h2 style={{ marginBottom: '1rem', textAlign: 'center' }}>Login to your account</h2>
+      <form onSubmit={handleSubmit} style={{ width: "30%" }}>
+        <h2 style={{ marginBottom: "1rem", textAlign: "center" }}>
+          Login to your account
+        </h2>
         <Box bgcolor="#fff" padding={3}>
           <div>
             <TextField
@@ -52,7 +50,7 @@ const LoginForm = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div style={{ marginTop: '1rem' }}>
+          <div style={{ marginTop: "1rem" }}>
             <TextField
               label="Password"
               type="password"
@@ -67,11 +65,11 @@ const LoginForm = () => {
             type="submit"
             fullWidth
             size="large"
-            style={{ marginTop: '1rem' }}
+            style={{ marginTop: "1rem" }}
           >
             Login
           </Button>
-          <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+          <div style={{ marginTop: "1rem", textAlign: "center" }}>
             Don't have an account? <Link to="/register">Register</Link>
           </div>
         </Box>
