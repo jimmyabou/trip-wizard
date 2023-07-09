@@ -5,6 +5,7 @@ import { TextField, Button, Box } from '@mui/material';
 const UserForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -12,8 +13,11 @@ const UserForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    console.log("send to axios")
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return ;
+    }
+    // console.log("send to axios")
     const userData = {
       username,
       password,
@@ -21,24 +25,25 @@ const UserForm = () => {
       address,
       phone_number: phoneNumber,
     };
-  
+
     createUser(userData)
-    .then(response => {
-      console.log(response);
-      console.log("success");
-      setEmptyForm(!emptyform);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-  
-  };  
+      .then(response => {
+        // console.log(response);
+        alert('User successfully created');
+        setEmptyForm(!emptyform);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+  };
   useEffect(() => {
     setUsername('');
     setPassword('');
     setEmail('');
     setAddress('');
     setPhoneNumber('');
+    setConfirmPassword('');
   }, [emptyform]);
 
   return (
@@ -63,7 +68,7 @@ const UserForm = () => {
               required
             />
           </div>
-         
+
           <div style={{ marginTop: '1rem' }}>
             <TextField
               label="Email"
@@ -107,9 +112,9 @@ const UserForm = () => {
           <div style={{ marginTop: '1rem' }}>
             <TextField
               label="Confirm Password"
-              type="Confirm password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               fullWidth
               required
             />

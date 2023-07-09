@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 
 const NavMenu = (props) => {
   const [loggedIn, setLoggedIn] = useState(Cookies.get('user'));
-  console.log(props.email)
+  // console.log(props.email)
   const logout = () => {
     setLoggedIn(false);
     Cookies.remove('user');

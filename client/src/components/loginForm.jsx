@@ -18,8 +18,8 @@ const LoginForm = (props) => {
       setEmptyForm(!emptyform);
 
     });
-    console.log("Submitted email:", email);
-    console.log("Submitted password:", password);
+    // console.log("Submitted email:", email);
+    // console.log("Submitted password:", password);
 
   };
   useEffect(() => {

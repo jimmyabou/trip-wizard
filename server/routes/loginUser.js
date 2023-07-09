@@ -5,7 +5,7 @@ const loginUser = require('../db/queries/loginUser.js');
 
 router.post('/', (req, res) => {
   const { email, password } = req.body;
-  console.log("reached server route",email)
+  console.log('reached server rout',email)
   loginUser.loginUser(email)
     .then(result => {
       console.log(result.rows[0]);

@@ -8,7 +8,7 @@ const useApplicationData = () => {
     try {
       const data = await loginUser(credentials);
       setUserData(data.email);
-      console.log(userData);
+      // console.log(userData);
     } catch (error) {
       console.error(error);
     }
