@@ -9,8 +9,7 @@ const createUser = async (username, password, email, address, phone_number) => {
 
     return 'User created successfully';
   } catch (error) {
-    console.error('Error creating user:', error);
-    throw new Error('Failed to create user');
+    console.error( error);
   }
 };
 

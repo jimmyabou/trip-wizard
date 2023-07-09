@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Box } from '@mui/material';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import {loginUser} from '../hooks/loginUser';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -9,7 +10,17 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    const credentials = {
+      email,
+      password
+    };
+    loginUser(credentials)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.error(error);
+    });
     console.log('Submitted email:', email);
     console.log('Submitted password:', password);
     setEmptyForm(!emptyform);
