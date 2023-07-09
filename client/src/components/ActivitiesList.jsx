@@ -1,0 +1,33 @@
+import React from 'react';
+
+import ActivitiesListItem from './ActivitiesListItem';
+
+import '../styles/ActivitiesList.scss';
+
+
+const ActivitiesList = () => {
+
+  return (
+    <ul className="activity-list">
+      <ActivitiesListItem />
+      <ActivitiesListItem />
+      <ActivitiesListItem />
+      <ActivitiesListItem />
+      <ActivitiesListItem />
+      <ActivitiesListItem />
+      <ActivitiesListItem />
+      <ActivitiesListItem />
+    </ul>
+
+
+  );
+
+
+};
+
+export default ActivitiesList;
+
+// ActivitiesList.defaultProps = {
+
+// };
+
