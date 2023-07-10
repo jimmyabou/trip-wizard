@@ -5,6 +5,8 @@ import Navbar from './components/NavBar';
 import LoginForm from './components/loginForm';
 import ActivitiesList from './components/ActivitiesList';
 import useApplicationData from './hooks/useApplicationData';
+import FetchAttractions from './hooks/attractions/fetchAttractions';
+import FetchFeaturedAttractions from './hooks/attractions/fetchFeaturedAttractions';
 
 import './styles/Main.scss';
 
@@ -14,6 +16,13 @@ const App = () => {
     logoutHandler,
     userData
   } = useApplicationData();
+
+  const { featuredAttractionsData,
+    isLoading,
+    error } = FetchFeaturedAttractions();
+
+    console.log("featuredAttractionsData", featuredAttractionsData);
+
 
   return (
     <div className="App">
