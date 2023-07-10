@@ -18,6 +18,18 @@ const getAttractionById = (attraction_id) => {
     });
 };
 
+const handleUserFav = async (user_id, attraction_id) => {
+  try {
+    const query = 'INSERT INTO favorite_attractions (user_id, attraction_id) VALUES ($1, $2)';
+    const values = [user_id, attraction_id];
+    console.log("before query");
+    await db.query(query, values);
+    return 'User favorite added';
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const getUserFavAttractions = (user_id) => {
   return getFavAttractionIdsFromUser(user_id)
     .then(attraction_ids => {
@@ -26,4 +38,4 @@ const getUserFavAttractions = (user_id) => {
     });
 };
 
-module.exports = { getUserFavAttractions };
+module.exports = { getUserFavAttractions, handleUserFav };
