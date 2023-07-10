@@ -10,7 +10,6 @@ const FetchFeaturedAttractions = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('/attractions/featured');
-        console.log("reponsedata", response.data);
         setfeaturedAttractionsData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -21,7 +20,6 @@ const FetchFeaturedAttractions = () => {
 
     fetchData();
   }, []);
-
 
 return {
   featuredAttractionsData,

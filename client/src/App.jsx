@@ -26,16 +26,20 @@ const App = () => {
     isLoading,
     error } = FetchFeaturedAttractions();
 
+    console.log("featuredAttractionsData", featuredAttractionsData);
+    console.log("isLoading", isLoading);
+    console.log("error", error);
+
+
+
 
   return (
     <div className="App">
       <Router>
-        <Navbar email={userData} logoutHandler={logoutHandler} />
-       {isLoading === true? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions}/>}
         <Navbar email={userEmail} logoutHandler={logoutHandler} />
         
         <Routes>
-          <Route path="/" element={<ActivitiesList/>} />
+          <Route path="/" element={isLoading === true? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions}/>} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} />
           {/* Add more routes here */}
