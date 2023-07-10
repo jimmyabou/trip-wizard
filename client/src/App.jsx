@@ -12,16 +12,21 @@ const App = () => {
   const {
     handleLogin,
     logoutHandler,
-    userData
+    userEmail, //  email of the logged in user 
+    userID  //  user ID from the database of the logged in user
   } = useApplicationData();
+  const user = {
+    email: userEmail,
+    id: userID
+  };
 
   return (
     <div className="App">
       <Router>
-        <Navbar email={userData} logoutHandler={logoutHandler} />
-        <ActivitiesList />
+        <Navbar email={userEmail} logoutHandler={logoutHandler} />
+        
         <Routes>
-          <Route path="/" element={<UserForm />} />
+          <Route path="/" element={<ActivitiesList/>} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} />
           {/* Add more routes here */}

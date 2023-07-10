@@ -59,7 +59,7 @@ const UserForm = () => {
     >
       <form onSubmit={handleSubmit} style={{ width: '40%' }}>
         <h2 style={{ marginBottom: '1rem', textAlign: 'center' }}>Register your account</h2>
-        <Box bgcolor="#fff" padding={3}>
+        <Box bgcolor="#fff" padding={3} style={{ borderRadius: "10px" }}>
           <div>
             <TextField
               label="Username"
@@ -126,7 +126,7 @@ const UserForm = () => {
             type="submit"
             fullWidth
             size="large"
-            style={{ marginTop: '1rem' }}
+            style={{ marginTop: '1rem',background: "#51D4BF" }}
           >
             Submit
           </Button>

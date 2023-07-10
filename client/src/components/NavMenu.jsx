@@ -5,8 +5,17 @@ import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 
 const NavMenu = (props) => {
-  const [loggedIn, setLoggedIn] = useState(Cookies.get('user'));
-  // console.log(props.email)
+  const [loggedIn, setLoggedIn] = useState(null);
+  const [loggedInID, setLoggedInID] = useState(null);
+  useEffect(() => {
+    const userCookie = Cookies.get('user');
+    if (userCookie) {
+      const { id, email } = JSON.parse(userCookie);
+      setLoggedIn(email);
+      setLoggedInID(id)
+    }
+  }, []);
+  console.log(props.email)
   const logout = () => {
     setLoggedIn(false);
     Cookies.remove('user');
