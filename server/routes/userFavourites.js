@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const userFavourites = require('../db/queries/userFavourites');
+const userFavorites = require('../db/queries/userFavourites');
 
-router.get('/favourites', (req, res) => {
-  const { user_id } = req.query;
+router.get('/:user_id', (req, res) => {
+  const { user_id } = req.params;
 
-  userFavourites.getUserFavAttractions(user_id)
+  userFavorites.getUserFavAttractions(user_id)
     .then(data => {
       res.json({ attractions: data });
     })
@@ -14,11 +14,11 @@ router.get('/favourites', (req, res) => {
     });
 });
 
-router.post('/favorites', async (req, res) => {
+router.post('/:user_id', async (req, res) => {
   const { user_id, attraction_id } = req.body;
 
   try {
-    const result = await userFavourites.handleUserFav(user_id, attraction_id);
+    const result = await userFavorites.handleUserFav(user_id, attraction_id);
     res.status(200).json({ message: result });
   } catch (error) {
     res.status(500).json({ error: 'Failed to favorite attraction' });
