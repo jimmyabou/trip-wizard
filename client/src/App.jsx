@@ -21,7 +21,7 @@ const App = () => {
         <Navbar email={userData} logoutHandler={logoutHandler} />
         <ActivitiesList />
         <Routes>
-        <Route path="/" element={<UserForm />} />
+          <Route path="/" element={<UserForm />} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} />
           {/* Add more routes here */}
