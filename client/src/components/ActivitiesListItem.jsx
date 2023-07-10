@@ -1,11 +1,8 @@
 import React from 'react';
-import attractions from '../mocks/attractions';
 
 const ActivitiesListItem = (props) => {
 
-  const { } = props;
-
-  const attraction = attractions[0];
+  const { attraction } = props;
 
   return (
     < div className="activity-list__item" key={attraction.attraction_id} >
