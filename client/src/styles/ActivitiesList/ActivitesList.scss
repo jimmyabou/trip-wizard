@@ -1,0 +1,9 @@
+@import './ActivitiesListItem.scss';
+
+.activity-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  justify-content: center;
+}

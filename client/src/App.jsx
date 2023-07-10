@@ -5,6 +5,8 @@ import Navbar from './components/NavBar';
 import LoginForm from './components/loginForm';
 import useApplicationData from './hooks/useApplicationData';
 
+import './styles/Main.scss';
+
 const App = () => {
   const {
     handleLogin,
@@ -15,7 +17,7 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <Navbar email={userData} logoutHandler={logoutHandler}/>
+        <Navbar email={userData} logoutHandler={logoutHandler} />
         <Routes>
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} />

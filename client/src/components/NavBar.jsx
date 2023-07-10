@@ -4,8 +4,6 @@ import NavSearchForm from './NavSearchForm';
 
 import NavMenu from './NavMenu';
 
-import '../styles/NavBar.scss';
-
 
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -19,9 +17,9 @@ const Navbar = (props) => {
       <nav>
         <NavLogo />
         <NavSearchForm />
-        <NavMenu email={props.email} logoutHandler={props.logoutHandler}/>
+        <NavMenu email={props.email} logoutHandler={props.logoutHandler} />
       </nav>
-      
+
     </LocalizationProvider>
 
   );
