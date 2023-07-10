@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Box } from "@mui/material";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate    } from "react-router-dom";
 
 
 const LoginForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emptyform, setEmptyForm] = useState(false);
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const credentials = {
@@ -16,7 +16,7 @@ const LoginForm = (props) => {
     };
     props.handleLogin(credentials).then(() => {
       setEmptyForm(!emptyform);
-
+      navigate('/');
     });
     // console.log("Submitted email:", email);
     // console.log("Submitted password:", password);

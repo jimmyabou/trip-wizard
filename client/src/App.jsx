@@ -17,6 +17,7 @@ const App = () => {
       <Router>
         <Navbar email={userData} logoutHandler={logoutHandler}/>
         <Routes>
+        <Route path="/" element={<UserForm />} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} />
           {/* Add more routes here */}
@@ -37,4 +38,5 @@ const App = () => {
 };
 
 export default App;
+
 

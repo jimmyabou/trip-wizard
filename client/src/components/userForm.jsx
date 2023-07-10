@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createUser } from '../hooks/createUser';
 import { TextField, Button, Box } from '@mui/material';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate    } from "react-router-dom";
 
 const UserForm = () => {
   const [username, setUsername] = useState('');
@@ -10,7 +11,7 @@ const UserForm = () => {
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [emptyform, setEmptyForm] = useState(false);
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -31,6 +32,7 @@ const UserForm = () => {
         // console.log(response);
         alert('User successfully created');
         setEmptyForm(!emptyform);
+        navigate('/login');
       })
       .catch(error => {
         console.error(error);
