@@ -7,7 +7,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const createUserRouter = require('./routes/createUser');
 const loginUser = require('./routes/loginUser');
-var attractionsRouter = require('./routes/attractions');
+const attractionsRouter = require('./routes/attractions');
 
 const app = express();
 
@@ -22,6 +22,8 @@ app.use('/users', usersRouter);
 app.use('/createUser', createUserRouter);
 app.use('/login', loginUser);
 app.use('/attractions', attractionsRouter);
+app.use('/attractions/featured', attractionsRouter);
+
 
 
 
