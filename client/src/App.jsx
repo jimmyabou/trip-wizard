@@ -21,14 +21,12 @@ const App = () => {
     isLoading,
     error } = FetchFeaturedAttractions();
 
-    console.log("featuredAttractionsData", featuredAttractionsData);
-
 
   return (
     <div className="App">
       <Router>
         <Navbar email={userData} logoutHandler={logoutHandler} />
-        <ActivitiesList />
+       {isLoading === true? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions}/>}
         <Routes>
           <Route path="/" element={<UserForm />} />
           <Route path="/register" element={<UserForm />} />

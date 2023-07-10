@@ -2,11 +2,11 @@ import React from 'react';
 
 import ActivitiesListItem from './ActivitiesListItem';
 
-import attractions from '../mocks/attractions';
 
+const ActivitiesList = (props) => {
 
+  const { attractions } = props;
 
-const ActivitiesList = () => {
 
   return (
     < ul className="activity-list" >
@@ -20,8 +20,3 @@ const ActivitiesList = () => {
 };
 
 export default ActivitiesList;
-
-// ActivitiesList.defaultProps = {
-
-// };
-

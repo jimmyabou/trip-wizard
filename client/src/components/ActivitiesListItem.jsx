@@ -12,7 +12,14 @@ const ActivitiesListItem = (props) => {
         <button className="fav-button">
           <i className="fa-regular fa-heart"></i>
         </button>
-        <img className="activity__photo" src={attraction.pictures[0]} alt="activity img" />
+        <img className="activity__photo" src={attraction.pictures[0]} 
+        alt="activity img" 
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null; // prevents looping
+          currentTarget.src="https://github.com/tamaratell/TripWizard-Styles/blob/master/assets/activity-image-example.jpeg?raw=true";
+        }}
+        />
+        
         <footer>
           <div className="activity__details">
             <div className="activity__details-info">
