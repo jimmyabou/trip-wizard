@@ -1,6 +1,7 @@
 import React from 'react';
 
 import EnhancedActivitiesListItem from './EnhancedActivitiesListItem';
+import ActivitiesListFavButton from './ActivitiesListFavButton';
 
 const ActivitiesListItem = (props) => {
 
@@ -9,9 +10,7 @@ const ActivitiesListItem = (props) => {
   return (
     <li>
       < div className="activity-list__item" key={attraction.attraction_id} >
-        <button className="fav-button">
-          <i className="fa-regular fa-heart"></i>
-        </button>
+        <ActivitiesListFavButton />
         <img className="activity__photo" src={attraction.pictures[0]} alt="activity img" />
         <footer>
           <div className="activity__details">
