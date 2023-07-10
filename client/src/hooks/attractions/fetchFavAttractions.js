@@ -22,18 +22,12 @@ const FetchFavAttractions = ({ userId }) => {
     fetchFavData();
   }, [userId]);
 
-  return (
-    <div>
-      {/* You can render your data here */}
-      {isLoading && <div>Loading...</div>}
-      {error && <div>{error.message}</div>}
-      {!isLoading && favAttractionsData && (
-        <div>
-          {/* Render your attractions data here */}
-        </div>
-      )}
-    </div>
-  );
+  return {
+    favAttractionsData,
+    isLoading,
+    error
+  };
+
 };
 
 export default FetchFavAttractions;
