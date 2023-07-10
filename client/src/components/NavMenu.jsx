@@ -1,10 +1,12 @@
 import React from 'react';
-import UserForm from './userForm';
+import UserForm from './UserForm';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useContext } from 'react';
 import Cookies from 'js-cookie';
+import UserContext from "../hooks/UserContext";
 
-const NavMenu = (props) => {
+const NavMenu = () => {
+  const { user,logoutHandler } = useContext(UserContext);
   const [loggedIn, setLoggedIn] = useState(null);
   const [loggedInID, setLoggedInID] = useState(null);
   useEffect(() => {
@@ -15,11 +17,11 @@ const NavMenu = (props) => {
       setLoggedInID(id)
     }
   }, []);
-  console.log(props.email)
+  console.log(user.email)
   const logout = () => {
     setLoggedIn(false);
     Cookies.remove('user');
-    props.logoutHandler();
+    logoutHandler();
   };
   useEffect(() => {
 
@@ -33,7 +35,7 @@ const NavMenu = (props) => {
           <a href="#">Favorites</a>
         </li>
         <li>
-          {(props.email) || loggedIn ? (
+          {(user.email) || loggedIn ? (
             <a href="#" onClick={logout}>Logout</a>
           ) : (
             <Link to="/login">Login</Link>
@@ -45,7 +47,7 @@ const NavMenu = (props) => {
           </div>
         </li>
       </ul>
-      {loggedIn || (props.email) ? (
+      {loggedIn || (user.email) ? (
         <p
           style={{
             fontWeight: 'bold',
@@ -53,7 +55,7 @@ const NavMenu = (props) => {
             textAlign: 'right',
           }}
         >
-          Logged in as: {(props.email) || loggedIn}
+          Logged in as: {(user.email) || loggedIn}
         </p>
       ) : null}
     </div>

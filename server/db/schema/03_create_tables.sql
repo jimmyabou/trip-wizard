@@ -38,7 +38,7 @@ CREATE TABLE favorite_attractions (
   PRIMARY KEY (user_id, attraction_id)
 );
 
-CREATE TABLE custom_packages (
+CREATE TABLE packages (
   package_id SERIAL PRIMARY KEY,
   user_id integer REFERENCES users (id) NOT NULL,
   name varchar NOT NULL,

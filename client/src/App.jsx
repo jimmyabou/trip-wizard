@@ -1,34 +1,25 @@
 import Fetch from './hooks/fetchUsers';
-import UserForm from './components/userForm';
+import UserForm from './components/UserForm';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/NavBar';
-import LoginForm from './components/loginForm';
+import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
-import useApplicationData from './hooks/useApplicationData';
+import { UserProvider } from './hooks/UserContext';
 
 import './styles/Main.scss';
 
 const App = () => {
-  const {
-    handleLogin,
-    logoutHandler,
-    userEmail, //  email of the logged in user 
-    userID  //  user ID from the database of the logged in user
-  } = useApplicationData();
-  const user = {
-    email: userEmail,
-    id: userID
-  };
 
   return (
     <div className="App">
       <Router>
-        <Navbar email={userEmail} logoutHandler={logoutHandler} />
+      <UserProvider>
+        <Navbar />
         
         <Routes>
           <Route path="/" element={<ActivitiesList/>} />
           <Route path="/register" element={<UserForm />} />
-          <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} />
+          <Route path="/login" element={<LoginForm />} />
           {/* Add more routes here */}
 
 
@@ -41,11 +32,10 @@ const App = () => {
 
 
         </Routes>
+        </UserProvider>
       </Router>
     </div>
   );
 };
 
 export default App;
-
-
