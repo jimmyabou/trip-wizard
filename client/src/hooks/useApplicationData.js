@@ -2,25 +2,31 @@ import { useState, useEffect, useReducer } from 'react';
 import { loginUser } from './loginUser';
 
 const useApplicationData = () => {
-  const [userData, setUserData] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
+  const [userID, setUserID] = useState(null);
 
   const handleLogin = async (credentials) => {
     try {
       const data = await loginUser(credentials);
-      setUserData(data.email);
+      setUserEmail(data.email);
+      setUserID(data.userId);
       // console.log(userData);
+      // console.log(userID);
+
     } catch (error) {
       console.error(error);
     }
   };
   const logoutHandler=()=>{
-    setUserData(null);
+    setUserEmail(null);
+    setUserID(null);
   }
 
   return {
     handleLogin,
     logoutHandler,
-    userData
+    userEmail,
+    userID
   };
 };
 

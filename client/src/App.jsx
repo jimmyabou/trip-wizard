@@ -14,8 +14,13 @@ const App = () => {
   const {
     handleLogin,
     logoutHandler,
-    userData
+    userEmail, //  email of the logged in user 
+    userID  //  user ID from the database of the logged in user
   } = useApplicationData();
+  const user = {
+    email: userEmail,
+    id: userID
+  };
 
   const { featuredAttractionsData,
     isLoading,
@@ -27,8 +32,10 @@ const App = () => {
       <Router>
         <Navbar email={userData} logoutHandler={logoutHandler} />
        {isLoading === true? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions}/>}
+        <Navbar email={userEmail} logoutHandler={logoutHandler} />
+        
         <Routes>
-          <Route path="/" element={<UserForm />} />
+          <Route path="/" element={<ActivitiesList/>} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} />
           {/* Add more routes here */}

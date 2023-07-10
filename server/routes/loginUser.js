@@ -18,8 +18,8 @@ router.post('/', (req, res) => {
           if (!passwordMatch) {
             return res.json('Invalid username or password');
           }
-          res.cookie('user', user.email);
-          res.json({ message: 'Login successful', email: user.email });
+          res.cookie('user',JSON.stringify({ email:user.email, id:user.id}));
+          res.json({ message: 'Login successful', email: user.email, userId: user.id });
         });
     })
     .catch(error => {

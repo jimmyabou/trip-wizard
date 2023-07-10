@@ -39,7 +39,7 @@ const LoginForm = (props) => {
         <h2 style={{ marginBottom: "1rem", textAlign: "center" }}>
           Login to your account
         </h2>
-        <Box bgcolor="#fff" padding={3}>
+        <Box bgcolor="#fff" padding={3} style={{ borderRadius: "10px" }}>
           <div>
             <TextField
               label="Email"
@@ -65,11 +65,11 @@ const LoginForm = (props) => {
             type="submit"
             fullWidth
             size="large"
-            style={{ marginTop: "1rem" }}
+            style={{ marginTop: "1rem", background: "#51D4BF" }}
           >
             Login
           </Button>
-          <div style={{ marginTop: "1rem", textAlign: "center" }}>
+          <div style={{ marginTop: "1rem", textAlign: "center",fontSize: "1.1rem" }}>
             Don't have an account? <Link to="/register">Register</Link>
           </div>
         </Box>
