@@ -7,6 +7,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var createUserRouter = require('./routes/createUser');
 var loginUser = require('./routes/loginUser');
+var attractionsRouter = require('./routes/attractions');
 
 var app = express();
 
@@ -19,7 +20,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/createUser', createUserRouter);
-app.use('/login',loginUser)
+app.use('/login', loginUser);
+app.use('/attractions', attractionsRouter);
 
 
 
