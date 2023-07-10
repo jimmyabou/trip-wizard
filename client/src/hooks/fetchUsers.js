@@ -22,14 +22,14 @@ const Fetch = () => {
   }, []);
 
 
-return {
-  data,
-  isLoading,
-  error
-}
+  return {
+    data,
+    isLoading,
+    error
+  };
 
 
 
-}
+};
 
 export default Fetch;
