@@ -1,6 +1,9 @@
 import React from 'react';
 
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import NavSearchDateModal from './NavSearchDateModal';
+import NavSearchLocation from './NavSearchLocation';
+import Divider from '@mui/material/Divider';
+
 
 
 
@@ -9,9 +12,10 @@ const NavSearchForm = () => {
   return (
 
     <form action="" name="nav-form" className="nav-form">
-      <input type="text" name="location" placeholder="Anywhere" />
-      <DatePicker className="nav-form-middle" label="Start date"/>
-      <DatePicker className="nav-form-middle" label="End date"/>
+      <NavSearchLocation />
+      <Divider orientation="vertical" flexItem />
+      <NavSearchDateModal />
+      <Divider orientation="vertical" flexItem />
       {/* <input type="text" name="duration" placeholder="Days" class="nav-form-middle" /> */}
       <input type="text" name="budget" placeholder="Budget" />
     </form>

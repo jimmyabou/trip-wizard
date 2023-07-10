@@ -1,6 +1,6 @@
 import NavLogo from './NavLogo';
 
-import NavSearchForm from './NavSearchForm';
+import NavSearchForm from './navSearchForm/NavSearchForm';
 
 import NavMenu from './NavMenu';
 
