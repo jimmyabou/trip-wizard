@@ -54,9 +54,11 @@
 
   .activity__details-more {
     margin: 0 0.5rem 0.5rem 0.5rem;
+    height: 8rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
 
     .activity__details-booking-info {
       display: flex;

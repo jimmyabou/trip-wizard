@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Fetch = () => {
-  const [data, setData] = useState(null);
+const FetchFeaturedAttractions = () => {
+  const [featuredAttractionsData, setfeaturedAttractionsData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/users');
-        setData(response.data);
+        const response = await axios.get('/attractions/featured');
+        setfeaturedAttractionsData(response.data);
         setIsLoading(false);
       } catch (error) {
         setError(error);
@@ -21,15 +21,14 @@ const Fetch = () => {
     fetchData();
   }, []);
 
-
-  return {
-    data,
-    isLoading,
-    error
-  };
-
+return {
+  featuredAttractionsData,
+  isLoading,
+  error
+}
 
 
-};
 
-export default Fetch;
+}
+
+export default FetchFeaturedAttractions;

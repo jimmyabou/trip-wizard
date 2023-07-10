@@ -7,6 +7,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const createUserRouter = require('./routes/createUser');
 const loginUser = require('./routes/loginUser');
+const attractionsRouter = require('./routes/attractions');
 
 const app = express();
 
@@ -19,7 +20,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/createUser', createUserRouter);
-app.use('/login',loginUser)
+app.use('/login', loginUser);
+app.use('/attractions', attractionsRouter);
+app.use('/attractions/featured', attractionsRouter);
+
 
 
 

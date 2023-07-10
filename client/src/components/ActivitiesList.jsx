@@ -3,29 +3,20 @@ import React from 'react';
 import ActivitiesListItem from './ActivitiesListItem';
 
 
-const ActivitiesList = () => {
+const ActivitiesList = (props) => {
+
+  const { attractions } = props;
+
 
   return (
-    <ul className="activity-list">
-      <ActivitiesListItem />
-      <ActivitiesListItem />
-      <ActivitiesListItem />
-      <ActivitiesListItem />
-      <ActivitiesListItem />
-      <ActivitiesListItem />
-      <ActivitiesListItem />
-      <ActivitiesListItem />
-    </ul>
-
-
+    < ul className="activity-list" >
+      {attractions.map(attraction => (
+        <ActivitiesListItem attraction={attraction} key={attraction.attraction_id} />
+      ))}
+    </ul >
   );
 
 
 };
 
 export default ActivitiesList;
-
-// ActivitiesList.defaultProps = {
-
-// };
-
