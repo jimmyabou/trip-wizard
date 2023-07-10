@@ -69,7 +69,7 @@ const LoginForm = (props) => {
           >
             Login
           </Button>
-          <div style={{ marginTop: "1rem", textAlign: "center" }}>
+          <div style={{ marginTop: "1rem", textAlign: "center",fontSize: "1.1rem" }}>
             Don't have an account? <Link to="/register">Register</Link>
           </div>
         </Box>
