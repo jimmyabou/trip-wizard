@@ -37,7 +37,6 @@ const removeUserFav = async (user_id, attraction_id) => {
     const query = 'DELETE FROM favorite_attractions WHERE user_id = $1 AND attraction_id = $2';
     const values = [user_id, attraction_id];
     await db.query(query, values);
-    return 'User favorite removed';
   } catch (error) {
     console.error(error);
   }

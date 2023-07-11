@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import axios from 'axios';
 import FetchAttractions from '../hooks/attractions/fetchAttractions';
 import FetchFavAttractions from '../hooks/attractions/fetchFavAttractions';
@@ -10,7 +10,7 @@ export const AttractionsContext = createContext();
 const AttractionsProvider = ({ children }) => {
   const { user } = useContext(UserContext);
   const { attractionsData, isLoading: isLoadingAttractions, error: attractionsError } = FetchAttractions();
-  const { favAttractionsData, isLoading: isLoadingFav, error: favError, triggerFetch } = FetchFavAttractions({ user });
+  const { favAttractionsData, isLoading: isLoadingFav, error: favError, triggerFetch, favAttractionIds } = FetchFavAttractions({ user });
   const { featuredAttractionsData, isLoading: isLoadingFeatured, error: featuredError } = FetchFeaturedAttractions();
 
   const handleFavAttraction = async (attraction_id) => {
@@ -19,9 +19,16 @@ const AttractionsProvider = ({ children }) => {
       attraction_id
     };
 
-    if (user) {
+    if (user && !favAttractionIds.includes(attraction_id)) { // Check if user exists and if the attraction is not already favorited
       try {
         await axios.post(`/favorites/${user.id}`, favData);
+        triggerFetch();
+      } catch (error) {
+        console.error(error);
+      }
+    } else if (user && favAttractionIds.includes(attraction_id)) { // Check if user exists and if the attraction is already favorited
+      try {
+        await axios.delete(`/favorites/${user.id}/${attraction_id}`);
         triggerFetch();
       } catch (error) {
         console.error(error);
@@ -43,7 +50,8 @@ const AttractionsProvider = ({ children }) => {
       featuredAttractionsData,
       isLoadingFeatured,
       featuredError,
-      handleFavAttraction
+      handleFavAttraction,
+      favAttractionIds,
     }}>
       {children}
     </AttractionsContext.Provider>
