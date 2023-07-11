@@ -15,4 +15,11 @@ router.get('/featured', (req, res) => {
 });
 
 
+router.get('/cities', (req, res) => {
+  attractions.getAllAttractionsCities().then(data => {
+    res.json({ attractions: data });
+  });
+});
+
+
 module.exports = router;
