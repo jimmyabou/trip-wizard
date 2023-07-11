@@ -28,7 +28,7 @@ const App = () => {
     isLoading,
     error } = FetchFeaturedAttractions();
 
-  const { favAttractionsData, isLoading: isLoadingFav } = userID ? FetchFavAttractions({ userID }) : { favAttractionsData: null, isLoading: false };
+  const { favAttractionsData, isLoading: isLoadingFav } = FetchFavAttractions({ userId: userID });
 
   return (
     <div className="App">
@@ -43,7 +43,6 @@ const App = () => {
           {userID &&
             <Route path={`/favorites/${userID}`} element={isLoadingFav === true ? <p>Loading...</p> : <ActivitiesList attractions={favAttractionsData.attractions} pageTitle={"Your Favorite Experiences"} />} />
           }
-          {!userID && <Route path="/favorites" element={<Navigate to="/login" />} />}
 
 
 
