@@ -469,7 +469,7 @@ VALUES
   (3, 4);
 
 -- Custom Packages
-INSERT INTO custom_packages (user_id, name, total_cost, total_days, created_at)
+INSERT INTO packages (user_id, name, total_cost, total_days, created_at)
 VALUES
   (1, 'Paris Adventure', 1500, 7, '2022-07-10'),
   (2, 'Beach Getaway', 2000, 5, '2022-08-15');
