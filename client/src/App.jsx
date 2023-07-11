@@ -1,5 +1,5 @@
 import Fetch from './hooks/fetchUsers';
-import UserForm from './components/userForm';
+import UserForm from './components/UserForm';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
@@ -18,7 +18,7 @@ const App = () => {
     isLoading,
     error } = FetchFeaturedAttractions();
 
-  const { favAttractionsData, isLoading: isLoadingFav } = FetchFavAttractions({ userId: userID });
+  //const { favAttractionsData, isLoading: isLoadingFav } = FetchFavAttractions({ userId: userID });
 
   return (
     <div className="App">
@@ -31,9 +31,9 @@ const App = () => {
             <Route path="/register" element={<UserForm />} />
             <Route path="/login" element={<LoginForm />} />
             {/* Add more routes here */}
-            {userID &&
+            {/* {userID &&
               <Route path={`/favorites/${userID}`} element={isLoadingFav === true ? <p>Loading...</p> : <ActivitiesList attractions={favAttractionsData.attractions} pageTitle={"Your Favorite Experiences"} />} />
-            }
+            } */}
 
 
 
