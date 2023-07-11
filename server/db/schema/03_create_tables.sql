@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS package_attractions CASCADE;
 DROP TABLE IF EXISTS days CASCADE;
 DROP TABLE IF EXISTS orders CASCADE;
 DROP TABLE IF EXISTS custom_packages CASCADE;
+DROP TABLE IF EXISTS packages CASCADE;
 DROP TABLE IF EXISTS attractions CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
@@ -73,6 +74,6 @@ CREATE TABLE line_items (
 
 CREATE TABLE days (
   day_id SERIAL PRIMARY KEY,
-  package_id integer REFERENCES custom_packages (package_id) NOT NULL,
+  package_id integer REFERENCES packages (package_id) NOT NULL,
   date date NOT NULL
 );
