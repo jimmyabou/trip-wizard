@@ -8,8 +8,8 @@ import useApplicationData from './hooks/useApplicationData';
 import FetchAttractions from './hooks/attractions/fetchAttractions';
 import FetchFeaturedAttractions from './hooks/attractions/fetchFeaturedAttractions';
 import FetchFavAttractions from './hooks/attractions/fetchFavAttractions';
-import UserContext from './hooks/UserContext';
-import { AttractionsContext } from './hooks/AttractionsContext';
+import UserContext from './providers/UserContext';
+import { AttractionsContext } from './providers/AttractionsContext';
 
 
 import './styles/Main.scss';

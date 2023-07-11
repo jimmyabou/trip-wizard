@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
-import { UserProvider } from './hooks/UserContext';
-import AttractionsProvider from './hooks/AttractionsContext';
+import { UserProvider } from './providers/UserContext';
+import AttractionsProvider from './providers/AttractionsContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect } from 'react';
-import FetchAttractions from './attractions/fetchAttractions';
-import FetchFavAttractions from './attractions/fetchFavAttractions';
-import FetchFeaturedAttractions from './attractions/fetchFeaturedAttractions';
+import FetchAttractions from '../hooks/attractions/fetchAttractions';
+import FetchFavAttractions from '../hooks/attractions/fetchFavAttractions';
+import FetchFeaturedAttractions from '../hooks/attractions/fetchFeaturedAttractions';
 import UserContext from './UserContext';
 
 export const AttractionsContext = createContext();

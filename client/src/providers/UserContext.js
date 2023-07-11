@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { loginUser } from './loginUser';
+import { loginUser } from '../hooks/users/loginUser';
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
