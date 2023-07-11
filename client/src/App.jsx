@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
-import UserForm from './components/UserForm';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+
+// COMPONENTS \\
+import UserForm from './components/UserForm';
 import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
+
+// CONTEXTS \\
 import UserContext from './providers/UserContext';
 import { AttractionsContext } from './providers/AttractionsContext';
 
-
+// STYLES \\
 import './styles/Main.scss';
 
 const App = () => {
