@@ -1,41 +1,26 @@
-import React from 'react';
-import UserForm from './UserForm';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useState, useEffect,useContext } from 'react';
-import Cookies from 'js-cookie';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import UserContext from "../hooks/UserContext";
 
 const NavMenu = () => {
-  const { user,logoutHandler } = useContext(UserContext);
-  const [loggedIn, setLoggedIn] = useState(null);
-  const [loggedInID, setLoggedInID] = useState(null);
-  useEffect(() => {
-    const userCookie = Cookies.get('user');
-    if (userCookie) {
-      const { id, email } = JSON.parse(userCookie);
-      setLoggedIn(email);
-      setLoggedInID(id)
-    }
-  }, []);
-  console.log(user.email)
+  const { user, logoutHandler } = useContext(UserContext);
+
   const logout = () => {
-    setLoggedIn(false);
-    Cookies.remove('user');
     logoutHandler();
   };
-  useEffect(() => {
-
-  }, [loggedIn]);
-
 
   return (
     <div className="nav-menu">
       <ul>
         <li>
-          <a href="#">Favorites</a>
+          {user ? (
+            <Link to={`/favorites/${user.id}`}>Favorites</Link>
+          ) : (
+            <a href="#">Favorites</a>
+          )}
         </li>
         <li>
-          {(user.email) || loggedIn ? (
+          {user ? (
             <a href="#" onClick={logout}>Logout</a>
           ) : (
             <Link to="/login">Login</Link>
@@ -47,23 +32,19 @@ const NavMenu = () => {
           </div>
         </li>
       </ul>
-      {loggedIn || (user.email) ? (
+      {user ? (
         <p
           style={{
             fontWeight: 'bold',
-            fontSize: '20px',
+            fontSize: '1rem',
             textAlign: 'right',
           }}
         >
-          Logged in as: {(user.email) || loggedIn}
+          Logged in as: {user.email}
         </p>
       ) : null}
     </div>
-
   );
 };
 
 export default NavMenu;
-
-
-/* <a href="#">Logout</a> */
