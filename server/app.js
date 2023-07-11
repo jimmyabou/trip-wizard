@@ -9,6 +9,8 @@ const createUserRouter = require('./routes/createUser');
 const loginUser = require('./routes/loginUser');
 const attractionsRouter = require('./routes/attractions');
 const favoritesRouter = require('./routes/userFavourites');
+const createPackageRouter = require('./routes/createPackage');
+const getPackagesRouter = require('./routes/getPackages');
 
 const app = express();
 
@@ -25,6 +27,8 @@ app.use('/login', loginUser);
 app.use('/attractions', attractionsRouter);
 app.use('/attractions/featured', attractionsRouter);
 app.use('/favorites', favoritesRouter);
+app.use('/createPackage', createPackageRouter);
+app.use('/getPackages', getPackagesRouter);
 
 
 

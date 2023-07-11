@@ -13,6 +13,7 @@ import { AttractionsContext } from './providers/AttractionsContext';
 
 // STYLES \\
 import './styles/Main.scss';
+import CreatePackage from './components/CreatePackage';
 
 const App = () => {
 
@@ -26,8 +27,9 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={isLoadingFeatured === true ? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} />} />
-          <Route path="/register" element={<UserForm />} />
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<UserForm/>} />
+          <Route path="/login" element={<LoginForm/>} />
+          <Route path="/packages" element={<CreatePackage/>} />
           {/* Add more routes here */}
           {user &&
             <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <p>Loading...</p> : <ActivitiesList attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />} />

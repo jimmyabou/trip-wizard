@@ -41,10 +41,7 @@ CREATE TABLE favorite_attractions (
 CREATE TABLE packages (
   package_id SERIAL PRIMARY KEY,
   user_id integer REFERENCES users (id) NOT NULL,
-  name varchar NOT NULL,
-  total_cost integer NOT NULL,
-  total_days integer NOT NULL,
-  created_at timestamp NOT NULL
+  name varchar NOT NULL
 );
 
 CREATE TABLE package_attractions (

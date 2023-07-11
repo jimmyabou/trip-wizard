@@ -1,10 +1,15 @@
 import React, { createContext, useState } from 'react';
 import { loginUser } from '../hooks/users/loginUser';
+
+import axios from 'axios';
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const getUser = () => JSON.parse(localStorage.getItem('user'));
+  const [newPackageAdded, setNewPackageAdded] = useState(false);
+  const [packageName, setPackageName] = useState('');
   const [user, setUser] = useState(getUser());
+  const [packages, setPackages] = useState([]);
 
   const handleLogin = async (credentials) => {
     try {
@@ -29,8 +34,45 @@ export const UserProvider = ({ children }) => {
     setUser(getUser());
   };
 
+  //create package handlers
+  const createPackage=async(userId,packageName)=>{
+    try {
+
+      console.log(userId,packageName);
+      const response = await axios.post('/createPackage', { packageName,userId })
+        console.log(response.data);
+        setPackageName('');
+        setNewPackageAdded(true);
+      
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  //fetch packages for logged in user
+  const fetchPackages = async (userId) => {
+    try {
+      console.log(userId);
+      const response = await axios.get(`/getPackages/${userId}`);
+      setPackages(response.data.packages);
+      setNewPackageAdded(false);
+      console.log(packages);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  //delete a packge from package list
+  const deletePackage = async (packageId) => {
+    try {
+      await axios.delete(`/deletePackage/${packageId}`);
+      setPackages((prevPackages) =>
+        prevPackages.filter((pkg) => pkg.package_id !== packageId)
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
-    <UserContext.Provider value={{ user, handleLogin, logoutHandler }}>
+    <UserContext.Provider value={{ user, handleLogin, logoutHandler, createPackage,packageName, newPackageAdded,setPackageName,fetchPackages,packages,deletePackage  }}>
       {children}
     </UserContext.Provider>
   );

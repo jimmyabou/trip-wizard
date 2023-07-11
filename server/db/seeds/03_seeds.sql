@@ -5,7 +5,8 @@ VALUES
   ('mike_johnson', '$2a$10$4hG/UkS0jc/luOKveLb3t.rzo00UcPGVEQ1KTbEeMr/BAKty9SDPS', 'mike@example.com', '789 Elm St', '555-555-5555'),
   ('sarah_wilson', '$2a$10$NpHHzDL/qk3B08qbhUPf4eq21IO7rsfg/zxFngtLbw7oc8527nbNa', 'sarah@example.com', '123 Maple St', '111-222-3333'),
   ('alex_davis', '$2a$10$CyDsHi0WmR2PBzMs1iT3JeOTiirmhy25RUW25IhosGWeByq9ijXze', 'alex@example.com', '456 Pine St', '444-555-6666'),
-  ('lisa_smith', '$2a$10$4hG/UkS0jc/luOKveLb3t.rzo00UcPGVEQ1KTbEeMr/BAKty9SDPS', 'lisa@example.com', '789 Oak St', '777-888-9999');
+  ('lisa_smith', '$2a$10$4hG/UkS0jc/luOKveLb3t.rzo00UcPGVEQ1KTbEeMr/BAKty9SDPS', 'lisa@example.com', '789 Oak St', '777-888-9999'),
+  ('test', '$2b$10$HXW.LgKfwjoD2pPJz7AlVuNcfE15K5pqglT/Nl5vw4IjN4X2BhIhO', 'test@example.com', '789 Oak St', '777-888-9999');
 
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('Compagnie des Bateaux Mouches Bastille Day Seine River Dinner Cruise',
@@ -469,10 +470,14 @@ VALUES
   (3, 4);
 
 -- Custom Packages
-INSERT INTO packages (user_id, name, total_cost, total_days, created_at)
+INSERT INTO packages (user_id, name)
 VALUES
-  (1, 'Paris Adventure', 1500, 7, '2022-07-10'),
-  (2, 'Beach Getaway', 2000, 5, '2022-08-15');
+  (1, 'Paris Adventure'),
+  (2, 'Beach Getaway'),
+  (7, 'Germny'),
+  (7, 'Italy'),
+  (7, 'Beirut'),
+  (7, 'Beach Getaway');
 
 -- Days
 INSERT INTO days (package_id, date)
