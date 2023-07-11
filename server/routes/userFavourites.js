@@ -25,4 +25,15 @@ router.post('/:user_id', async (req, res) => {
   }
 });
 
+router.delete('/:user_id/:attraction_id', async (req, res) => {
+  const { user_id, attraction_id } = req.params;
+
+  try {
+    const result = await userFavorites.removeUserFav(user_id, attraction_id);
+    res.status(200).json({ message: result });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to unfavorite attraction' });
+  }
+});
+
 module.exports = router;
