@@ -4,10 +4,6 @@ import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-ro
 import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
-import useApplicationData from './hooks/useApplicationData';
-import FetchAttractions from './hooks/attractions/fetchAttractions';
-import FetchFeaturedAttractions from './hooks/attractions/fetchFeaturedAttractions';
-import FetchFavAttractions from './hooks/attractions/fetchFavAttractions';
 import UserContext from './providers/UserContext';
 import { AttractionsContext } from './providers/AttractionsContext';
 
