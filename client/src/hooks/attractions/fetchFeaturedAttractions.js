@@ -21,14 +21,14 @@ const FetchFeaturedAttractions = () => {
     fetchData();
   }, []);
 
-return {
-  featuredAttractionsData,
-  isLoading,
-  error
-}
+  return {
+    featuredAttractionsData,
+    isLoading,
+    error
+  };
 
 
 
-}
+};
 
 export default FetchFeaturedAttractions;

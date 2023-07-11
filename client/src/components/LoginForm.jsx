@@ -1,7 +1,7 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { TextField, Button, Box } from "@mui/material";
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate    } from "react-router-dom";
-import UserContext from "../hooks/UserContext";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import UserContext from "../providers/UserContext";
 
 const LoginForm = () => {
   const { handleLogin } = useContext(UserContext);
@@ -15,7 +15,7 @@ const LoginForm = () => {
       email,
       password,
     };
-   handleLogin(credentials).then(() => {
+    handleLogin(credentials).then(() => {
       setEmptyForm(!emptyform);
       navigate('/');
     });
@@ -70,7 +70,7 @@ const LoginForm = () => {
           >
             Login
           </Button>
-          <div style={{ marginTop: "1rem", textAlign: "center",fontSize: "1.1rem" }}>
+          <div style={{ marginTop: "1rem", textAlign: "center", fontSize: "1.1rem" }}>
             Don't have an account? <Link to="/register">Register</Link>
           </div>
         </Box>

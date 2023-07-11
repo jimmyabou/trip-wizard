@@ -1,13 +1,11 @@
 INSERT INTO users (username, password, email, address, phone_number)
 VALUES 
-  ('john_doe', 'password123', 'john@example.com', '123 Main St', '555-123-4567'),
-  ('jane_smith', 'password456', 'jane@example.com', '456 Oak St', '987-654-3210'),
-  ('mike_johnson', 'password789', 'mike@example.com', '789 Elm St', '555-555-5555'),
-  ('sarah_wilson', 'password123', 'sarah@example.com', '123 Maple St', '111-222-3333'),
-  ('alex_davis', 'password456', 'alex@example.com', '456 Pine St', '444-555-6666'),
-  ('lisa_smith', 'password789', 'lisa@example.com', '789 Oak St', '777-888-9999');
-
-
+  ('john_doe', '$2a$10$NpHHzDL/qk3B08qbhUPf4eq21IO7rsfg/zxFngtLbw7oc8527nbNa', 'john@example.com', '123 Main St', '555-123-4567'),
+  ('jane_smith', '$2a$10$CyDsHi0WmR2PBzMs1iT3JeOTiirmhy25RUW25IhosGWeByq9ijXze', 'jane@example.com', '456 Oak St', '987-654-3210'),
+  ('mike_johnson', '$2a$10$4hG/UkS0jc/luOKveLb3t.rzo00UcPGVEQ1KTbEeMr/BAKty9SDPS', 'mike@example.com', '789 Elm St', '555-555-5555'),
+  ('sarah_wilson', '$2a$10$NpHHzDL/qk3B08qbhUPf4eq21IO7rsfg/zxFngtLbw7oc8527nbNa', 'sarah@example.com', '123 Maple St', '111-222-3333'),
+  ('alex_davis', '$2a$10$CyDsHi0WmR2PBzMs1iT3JeOTiirmhy25RUW25IhosGWeByq9ijXze', 'alex@example.com', '456 Pine St', '444-555-6666'),
+  ('lisa_smith', '$2a$10$4hG/UkS0jc/luOKveLb3t.rzo00UcPGVEQ1KTbEeMr/BAKty9SDPS', 'lisa@example.com', '789 Oak St', '777-888-9999');
 
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('Compagnie des Bateaux Mouches Bastille Day Seine River Dinner Cruise',

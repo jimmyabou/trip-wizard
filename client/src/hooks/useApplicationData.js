@@ -1,5 +1,5 @@
 import { useState, useEffect, useReducer } from 'react';
-import { loginUser } from './loginUser';
+import { loginUser } from './users/loginUser';
 
 const useApplicationData = () => {
   const [userEmail, setUserEmail] = useState(null);
@@ -17,10 +17,10 @@ const useApplicationData = () => {
       console.error(error);
     }
   };
-  const logoutHandler=()=>{
+  const logoutHandler = () => {
     setUserEmail(null);
     setUserID(null);
-  }
+  };
 
   return {
     handleLogin,
