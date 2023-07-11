@@ -5,15 +5,18 @@ import App from './App';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './hooks/UserContext';
+import AttractionsProvider from './hooks/AttractionsContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <UserProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </UserProvider >
+  <React.StrictMode>
+    <UserProvider>
+      <AttractionsProvider>
+        <App />
+      </AttractionsProvider>
+    </UserProvider>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

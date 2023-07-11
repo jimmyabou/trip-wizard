@@ -9,6 +9,7 @@ import FetchAttractions from './hooks/attractions/fetchAttractions';
 import FetchFeaturedAttractions from './hooks/attractions/fetchFeaturedAttractions';
 import FetchFavAttractions from './hooks/attractions/fetchFavAttractions';
 import UserContext from './hooks/UserContext';
+import { AttractionsContext } from './hooks/AttractionsContext';
 
 
 import './styles/Main.scss';
@@ -16,14 +17,7 @@ import './styles/Main.scss';
 const App = () => {
 
   const { user } = useContext(UserContext);
-
-  console.log(user);
-
-  const { featuredAttractionsData,
-    isLoading,
-    error } = FetchFeaturedAttractions();
-
-  const { favAttractionsData, isLoading: isLoadingFav } = FetchFavAttractions({ user });
+  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav } = useContext(AttractionsContext);
 
 
   return (
@@ -31,7 +25,7 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={isLoading === true ? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} />} />
+          <Route path="/" element={isLoadingFeatured === true ? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} />} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
           {/* Add more routes here */}
