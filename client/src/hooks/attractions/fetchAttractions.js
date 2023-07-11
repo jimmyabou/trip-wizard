@@ -23,14 +23,14 @@ const FetchAttractions = () => {
   }, []);
 
 
-return {
-  attractionsData,
-  isLoading,
-  error
-}
+  return {
+    attractionsData,
+    isLoading,
+    error
+  };
 
 
 
-}
+};
 
 export default FetchAttractions;

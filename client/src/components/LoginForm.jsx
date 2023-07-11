@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { TextField, Button, Box } from "@mui/material";
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate    } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import UserContext from "../providers/UserContext";
 
-
-const LoginForm = (props) => {
+const LoginForm = () => {
+  const { handleLogin } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emptyform, setEmptyForm] = useState(false);
@@ -14,7 +15,7 @@ const LoginForm = (props) => {
       email,
       password,
     };
-    props.handleLogin(credentials).then(() => {
+    handleLogin(credentials).then(() => {
       setEmptyForm(!emptyform);
       navigate('/');
     });
@@ -69,7 +70,7 @@ const LoginForm = (props) => {
           >
             Login
           </Button>
-          <div style={{ marginTop: "1rem", textAlign: "center",fontSize: "1.1rem" }}>
+          <div style={{ marginTop: "1rem", textAlign: "center", fontSize: "1.1rem" }}>
             Don't have an account? <Link to="/register">Register</Link>
           </div>
         </Box>
