@@ -4,18 +4,17 @@ import { AttractionsContext } from '../providers/AttractionsContext';
 const ActivitiesListFavButton = ({ attraction_id }) => {
   const { handleFavAttraction, favAttractionIds } = useContext(AttractionsContext);
 
-  const [fav, setFav] = useState(false);
 
   const toggleFavorite = (attraction_id) => {
     handleFavAttraction(attraction_id);
-    setFav(!fav);
   };
 
+  const isFav = favAttractionIds.includes(attraction_id);
 
 
   return (
     <button className="fav-button" onClick={() => toggleFavorite(attraction_id)}>
-      <i className={`fa ${fav ? 'fa-solid' : 'fa-regular'} fa-heart`}></i>
+      <i className={`fa ${isFav ? 'fa-solid' : 'fa-regular'} fa-heart`}></i>
     </button>
   );
 };
