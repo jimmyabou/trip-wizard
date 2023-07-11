@@ -33,6 +33,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    letter-spacing: normal;
+
+    .activity__details-right {
+      display: flex;
+    }
 
     .activity__details-info {
       display: flex;

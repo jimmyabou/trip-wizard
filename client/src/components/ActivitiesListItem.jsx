@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import EnhancedActivitiesListItem from './EnhancedActivitiesListItem';
 import ActivitiesListFavButton from './ActivitiesListFavButton';
@@ -6,6 +7,7 @@ import ActivitiesListFavButton from './ActivitiesListFavButton';
 const ActivitiesListItem = (props) => {
 
   const { attraction } = props;
+  const location = useLocation();
 
   return (
     <li>
@@ -24,12 +26,19 @@ const ActivitiesListItem = (props) => {
               <i className="fa-solid fa-location-dot"></i>
               <h3>{attraction.city}, {attraction.country}</h3>
             </div>
-            <div className="activity__details-info">
-              <i className="fa-solid fa-thumbs-up"></i>
-              <h3> {attraction.rating} </h3>
+            <div className='activity__details-right'>
+              <div className="activity__details-info">
+                <i className="fa-solid fa-thumbs-up"></i>
+                <h3> {attraction.rating} </h3>
+              </div>
+              <div className="activity__details-info">
+                <i class="fa-solid fa-comment-dollar"></i>
+                <h3> {attraction.price} </h3>
+              </div>
             </div>
+
           </div>
-          <EnhancedActivitiesListItem description={attraction.description} price={attraction.price} />
+          {location.pathname.includes('favorites') && <EnhancedActivitiesListItem description={attraction.description} price={attraction.price} />}
         </footer>
       </div >
     </li>
