@@ -23,7 +23,7 @@ const App = () => {
     isLoading,
     error } = FetchFeaturedAttractions();
 
-  const { favAttractionsData, isLoading: isLoadingFav } = FetchFavAttractions({ userId: user.id });
+  const { favAttractionsData, isLoading: isLoadingFav } = FetchFavAttractions({ user });
 
 
   return (
@@ -35,8 +35,8 @@ const App = () => {
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
           {/* Add more routes here */}
-          {user.id &&
-            <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <p>Loading...</p> : <ActivitiesList attractions={favAttractionsData.attractions} pageTitle={"Your Favorite Experiences"} />} />
+          {user &&
+            <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <p>Loading...</p> : <ActivitiesList attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />} />
           }
 
 
