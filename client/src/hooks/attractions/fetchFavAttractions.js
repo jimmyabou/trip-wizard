@@ -5,6 +5,11 @@ const FetchFavAttractions = ({ user }) => {
   const [favAttractionsData, setFavAttractionsData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [trigger, setTrigger] = useState(false);
+
+  const triggerFetch = () => {
+    setTrigger(!trigger);
+  };
 
   useEffect(() => {
     const fetchFavData = async () => {
@@ -24,12 +29,13 @@ const FetchFavAttractions = ({ user }) => {
     };
 
     fetchFavData();
-  }, [user]);
+  }, [user, trigger]);
 
   return {
     favAttractionsData,
     isLoading,
-    error
+    error,
+    triggerFetch
   };
 };
 
