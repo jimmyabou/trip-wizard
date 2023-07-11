@@ -18,6 +18,7 @@ const App = () => {
     userEmail, //  email of the logged in user 
     userID  //  user ID from the database of the logged in user
   } = useApplicationData();
+
   const user = {
     email: userEmail,
     id: userID
