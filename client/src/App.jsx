@@ -6,6 +6,7 @@ import UserForm from './components/UserForm';
 import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
+import PackageDays from './components/PackageDays';
 
 // CONTEXTS \\
 import UserContext from './providers/UserContext';
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/register" element={<UserForm/>} />
           <Route path="/login" element={<LoginForm/>} />
           <Route path="/packages" element={<CreatePackage/>} />
+          <Route path="/days/:packageId" element={<PackageDays/>} />
           {/* Add more routes here */}
           {user &&
             <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <p>Loading...</p> : <ActivitiesList attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />} />

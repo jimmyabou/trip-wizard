@@ -488,7 +488,7 @@ VALUES
   (2, '2022-08-21');
 
 -- Package Attractions
-INSERT INTO package_attractions (attraction_id, day_id)
+INSERT INTO day_attractions (attraction_id, day_id)
 VALUES
   (1, 1),
   (2, 1),

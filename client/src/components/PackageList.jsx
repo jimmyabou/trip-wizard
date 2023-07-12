@@ -1,16 +1,21 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import UserContext from '../providers/UserContext';
-import { Card, CardContent, Typography, Button, CardMedia } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Card, CardContent, Typography, Button, CardMedia, IconButton } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const PackageList = () => {
-  const { user,fetchPackages,packages,newPackageAdded,onPackageClick } = useContext(UserContext);
+  const navigate = useNavigate();
+  const { user, fetchPackages, packages, newPackageAdded, onPackageClick, deletePackage } = useContext(UserContext);
   const userId = user.id;
 
   useEffect(() => {
     fetchPackages(userId);
   }, [newPackageAdded]);
 
+  const planTripHandler = (packageId) => {
+    navigate(`/days/${packageId}`);
+  };
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {packages.map((pkg) => (
@@ -25,9 +30,13 @@ const PackageList = () => {
               {pkg.name}
             </Typography>
           </CardContent>
-          <Button variant="contained" color="primary" style={{ margin: 8,background: "#51D4BF", borderRadius:20 , maxHeight:30}} onClick={() => onPackageClick(pkg.package_id)}>
-            Plan trip
-          </Button>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px' }}>
+            <Button variant="contained" color="primary" style={{ margin: 8, background: "#51D4BF", borderRadius: 20, maxHeight: 30 }} onClick={() => planTripHandler(pkg.package_id)}>
+              Plan trip
+            </Button>
+
+            <DeleteIcon style={{ color: 'grey', cursor: 'pointer' }} onClick={() => deletePackage(pkg.package_id)} />
+          </div>
         </Card>
       ))}
     </div>

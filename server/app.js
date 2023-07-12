@@ -11,6 +11,9 @@ const attractionsRouter = require('./routes/attractions');
 const favoritesRouter = require('./routes/userFavourites');
 const createPackageRouter = require('./routes/createPackage');
 const getPackagesRouter = require('./routes/getPackages');
+const deletePackageRouter = require('./routes/deletePackage');
+const addDayRouter = require('./routes/addDay');
+const getDaysRouter = require('./routes/getDays');
 
 const app = express();
 
@@ -29,8 +32,9 @@ app.use('/attractions/featured', attractionsRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/createPackage', createPackageRouter);
 app.use('/getPackages', getPackagesRouter);
-
-
+app.use('/deletePackage', deletePackageRouter);
+app.use('/addDay', addDayRouter);
+app.use('/getDays', getDaysRouter);
 
 
 

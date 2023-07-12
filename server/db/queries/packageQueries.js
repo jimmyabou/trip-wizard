@@ -41,8 +41,7 @@ const deletePackage = (packageId) => {
   const values = [packageId];
 
   return db.query(query, values)
-    .then(result => result.rows[0])
-    .catch(error => {
+     .catch(error => {
       console.error(error);
     });
 };

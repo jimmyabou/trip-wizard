@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS favorite_attractions CASCADE;
 DROP TABLE IF EXISTS line_items CASCADE;
-DROP TABLE IF EXISTS package_attractions CASCADE;
+DROP TABLE IF EXISTS day_attractions CASCADE;
 DROP TABLE IF EXISTS days CASCADE;
 DROP TABLE IF EXISTS orders CASCADE;
 DROP TABLE IF EXISTS packages CASCADE;
@@ -44,7 +44,7 @@ CREATE TABLE packages (
   name varchar NOT NULL
 );
 
-CREATE TABLE package_attractions (
+CREATE TABLE day_attractions (
   attraction_id integer REFERENCES attractions (attraction_id) NOT NULL,
   day_id integer NOT NULL,
   PRIMARY KEY (attraction_id, day_id)
