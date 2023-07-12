@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const FetchAttractionCities = () => {
-  const [attractionsCitiesData, setAttractionsCitiesData] = useState(null);
+  const [attractionsCitiesList, setattractionsCitiesList] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -10,8 +10,9 @@ const FetchAttractionCities = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('/attractions/cities');
-        console.log("reponsedata", response.data);
-        setAttractionsCitiesData(response.data);
+        setattractionsCitiesList(response.data.attractions.map(
+          attractionCity => ({ label: attractionCity.city })
+        ));
         setIsLoading(false);
       } catch (error) {
         setError(error);
@@ -24,7 +25,7 @@ const FetchAttractionCities = () => {
 
 
   return {
-    attractionsCitiesData,
+    attractionsCitiesList,
     isLoading,
     error
   };

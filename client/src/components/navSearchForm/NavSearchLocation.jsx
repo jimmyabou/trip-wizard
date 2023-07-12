@@ -1,34 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { AttractionsContext } from '../../providers/AttractionsContext';
+import cities from '../../mocks/cities';
 
 
 
 const NavSearchLocation = () => {
 
-  const { attractionsCitiesData, isLoadingAttractionCities, attractionCitiesError } = useContext(AttractionsContext);
+  const { attractionsCitiesList, isLoadingAttractionCities, setCity, city } = useContext(AttractionsContext);
 
+  const handleCityChange = (event, newValue) => {
+    if (event.key === 'Enter') {
+      setCity(newValue.label);
+    }
+  };
 
-  const attractionsCitiesList = attractionsCitiesData.attractions.map(
-    attractionCity => ({ label: attractionCity.city })
-
-  );
-
-
-  const anywhere = [
-    { "label": "Paris" },
-    { "label": "Ottawa" },
-    { "label": "London" }];
 
   return (
+
     <Autocomplete
+      value={city}
+      onChange={handleCityChange}
       disablePortal
-      id="combo-box-demo"
-      options={isLoadingAttractionCities === true ? anywhere : attractionsCitiesList}
+      id="controllable-states-demo"
+      options={isLoadingAttractionCities === true ? cities : attractionsCitiesList}
       sx={{ width: 300 }}
       renderInput={(params) => <TextField {...params} label="city" />}
     />
+
   );
 
 
