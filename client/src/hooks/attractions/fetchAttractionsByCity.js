@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const FetchAttractionByCity = () => {
 
-  const [city, setCity] = useState("city");
+  const [city, setCity] = useState("Location");
   const [attractionsByCityData, setAttractionsByCity] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

@@ -13,9 +13,8 @@ const NavSearchLocation = () => {
   const handleCityChange = (event, newValue) => {
     try {
       setCity(newValue.label);
-
     } catch (error) {
-      setCity(newValue);
+      setCity("Location");
     }
   };
 
@@ -25,11 +24,11 @@ const NavSearchLocation = () => {
       onChange={handleCityChange}
       className="nav-form-input"
       options={isLoadingAttractionCities === true ? cities[0] : attractionsCitiesList}
-      sx={{ width: 300}}
-      renderInput={(params) => <TextField {...params} sx={{
+      sx={{ width: 500 }}
+      renderInput={(params) => <TextField {...params} size="large" sx={{
         "& fieldset": { border: 'none' },
       }}
-  />}
+      />}
     />
   );
 

@@ -21,8 +21,6 @@ const App = () => {
 
   const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
 
-    console.log("attractionsByCityData", attractionsByCityData);
-
 
   return (
     <div className="App">
