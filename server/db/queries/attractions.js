@@ -37,10 +37,18 @@ const getAllAttractionsCities = () => {
     });
 };
 
+const getAttractionbyId = (attraction_id) => {
+  return db.query("SELECT * FROM attractions WHERE attraction_id = $1;", [attraction_id])
+    .then(attraction => {
+      return attraction.rows[0];
+    });
+};
+
 module.exports = {
   getAllAttractions,
   getFeaturedAttractions,
   getAttractionsByCity,
   getAttractionsByCategory,
-  getAllAttractionsCities
+  getAllAttractionsCities,
+  getAttractionbyId
 };
