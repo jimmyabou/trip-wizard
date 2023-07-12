@@ -4,17 +4,17 @@ import ModalContext from '../../providers/ModalContext';
 
 const LoginAlertModal = () => {
 
-  const { handleCloseModal, isOpen } = useContext(ModalContext);
+  const { handleCloseLoginModal, isOpen } = useContext(ModalContext);
 
   return (
     <div>
-      <Modal isOpen={isOpen} onRequestClose={handleCloseModal} className="modal__login-alert">
+      <Modal isOpen={isOpen} onRequestClose={handleCloseLoginModal} className="modal__login-alert">
         <h2> You must be logged in to access this feature. </h2>
         <div className='login-alert__links'>
           <a href="/login">Login</a>
           <a href="/register">Register</a>
         </div>
-        <button onClick={handleCloseModal} style={{ height: "2rem", width: "5rem", fontSize: "0.7rem", color: "#FFF" }}>DONE</button>
+        <button onClick={handleCloseLoginModal} style={{ height: "2rem", width: "5rem", fontSize: "0.7rem", color: "#FFF" }}>DONE</button>
       </Modal>
     </div >
   );
