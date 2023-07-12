@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import EnhancedActivitiesListItem from './EnhancedActivitiesListItem';
 import ActivitiesListFavButton from './ActivitiesListFavButton';
+import DescModal from './modals/DescModal';
+
+import ModalContext from '../providers/ModalContext';
 
 const ActivitiesListItem = (props) => {
+
+  const { handleOpenDescModal, isOpen } = useContext(ModalContext);
 
   const { attraction } = props;
   const location = useLocation();
@@ -21,9 +26,13 @@ const ActivitiesListItem = (props) => {
     return result;
   };
 
+  const toggleDescModal = () => {
+    handleOpenDescModal();
+  };
+
   return (
     <li>
-      < div className="activity-list__item" key={attraction.attraction_id} >
+      < div className="activity-list__item" key={attraction.attraction_id} onClick={toggleDescModal}>
         <ActivitiesListFavButton attraction_id={attraction.attraction_id} />
         <img className="activity__photo" src={attraction.pictures[0]}
           alt="activity img"
