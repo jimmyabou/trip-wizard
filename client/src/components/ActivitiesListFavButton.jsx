@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AttractionsContext } from '../providers/AttractionsContext';
 
-const ActivitiesListFavButton = () => {
-  const [isFavorited, setIsFavorited] = useState(false);
+const ActivitiesListFavButton = ({ attraction_id }) => {
+  const { handleFavAttraction, favAttractionIds } = useContext(AttractionsContext);
 
-  const toggleFavorite = () => {
-    setIsFavorited(!isFavorited);
+
+  const toggleFavorite = (attraction_id) => {
+    handleFavAttraction(attraction_id);
   };
 
+  const isFav = favAttractionIds.includes(attraction_id);
+
+
   return (
-    <button className="fav-button" onClick={toggleFavorite}>
-      <i className={`fa ${isFavorited ? 'fa-solid' : 'fa-regular'} fa-heart`}></i>
+    <button className="fav-button" onClick={() => toggleFavorite(attraction_id)}>
+      <i className={`fa ${isFav ? 'fa-solid' : 'fa-regular'} fa-heart`}></i>
     </button>
   );
 };
