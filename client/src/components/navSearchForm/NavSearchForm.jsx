@@ -16,7 +16,7 @@ const NavSearchForm = () => {
       <Divider orientation="vertical" flexItem />
       <NavSearchDateModal />
       <Divider orientation="vertical" flexItem />
-      {/* <input type="text" name="duration" placeholder="Days" class="nav-form-middle" /> */}
+      {/* <input type="text" name="duration" placeholder="Days" className="nav-form-middle" /> */}
       <input type="text" name="budget" placeholder="Budget" />
     </form>
 

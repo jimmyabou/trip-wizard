@@ -11,26 +11,27 @@ const NavSearchLocation = () => {
   const { attractionsCitiesList, isLoadingAttractionCities, setCity, city } = useContext(AttractionsContext);
 
   const handleCityChange = (event, newValue) => {
-    if (event.key === 'Enter') {
+    try {
       setCity(newValue.label);
+
+    } catch (error) {
+      setCity(newValue);
     }
   };
 
-
   return (
-
     <Autocomplete
       value={city}
       onChange={handleCityChange}
-      disablePortal
-      id="controllable-states-demo"
-      options={isLoadingAttractionCities === true ? cities : attractionsCitiesList}
-      sx={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label="city" />}
+      className="nav-form-input"
+      options={isLoadingAttractionCities === true ? cities[0] : attractionsCitiesList}
+      sx={{ width: 300}}
+      renderInput={(params) => <TextField {...params} sx={{
+        "& fieldset": { border: 'none' },
+      }}
+  />}
     />
-
   );
-
 
 };
 

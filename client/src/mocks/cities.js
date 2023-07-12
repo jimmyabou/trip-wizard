@@ -1,4 +1,5 @@
 const cities = [
+  {"label": " "},
   { "label": "Paris" },
   { "label": "Ottawa" },
   { "label": "London" },

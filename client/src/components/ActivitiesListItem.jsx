@@ -32,7 +32,7 @@ const ActivitiesListItem = (props) => {
                 <h3> {attraction.rating} </h3>
               </div>
               <div className="activity__details-info">
-                <i class="fa-solid fa-comment-dollar"></i>
+                <i className="fa-solid fa-comment-dollar"></i>
                 <h3> {attraction.price} </h3>
               </div>
             </div>

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const FetchAttractionByCity = () => {
 
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("city");
   const [attractionsByCityData, setAttractionsByCity] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,7 +12,6 @@ const FetchAttractionByCity = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`/attractions/${city}`);
-        console.log("reponsedata", response.data);
         setAttractionsByCity(response.data);
         setIsLoading(false);
       } catch (error) {

@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/featured', (req, res) => {
-  console.log("featured");
   attractions.getFeaturedAttractions().then(data => {
     res.json({ attractions: data });
   });
@@ -28,7 +27,6 @@ router.get('/:city', (req, res) => {
 
   attractions.getAttractionsByCity(city)
   .then(data => {
-      console.log('city');
       res.json({ attractions: data });
     })
     .catch(error => {

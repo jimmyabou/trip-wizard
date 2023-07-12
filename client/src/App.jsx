@@ -21,6 +21,8 @@ const App = () => {
 
   const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
 
+    console.log("attractionsByCityData", attractionsByCityData);
+
 
   return (
     <div className="App">
@@ -31,7 +33,7 @@ const App = () => {
             attractionsLoading === true ? <p>Loading...</p> :
               attractionsByCityData.attractions.length === 0 ?
                 < ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} /> :
-                < ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={"Helping you find your way..."} />
+                < ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await....`} />
           } />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
