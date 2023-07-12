@@ -9,6 +9,18 @@ const ActivitiesListItem = (props) => {
   const { attraction } = props;
   const location = useLocation();
 
+  const abbreviateLocationName = (location) => {
+    let result = location;
+    if (result.includes(" ")) {
+      const firstLetter = location[0];
+      const spaceIndex = location.indexOf(" ");
+      const secondLetter = location[spaceIndex + 1];
+      result = firstLetter + secondLetter;
+    }
+
+    return result;
+  };
+
   return (
     <li>
       < div className="activity-list__item" key={attraction.attraction_id} >
@@ -24,7 +36,7 @@ const ActivitiesListItem = (props) => {
           <div className="activity__details">
             <div className="activity__details-info">
               <i className="fa-solid fa-location-dot"></i>
-              <h3>{attraction.city}, {attraction.country}</h3>
+              <h3>{abbreviateLocationName(attraction.city)}, {abbreviateLocationName(attraction.country)}</h3>
             </div>
             <div className='activity__details-right'>
               <div className="activity__details-info">

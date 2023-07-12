@@ -5,8 +5,21 @@ const EnhancedActivitiesListItem = (props) => {
   const { description, price } = props;
 
   const shortenDescription = (str) => {
-    const index = str.indexOf('.');
-    const result = str.substring(0, index);
+    const firstSentence = str.split('. ')[0];
+    const maxLength = 135;
+    let result = firstSentence;
+
+    if (firstSentence.length > maxLength) {
+      result = firstSentence.substring(0, maxLength);
+    }
+
+    if (result.endsWith(' ')) {
+      result = result.slice(0, -1);
+    }
+
+    if (result.endsWith(',')) {
+      result = result.slice(0, -1);
+    }
 
     return result;
   };
