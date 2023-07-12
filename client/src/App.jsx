@@ -18,7 +18,9 @@ import './styles/Main.scss';
 const App = () => {
 
   const { user } = useContext(UserContext);
-  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav } = useContext(AttractionsContext);
+  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity } = useContext(AttractionsContext);
+
+  const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
 
 
   return (
@@ -27,7 +29,12 @@ const App = () => {
         <Navbar />
         <LoginAlertModal />
         <Routes>
-          <Route path="/" element={isLoadingFeatured === true ? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} />} />
+          <Route path="/" element={
+            attractionsLoading === true ? <p>Loading...</p> :
+              attractionsByCityData.attractions.length === 0 ?
+                < ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} /> :
+                < ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await....`} />
+          } />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
           {/* Add more routes here */}
