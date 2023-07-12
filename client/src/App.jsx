@@ -7,6 +7,7 @@ import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
 import LoginAlertModal from './components/modals/LoginAlertModal';
+import DescModal from './components/modals/DescModal';
 
 // CONTEXTS \\
 import UserContext from './providers/UserContext';
@@ -28,6 +29,7 @@ const App = () => {
       <Router>
         <Navbar />
         <LoginAlertModal />
+        <DescModal />
         <Routes>
           <Route path="/" element={
             attractionsLoading === true ? <p>Loading...</p> :

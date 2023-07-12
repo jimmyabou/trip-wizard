@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
@@ -16,8 +16,11 @@ export const ModalProvider = ({ children }) => {
   };
 
   const handleOpenDescModal = (attraction_id) => {
+    console.log('handleOpenDescModal called with:', attraction_id);
     setIsDescOpen(true);
+    console.log('handleOPenDescModal setting isopn', isDescOpen);
     setSelectedAttractionId(attraction_id);
+    console.log('selected attr id', selectedAttractionId);
   };
 
   const handleCloseDescModal = () => {
