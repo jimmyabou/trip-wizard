@@ -13,9 +13,7 @@ const NavSearchForm = () => {
       <NavSearchLocation /> 
       {/* <Divider orientation="vertical" flexItem /> */}
     </form>
-
   );
-
 };
 
 export default NavSearchForm;

@@ -6,6 +6,7 @@ import UserForm from './components/UserForm';
 import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
+import CategoryFilters from './components/CategoryFilters';
 
 // CONTEXTS \\
 import UserContext from './providers/UserContext';
@@ -26,12 +27,13 @@ const App = () => {
     <div className="App">
       <Router>
         <Navbar />
+        <CategoryFilters />
         <Routes>
           <Route path="/" element={
             attractionsLoading === true ? <p>Loading...</p> :
               attractionsByCityData.attractions.length === 0 ?
                 < ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} /> :
-                < ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await....`} />
+                < ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} awaits....`} />
           } />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />

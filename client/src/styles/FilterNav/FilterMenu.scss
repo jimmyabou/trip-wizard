@@ -16,6 +16,8 @@
 
   .nav-category__menu {
     display: flex;
+    margin-left: 20rem;
+
 
     .nav-category__menu-item {
       width: 4.8125rem;
@@ -27,6 +29,8 @@
       justify-content: space-around;
       align-items: center;
       margin: 1.3rem;
+      background-color: white;
+
 
       i {
         font-size: 3rem;
