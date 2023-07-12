@@ -6,6 +6,7 @@ import UserForm from './components/UserForm';
 import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
+import LoginAlertModal from './components/modals/LoginAlertModal';
 
 // CONTEXTS \\
 import UserContext from './providers/UserContext';
@@ -24,6 +25,7 @@ const App = () => {
     <div className="App">
       <Router>
         <Navbar />
+        <LoginAlertModal />
         <Routes>
           <Route path="/" element={isLoadingFeatured === true ? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} />} />
           <Route path="/register" element={<UserForm />} />

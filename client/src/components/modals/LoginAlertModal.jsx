@@ -8,13 +8,15 @@ const LoginAlertModal = () => {
 
   return (
     <div>
-      <Modal isOpen={isOpen} onRequestClose={handleCloseModal}>
+      <Modal isOpen={true} onRequestClose={handleCloseModal} className="modal__login-alert">
         <h2> You must be logged in to access this feature. </h2>
-        <a href="/login">Login</a>
-        <a href="/register">Create an Account</a>
-        <button onClick={handleCloseModal}>Close</button>
+        <div className='login-alert__links'>
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
+        </div>
+        <button onClick={handleCloseModal} style={{ height: "2rem", width: "5rem", fontSize: "0.7rem", color: "#FFF" }}>DONE</button>
       </Modal>
-    </div>
+    </div >
   );
 };
 

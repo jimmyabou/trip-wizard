@@ -1,18 +1,19 @@
 import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
 import { AttractionsContext } from '../providers/AttractionsContext';
 import UserContext from '../providers/UserContext';
+import ModalContext from '../providers/ModalContext';
 
 const ActivitiesListFavButton = ({ attraction_id }) => {
   const { handleFavAttraction, favAttractionIds } = useContext(AttractionsContext);
   const { user } = useContext(UserContext);
+  const { handleOpenModal } = useContext(ModalContext);
 
 
   const toggleFavorite = (attraction_id, user) => {
     if (user) {
       handleFavAttraction(attraction_id);
     } else {
-      alert("Must be logged in to favorite attractions!");
+      handleOpenModal();
     }
   };
 
