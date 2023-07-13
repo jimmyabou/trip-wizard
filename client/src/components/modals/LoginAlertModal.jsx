@@ -14,7 +14,7 @@ const LoginAlertModal = () => {
           <a href="/login">Login</a>
           <a href="/register">Register</a>
         </div>
-        <button onClick={handleCloseLoginModal} style={{ height: "2rem", width: "5rem", fontSize: "0.7rem", color: "#FFF" }}>DONE</button>
+        <button onClick={handleCloseLoginModal} style={{ height: "2rem", width: "5rem", fontSize: "1rem", color: "#FFF" }}>Done</button>
       </Modal>
     </div >
   );
