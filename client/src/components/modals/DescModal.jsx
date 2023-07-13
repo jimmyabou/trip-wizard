@@ -29,7 +29,7 @@ const DescModal = () => {
 
   return (
     <div>
-      <Modal isOpen={isDescOpen} onRequestClose={handleCloseDescModal} className="modal__desc" style={style.sizing}>
+      <Modal isOpen={isDescOpen} onRequestClose={handleCloseDescModal} className="modal__desc">
         {attractionData ? ( // check if attractionData is not null before rendering the content
           <>
             <button onClick={handleCloseDescModal} className='modal__close-button'>X</button>
@@ -63,9 +63,11 @@ const DescModal = () => {
                     <span>${attractionData.price}</span>
                     <p>per adult</p>
                   </div>
-                  <button id="reserve">
-                    Reserve
-                  </button>
+                  <a href={attractionData.booking_url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                    <button id="reserve">
+                      Reserve
+                    </button>
+                  </a>
                 </div>
               </div>
             </footer>

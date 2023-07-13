@@ -8,7 +8,7 @@ const LoginAlertModal = () => {
 
   return (
     <div>
-      <Modal isOpen={isOpen} onRequestClose={handleCloseLoginModal} className="modal__login-alert">
+      <Modal isOpen={isOpen} onRequestClose={handleCloseLoginModal} className="modal__login-alert" style={{ width: "80%", maxWidth: "500px" }}>
         <h2> You must be logged in to access this feature. </h2>
         <div className='login-alert__links'>
           <a href="/login">Login</a>
