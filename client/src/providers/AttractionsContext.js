@@ -5,6 +5,7 @@ import FetchFavAttractions from '../hooks/attractions/fetchFavAttractions';
 import FetchFeaturedAttractions from '../hooks/attractions/fetchFeaturedAttractions';
 import FetchAttractionCities from '../hooks/attractions/fetchAttractionCities';
 import FetchAttractionByCity from '../hooks/attractions/fetchAttractionsByCity';
+import FetchAttractionUsingFilters from '../hooks/attractions/fetchAttractionsUsingFilters';
 import UserContext from './UserContext';
 
 export const AttractionsContext = createContext();
@@ -16,7 +17,7 @@ const AttractionsProvider = ({ children }) => {
   const { featuredAttractionsData, isLoading: isLoadingFeatured, error: featuredError } = FetchFeaturedAttractions();
   const { attractionsCitiesList, isLoading: isLoadingAttractionCities, error: attractionCitiesError } = FetchAttractionCities();
   const { attractionsByCityData, isLoading: isLoadingattractionsByCity, error: attractionsByCityError, setCity, city } = FetchAttractionByCity();
-
+  const { attractionsFilteredList, isLoading: isLoadingAttractionsFilteredList, error: errorAttractionsFilteredList, filters, setFilters } = FetchAttractionUsingFilters();
 
   const handleFavAttraction = async (attraction_id) => {
     const favData = {
@@ -60,11 +61,13 @@ const AttractionsProvider = ({ children }) => {
       attractionCitiesError,
       attractionsByCityData,
       isLoadingattractionsByCity,
-      attractionsByCityError, 
+      attractionsByCityError,
       setCity,
       city,
       handleFavAttraction,
       favAttractionIds,
+      filters, 
+      setFilters
     }}>
       {children}
     </AttractionsContext.Provider>

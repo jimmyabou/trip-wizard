@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import Slider, { SliderThumb } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+
+import { AttractionsContext } from '../../providers/AttractionsContext';
 
 
 const AirbnbSlider = styled(Slider)(({ theme }) => ({
@@ -53,6 +55,14 @@ AirbnbThumbComponent.propTypes = {
 
 const CustomizedSlider = (props) => {
 
+  console.log("sliderprops: ", props);
+  
+  // const { name, tminValue, tsetMinValue, tmaxValue, tsetMaxValue } = props;
+
+
+  const { setFilters } = useContext(AttractionsContext);
+
+
   let min = 0;
   let max = 10000;
 
@@ -68,6 +78,8 @@ const CustomizedSlider = (props) => {
   const handleSliderChange = (e, newValue) => {
     setMinValue(e[0]);
     setMaxValue(e[1]);
+    setFilters(prevState => [...prevState, { name: e }]);
+
 
   };
 
@@ -77,7 +89,6 @@ const CustomizedSlider = (props) => {
       <AirbnbSlider
         slots={{ thumb: AirbnbThumbComponent }}
         getAriaLabel={(index) => (index === 0 ? 'Minimum price' : 'Maximum price')}
-        onChange={(_, newValue) => handleSliderChange(newValue)}
         onChangeCommitted={(_, newValue) => handleSliderChange(newValue)}
         valueLabelDisplay={'auto'}
         value={[minValue, maxValue]}

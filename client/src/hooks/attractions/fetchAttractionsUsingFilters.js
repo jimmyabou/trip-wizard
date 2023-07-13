@@ -5,6 +5,7 @@ const FetchAttractionUsingFilters = () => {
 
   // filters \\
   const [filters, setFilters] = useState([]);
+  console.log("filters: ", filters);
 
   //let params = { foo: [5, 2] } axios.get('path/to/api/',{params})
 
@@ -33,7 +34,9 @@ const FetchAttractionUsingFilters = () => {
   return {
     attractionsFilteredList,
     isLoading,
-    error
+    error, 
+    filters, 
+    setFilters
   };
 
 
