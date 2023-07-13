@@ -19,7 +19,7 @@ const ActivitiesListFavButton = ({ attraction_id }) => {
 
   return (
     user && (
-      <button className="fav-button" onClick={() => toggleFavorite(attraction_id, user)} style={{ top: "2.6rem", right: "1.6rem" }}>
+      <button className="fav-button" onClick={() => toggleFavorite(attraction_id, user)} style={{ top: "2.8rem", right: "2.6rem" }}>
         <i className={`fa ${isFav ? 'fa-solid' : 'fa-regular'} fa-heart`}></i>
       </button>
     ));

@@ -52,10 +52,12 @@ const DescModal = () => {
         {attractionData ? (
           <>
             <button onClick={handleCloseDescModal} className='modal__close-button'>X</button>
-            <img src={modalPictures[modalPictureIndex]} alt="" style={{ width: "100%", objectFit: "cover", borderRadius: "15px", position: "relative", marginTop: "1rem" }} />
-            <div className='modal__pictures-controller'>
-              <i className="fa-solid fa-circle-chevron-right fa-rotate-180" onClick={handleModalPrevPicture}></i>
-              <i className="fa-solid fa-circle-chevron-right" onClick={handleModalNextPicture}></i>
+            <div className='modal__image-container' style={{ position: "relative" }}>
+              <img src={modalPictures[modalPictureIndex]} alt="" style={{ width: "100%", objectFit: "cover", borderRadius: "15px", marginTop: "1rem" }} />
+              <div className='modal__pictures-controller'>
+                <i className="fa-solid fa-circle-chevron-right fa-rotate-180" onClick={handleModalPrevPicture}></i>
+                <i className="fa-solid fa-circle-chevron-right" onClick={handleModalNextPicture}></i>
+              </div>
             </div>
             <h2 style={{ marginBottom: "0.3rem", fontSize: "1.5rem" }}> {attractionData.name} </h2 >
             <DescModalFav attraction_id={attractionData.attraction_id} />
