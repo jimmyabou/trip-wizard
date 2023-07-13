@@ -9,7 +9,7 @@ import ActivitiesList from './components/ActivitiesList';
 import LoginAlertModal from './components/modals/LoginAlertModal';
 import DescModal from './components/modals/DescModal';
 import LoadingSpinner from './components/Loading';
-
+import PackageDays from './components/PackageDays';
 // CONTEXTS \\
 import UserContext from './providers/UserContext';
 import { AttractionsContext } from './providers/AttractionsContext';
