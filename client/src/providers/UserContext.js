@@ -1,29 +1,32 @@
 import React, { createContext, useState } from 'react';
-import { loginUser } from './loginUser';
+import { loginUser } from '../hooks/users/loginUser';
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [userEmail, setUserEmail] = useState(null);
-  const [userID, setUserID] = useState(null);
+  const getUser = () => JSON.parse(localStorage.getItem('user'));
+  const [user, setUser] = useState(getUser());
 
   const handleLogin = async (credentials) => {
     try {
       const data = await loginUser(credentials);
-      setUserEmail(data.email);
-      setUserID(data.userId);
+
+      const user = {
+        email: data.email,
+        id: data.userId
+      };
+
+      // Persist user data in local storage
+      localStorage.setItem('user', JSON.stringify(user));
+      setUser(getUser());
+
     } catch (error) {
       console.error(error);
     }
   };
 
   const logoutHandler = () => {
-    setUserEmail(null);
-    setUserID(null);
-  };
-
-  const user = {
-    email: userEmail,
-    id: userID
+    localStorage.removeItem('user');
+    setUser(getUser());
   };
 
   return (

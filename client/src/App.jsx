@@ -1,40 +1,54 @@
-import Fetch from './hooks/fetchUsers';
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+
+// COMPONENTS \\
 import UserForm from './components/UserForm';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
-import { UserProvider } from './hooks/UserContext';
-import useApplicationData from './hooks/useApplicationData';
-import FetchAttractions from './hooks/attractions/fetchAttractions';
-import FetchFeaturedAttractions from './hooks/attractions/fetchFeaturedAttractions';
+import LoginAlertModal from './components/modals/LoginAlertModal';
+import DescModal from './components/modals/DescModal';
+import LoadingSpinner from './components/Loading';
 
+// CONTEXTS \\
+import UserContext from './providers/UserContext';
+import { AttractionsContext } from './providers/AttractionsContext';
+
+// STYLES \\
 import './styles/Main.scss';
 
 const App = () => {
 
-  const { featuredAttractionsData,
-    isLoading,
-    error } = FetchFeaturedAttractions();
+  const { user } = useContext(UserContext);
+  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity } = useContext(AttractionsContext);
 
-    console.log("featuredAttractionsData", featuredAttractionsData);
-    console.log("isLoading", isLoading);
-    console.log("error", error);
+  const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
 
-
+  const getUserGreeting = (email) => {
+    const userHandle = email.split('@');
+    return userHandle[0];
+  };
 
 
   return (
     <div className="App">
       <Router>
-      <UserProvider>
         <Navbar />
-        
+        <LoginAlertModal />
+        <DescModal />
         <Routes>
-          <Route path="/" element={isLoading === true? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions}/>} />
+          <Route path="/" element={
+            attractionsLoading === true ? <LoadingSpinner /> :
+              attractionsByCityData && attractionsByCityData.attractions.length === 0 ?
+                <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} /> :
+                attractionsByCityData && <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await....`} />
+          } />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
           {/* Add more routes here */}
+          {user &&
+            <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <LoadingSpinner /> : <ActivitiesList attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />} />
+          }
 
 
 
@@ -46,9 +60,8 @@ const App = () => {
 
 
         </Routes>
-        </UserProvider>
       </Router>
-    </div>
+    </div >
   );
 };
 

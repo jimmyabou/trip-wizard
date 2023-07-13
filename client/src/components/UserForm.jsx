@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { createUser } from '../hooks/createUser';
+import { createUser } from '../hooks/users/createUser';
 import { TextField, Button, Box } from '@mui/material';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate    } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 
 const UserForm = () => {
   const [username, setUsername] = useState('');
@@ -16,7 +16,7 @@ const UserForm = () => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert('Passwords do not match');
-      return ;
+      return;
     }
     // console.log("send to axios")
     const userData = {
@@ -126,7 +126,7 @@ const UserForm = () => {
             type="submit"
             fullWidth
             size="large"
-            style={{ marginTop: '1rem',background: "#51D4BF" }}
+            style={{ marginTop: '1rem', background: "#51D4BF" }}
           >
             Submit
           </Button>

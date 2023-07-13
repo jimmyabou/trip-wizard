@@ -10,7 +10,6 @@ const FetchAttractions = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('/attractions');
-        console.log("reponsedata", response.data);
         setAttractionsData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -23,14 +22,14 @@ const FetchAttractions = () => {
   }, []);
 
 
-return {
-  attractionsData,
-  isLoading,
-  error
-}
+  return {
+    attractionsData,
+    isLoading,
+    error
+  };
 
 
 
-}
+};
 
 export default FetchAttractions;

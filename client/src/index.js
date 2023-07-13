@@ -4,13 +4,25 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
+import { UserProvider } from './providers/UserContext';
+import AttractionsProvider from './providers/AttractionsContext';
+import { ModalProvider } from './providers/ModalContext';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <UserProvider>
+      <ModalProvider>
+        <AttractionsProvider>
+          <App />
+        </AttractionsProvider>
+      </ModalProvider>
+    </UserProvider>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

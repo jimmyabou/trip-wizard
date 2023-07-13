@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const FetchFeaturedAttractions = () => {
-  const [featuredAttractionsData, setfeaturedAttractionsData] = useState(null);
+const FetchAttractionByCity = () => {
+
+  const [city, setCity] = useState("Location");
+  const [attractionsByCityData, setAttractionsByCity] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/attractions/featured');
-        setfeaturedAttractionsData(response.data);
+        const response = await axios.get(`/attractions/${city}`);
+        setAttractionsByCity(response.data);
         setIsLoading(false);
       } catch (error) {
         setError(error);
@@ -19,16 +21,19 @@ const FetchFeaturedAttractions = () => {
     };
 
     fetchData();
-  }, []);
+  }, [city]); 
+
 
   return {
-    featuredAttractionsData,
+    attractionsByCityData,
     isLoading,
-    error
+    error, 
+    setCity,
+    city
   };
 
 
 
 };
 
-export default FetchFeaturedAttractions;
+export default FetchAttractionByCity;

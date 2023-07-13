@@ -1,41 +1,31 @@
-import React from 'react';
-import UserForm from './UserForm';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useState, useEffect,useContext } from 'react';
-import Cookies from 'js-cookie';
-import UserContext from "../hooks/UserContext";
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import UserContext from "../providers/UserContext";
+import { AttractionsContext } from '../providers/AttractionsContext';
+import { red } from '@mui/material/colors';
 
 const NavMenu = () => {
-  const { user,logoutHandler } = useContext(UserContext);
-  const [loggedIn, setLoggedIn] = useState(null);
-  const [loggedInID, setLoggedInID] = useState(null);
-  useEffect(() => {
-    const userCookie = Cookies.get('user');
-    if (userCookie) {
-      const { id, email } = JSON.parse(userCookie);
-      setLoggedIn(email);
-      setLoggedInID(id)
-    }
-  }, []);
-  console.log(user.email)
+  const { user, logoutHandler } = useContext(UserContext);
+  const { favAttractionIds } = useContext(AttractionsContext);
+
+  const isFav = favAttractionIds.length > 0;
+
   const logout = () => {
-    setLoggedIn(false);
-    Cookies.remove('user');
     logoutHandler();
   };
-  useEffect(() => {
-
-  }, [loggedIn]);
-
 
   return (
     <div className="nav-menu">
       <ul>
         <li>
-          <a href="#">Favorites</a>
+          {user ? (
+            <Link to={`/favorites/${user.id}`}>Favorites</Link>
+          ) : (
+            <a href="#">Favorites</a>
+          )}
         </li>
         <li>
-          {(user.email) || loggedIn ? (
+          {user ? (
             <a href="#" onClick={logout}>Logout</a>
           ) : (
             <Link to="/login">Login</Link>
@@ -43,27 +33,12 @@ const NavMenu = () => {
         </li>
         <li>
           <div className="fav-badge">
-            <i className="fa-solid fa-heart"></i>
+            <i className={`fa-solid fa-heart`} style={isFav ? { color: '#F5543E' } : { color: '#FFF' }}></i>
           </div>
         </li>
       </ul>
-      {loggedIn || (user.email) ? (
-        <p
-          style={{
-            fontWeight: 'bold',
-            fontSize: '20px',
-            textAlign: 'right',
-          }}
-        >
-          Logged in as: {(user.email) || loggedIn}
-        </p>
-      ) : null}
     </div>
-
   );
 };
 
 export default NavMenu;
-
-
-/* <a href="#">Logout</a> */
