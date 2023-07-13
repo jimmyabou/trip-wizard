@@ -41,7 +41,7 @@ const App = () => {
             attractionsLoading === true ? <LoadingSpinner /> :
               attractionsByCityData && attractionsByCityData.attractions.length === 0 ?
                 <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} /> :
-                attractionsByCityData && <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await....`} />
+                attractionsByCityData && <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await...`} />
           } />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
