@@ -8,8 +8,9 @@ const ModalContext = createContext();
 export const ModalProvider = ({ children }) => {
 
   const { isOpenLoginAlert, handleOpenModalLoginAlert, handleCloseModalLoginAlert } = useModalLoginAlert();
-  const { isOpenCategoryFilter, handleOpenModalCategoryFilter, handleCloseModalCategoryFilter } = UseModalCategoryFilter();
-  
+  const { isOpenCategoryFilter, handleOpenModalCategoryFilter, handleCloseModalCategoryFilter,
+    filterName, setFilterName } = UseModalCategoryFilter();
+
   return (
     <ModalContext.Provider value={{
       isOpenLoginAlert,
@@ -17,7 +18,9 @@ export const ModalProvider = ({ children }) => {
       handleCloseModalLoginAlert,
       isOpenCategoryFilter,
       handleOpenModalCategoryFilter,
-      handleCloseModalCategoryFilter
+      handleCloseModalCategoryFilter,
+      filterName,
+      setFilterName
     }}>
       {children}
     </ModalContext.Provider>

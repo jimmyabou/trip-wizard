@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 const UseModalCategoryFilter = () => {
 
   const [isOpenCategoryFilter, setIsOpenCategoryFilter] = useState(false);
+  const [filterName, setFilterName] = useState(false);
+
 
   const handleOpenModalCategoryFilter = () => {
     setIsOpenCategoryFilter(true);
@@ -15,7 +17,9 @@ const UseModalCategoryFilter = () => {
   return {
     isOpenCategoryFilter,
     handleOpenModalCategoryFilter,
-    handleCloseModalCategoryFilter
+    handleCloseModalCategoryFilter, 
+    filterName, 
+    setFilterName
   };
 };
 

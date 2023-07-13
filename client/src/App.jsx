@@ -8,7 +8,6 @@ import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
 import CategoryFilters from './components/CategoryFilters';
 import LoginAlertModal from './components/modals/LoginAlertModal';
-import CategoryFilterModal from './components/modals/CategoryFilterModal';
 
 // CONTEXTS \\
 import UserContext from './providers/UserContext';
