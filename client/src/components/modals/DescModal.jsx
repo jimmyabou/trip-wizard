@@ -9,6 +9,7 @@ const DescModal = () => {
   const { handleCloseDescModal, isDescOpen, selectedAttractionId } = useContext(ModalContext);
   const [attractionData, setAttractionData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [modalPictureIndex, setModalPictureIndex] = useState(0);
 
   useEffect(() => {
     const fetchAttraction = async () => {
@@ -26,14 +27,36 @@ const DescModal = () => {
     fetchAttraction();
   }, [selectedAttractionId]);
 
+  let modalPictures = [];
+
+  if (attractionData) {
+    modalPictures = attractionData.pictures;
+  }
+
+  const handleModalNextPicture = () => {
+    if (modalPictures.length > 1 && modalPictureIndex < modalPictures.length - 1) {
+      setModalPictureIndex(modalPictureIndex + 1);
+    }
+  };
+
+  const handleModalPrevPicture = () => {
+    if (modalPictureIndex > 0) {
+      setModalPictureIndex(modalPictureIndex - 1);
+    }
+  };
+
 
   return (
     <div>
       <Modal isOpen={isDescOpen} onRequestClose={handleCloseDescModal} className="modal__desc">
-        {attractionData ? ( // check if attractionData is not null before rendering the content
+        {attractionData ? (
           <>
             <button onClick={handleCloseDescModal} className='modal__close-button'>X</button>
-            <img src={attractionData.pictures[0]} alt="" style={{ width: "100%", objectFit: "cover", borderRadius: "15px", position: "relative", marginTop: "1rem" }} />
+            <img src={modalPictures[modalPictureIndex]} alt="" style={{ width: "100%", objectFit: "cover", borderRadius: "15px", position: "relative", marginTop: "1rem" }} />
+            <div className='modal__pictures-controller'>
+              <i className="fa-solid fa-circle-chevron-right fa-rotate-180" onClick={handleModalPrevPicture}></i>
+              <i className="fa-solid fa-circle-chevron-right" onClick={handleModalNextPicture}></i>
+            </div>
             <h2 style={{ marginBottom: "0.3rem", fontSize: "1.5rem" }}> {attractionData.name} </h2 >
             <DescModalFav attraction_id={attractionData.attraction_id} />
             <div className="modal__activity-details">
