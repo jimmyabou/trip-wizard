@@ -10,7 +10,6 @@ const NavSearchLocation = () => {
 
   const { attractionsCitiesList, isLoadingAttractionCities, setCity, city } = useContext(AttractionsContext);
 
-  console.log("city in navsearchloc", city);
   const handleCityChange = (event, newValue) => {
     try {
       setCity(newValue.label);

@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { AttractionsContext } from '../../providers/AttractionsContext';
 
 const FetchAttractionUsingFilters = () => {
 
-  // filters \\
-  const [filters, setFilters] = useState([]);
-  const [submit, setSubmit] = useState('false');
-  console.log("filters: ", filters);
 
+  const [filters, setFilters] = useState([]); //filters to use
+  const [submit, setSubmit] = useState('false'); // run axios request
+
+  console.log("filters: ", filters);
+  console.log("submit: ", submit);
 
   //let params = { foo: [5, 2] } axios.get('path/to/api/',{params})
 
@@ -16,22 +16,23 @@ const FetchAttractionUsingFilters = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('/attractions/${}');
-        setAttractionsFilteredList(response.data.attractions.map(
-          attractionCity => ({ label: attractionCity.city })
-        ));
-        setIsLoading(false);
-      } catch (error) {
-        setError(error);
-        setIsLoading(false);
-      }
-    };
 
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('/attractions/cities');
+      setAttractionsFilteredList(response.data.attractions.map(
+        attractionCity => ({ label: attractionCity.city })
+      ));
+      console.log("response", response.data);
+      setIsLoading(false);
+      setSubmit('false');
+    } catch (error) {
+      setError(error);
+      setIsLoading(false);
+      setSubmit('false');
+    }
+  };
+
 
 
   return {
@@ -41,7 +42,8 @@ const FetchAttractionUsingFilters = () => {
     filters,
     setFilters,
     submit,
-    setSubmit
+    setSubmit,
+    fetchData
   };
 
 
