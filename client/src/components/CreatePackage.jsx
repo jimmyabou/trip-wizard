@@ -19,12 +19,12 @@ const CreatePackage = () => {
         onSubmit={handleSubmit}
       >
         <TextField style={{ marginRight: 12 }}
-          label="Package Name"
+          label="Trip Name"
           value={packageName}
           onChange={(event) => setPackageName(event.target.value)}
         />
         <Button type="submit" variant="contained" color="primary" style={{ padding: '6px 16px', minWidth: 150, maxHeight:50,background: "#51D4BF" }}>
-          Add Package
+          Add Trip
         </Button>
       </form>
       <PackageList />

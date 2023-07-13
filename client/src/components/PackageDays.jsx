@@ -23,6 +23,8 @@ const PackageDays = () => {
   const [attractions, setAttractions] = useState([]);
   const [selectedAttractions, setSelectedAttractions] = useState([]);
   const [fetchAttractions, setFetchAttractions] = useState(false);
+  const [activeDayId, setActiveDayId] = useState(null);
+
 
   useEffect(() => {
     const fetchDays = async () => {
@@ -83,9 +85,11 @@ const PackageDays = () => {
     }
   };
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (dayid) => {
     setFetchAttractions(true);
     setIsOpen(true);
+    console.log(dayid)
+    setActiveDayId(dayid);
   };
 
   const handleCloseModal = () => {
@@ -103,7 +107,7 @@ const PackageDays = () => {
   };
 
   const handleSaveAttractions = () => {
-    console.log(selectedAttractions);
+    console.log(selectedAttractions,activeDayId);
     handleCloseModal();
   };
 
@@ -113,12 +117,13 @@ const PackageDays = () => {
       .map((day, index) => (
         <Card key={day.day_id} style={{ width: 300, margin: 12 }}>
           <div style={{ padding: '16px' }}>
-            <Typography variant="h5">Day {index + 1}: {day.day_title}</Typography>
+            <Typography variant="h6" style={{ fontStyle: 'italic', textDecoration: 'underline' }}>Day {index + 1} </Typography>
+            <Typography variant="h6" >{day.day_title}</Typography>
             <Typography>{day.day_description}</Typography>
             <Typography>Date: {day.date.substring(0, 10)}</Typography>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px' }}>
-            <Button variant="contained" color="primary" style={{ margin: 8, background: "#51D4BF", borderRadius: 20, maxHeight: 30 }} onClick={handleOpenModal}>
+            <Button variant="contained" color="primary" style={{ margin: 8, background: "#51D4BF", borderRadius: 20, maxHeight: 30 }} onClick={()=>handleOpenModal(day.day_id)}>
               Add 
             </Button>
             <IconButton onClick={() => handleDeleteDay(day.day_id)} style={{ color: 'grey' }}>
@@ -190,7 +195,10 @@ const PackageDays = () => {
                     <Typography variant="h6">{attraction.country}</Typography>
                     <Typography variant="subtitle1">{attraction.city}</Typography>
                   </div>
-                  <Typography>${attraction.price}</Typography>
+                  <div>
+                  <Typography variant="h6">Price: ${attraction.price}</Typography>
+                  <Typography>Duration: {attraction.duration/60}hours</Typography>
+                  </div>
                 </div>
                 <Typography>{attraction.description}</Typography>
                 <IconButton aria-label="Add attraction" onClick={() => handleAddAttraction(attraction.attraction_id)}>

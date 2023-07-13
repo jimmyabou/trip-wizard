@@ -467,7 +467,9 @@ VALUES
   (1, 5),
   (2, 1),
   (2, 3),
-  (3, 4);
+  (3, 4),
+  (7,1),
+  (7,2);
 
 -- Packages
 INSERT INTO packages (user_id, name)
