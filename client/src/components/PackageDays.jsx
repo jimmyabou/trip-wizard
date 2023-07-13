@@ -3,8 +3,13 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useParams } from 'react-router-dom';
-import { TextField, Button, Card, Typography,Box } from '@mui/material';
+import { TextField, Button, Typography, Modal, IconButton } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import DeleteIcon from '@mui/icons-material/Delete';
+import CloseIcon from '@mui/icons-material/Close';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import ActivitiesListItem from './ActivitiesListItem';
 
 const PackageDays = () => {
   const { packageId } = useParams();
@@ -14,6 +19,10 @@ const PackageDays = () => {
   const [newDayDate, setNewDayDate] = useState(new Date());
   const [dayAdded, setDayAdded] = useState(false);
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [attractions, setAttractions] = useState([]);
+  const [selectedAttractions, setSelectedAttractions] = useState([]);
+  const [fetchAttractions, setFetchAttractions] = useState(false);
 
   useEffect(() => {
     const fetchDays = async () => {
@@ -28,6 +37,20 @@ const PackageDays = () => {
     setDayAdded(false);
   }, [dayAdded]);
 
+  useEffect(() => {
+    const fetchAttractions = async () => {
+      try {
+        const response = await axios.get('/attractions');
+        setAttractions(response.data.attractions);
+        setFetchAttractions(false);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchAttractions();
+  }, [fetchAttractions]);
+
   const handleAddDay = async (event) => {
     event.preventDefault();
     try {
@@ -35,6 +58,7 @@ const PackageDays = () => {
         title: newDayTitle,
         description: newDayDescription,
         date: newDayDate,
+        attractions: selectedAttractions,
       };
       await axios.post(`/addDay/${packageId}`, newDay);
       setDayAdded(true);
@@ -50,28 +74,63 @@ const PackageDays = () => {
     setIsDatePickerOpen(!isDatePickerOpen);
   };
 
+  const handleDeleteDay = async (dayId) => {
+    try {
+      await axios.delete(`/deleteDay/${dayId}`);
+      setDayAdded(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleOpenModal = () => {
+    setFetchAttractions(true);
+    setIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleAddAttraction = (attractionId) => {
+    setSelectedAttractions((prevSelectedAttractions) => [...prevSelectedAttractions, attractionId]);
+  };
+
+  const handleRemoveAttraction = (attractionId) => {
+    setSelectedAttractions((prevSelectedAttractions) =>
+      prevSelectedAttractions.filter((id) => id !== attractionId)
+    );
+  };
+
+  const handleSaveAttractions = () => {
+    console.log(selectedAttractions);
+    handleCloseModal();
+  };
+
   const renderDays = () => {
     return days
       .sort((a, b) => a.date.localeCompare(b.date))
       .map((day, index) => (
-        <Card key={day.day_id} style={{ marginBottom: '10px', padding: '10px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant="h5">Day {index + 1}: {day.day_id}</Typography>
-            <Typography>{day.day_id}</Typography>
-            <Typography>Date: {day.date.substring(0, 10)}</Typography>
-          </div>
-        </Card>
+        <div key={day.day_id} style={{ marginBottom: '10px' }}>
+          <Typography variant="h5">Day {index + 1}: {day.day_title}</Typography>
+          <Typography>{day.day_description}</Typography>
+          <Typography>Date: {day.date.substring(0, 10)}</Typography>
+          <IconButton onClick={() => handleDeleteDay(day.day_id)}>
+            <DeleteIcon />
+          </IconButton>
+          <Button onClick={handleOpenModal} variant="contained" color="primary">Add Attraction</Button>
+        </div>
       ));
   };
 
   return (
     <>
-      <form onSubmit={handleAddDay} style={{ marginTop: '30px'}}>
-        <div style={{ display: 'flex', alignItems: 'center', }}>
+      <form onSubmit={handleAddDay} style={{ marginTop: '30px' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <TextField
             label="Title"
             variant="outlined"
-            style={{ marginRight: '10px', marginLeft:'20px' }}
+            style={{ marginRight: '10px', marginLeft: '20px' }}
             value={newDayTitle}
             onChange={(event) => setNewDayTitle(event.target.value)}
           />
@@ -105,12 +164,44 @@ const PackageDays = () => {
               </div>
             )}
           </div>
-          <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '10px',background: "#51D4BF", borderRadius: 20,height:50 }}>
-            Add
-          </Button>
+          <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '20px' }}>Add</Button>
         </div>
       </form>
       <div style={{ margin: '20px' }}>{renderDays()}</div>
+      <Modal open={isOpen} onClose={handleCloseModal}>
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '16px', borderRadius: '8px', maxHeight: '90vh', overflowY: 'auto' }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <IconButton aria-label="close" onClick={handleCloseModal}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <Typography variant="h5">Attractions</Typography>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+            {attractions.map((attraction) => (
+              <div key={attraction.id} style={{ marginBottom: '20px' }}>
+                <img src={attraction.pictures[0]} alt="Attraction" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '8px' }} />
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', paddingRight: '16px' }}>
+                  <div>
+                    <Typography variant="h6">{attraction.country}</Typography>
+                    <Typography variant="subtitle1">{attraction.city}</Typography>
+                  </div>
+                  <Typography>${attraction.price}</Typography>
+                </div>
+                <Typography>{attraction.description}</Typography>
+                <IconButton aria-label="Add attraction" onClick={() => handleAddAttraction(attraction.attraction_id)}>
+                  <AddIcon />
+                </IconButton>
+                {selectedAttractions.includes(attraction.attraction_id) && (
+                  <IconButton aria-label="Remove attraction" onClick={() => handleRemoveAttraction(attraction.attraction_id)}>
+                    <RemoveIcon />
+                  </IconButton>
+                )}
+              </div>
+            ))}
+          </div>
+          <Button variant="contained" color="primary" onClick={handleSaveAttractions}>Save</Button>
+        </div>
+      </Modal>
     </>
   );
 };

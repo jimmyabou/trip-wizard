@@ -469,23 +469,37 @@ VALUES
   (2, 3),
   (3, 4);
 
--- Custom Packages
+-- Packages
 INSERT INTO packages (user_id, name)
 VALUES
   (1, 'Paris Adventure'),
   (2, 'Beach Getaway'),
-  (7, 'Germny'),
-  (7, 'Italy'),
-  (7, 'Beirut'),
-  (7, 'Beach Getaway');
+  (3, 'Germany Trip'),
+  (4, 'Italy Tour'),
+  (5, 'Beirut Excursion'),
+  (6, 'Beach Escape'),
+  (7, 'Mountain Retreat'),
+  (7, 'City Explorer');
 
 -- Days
-INSERT INTO days (package_id, date)
+INSERT INTO days (package_id, date, day_title, day_description)
 VALUES
-  (1, '2022-07-25'),
-  (1, '2022-07-26'),
-  (2, '2022-08-20'),
-  (2, '2022-08-21');
+  (1, '2022-07-25', 'Exploring the City', 'Visit popular landmarks and attractions in the city.'),
+  (1, '2022-07-26', 'Outdoor Adventure', 'Embark on an exciting outdoor adventure and enjoy nature activities.'),
+  (2, '2022-08-20', 'Beach Relaxation', 'Relax and unwind on the beautiful sandy beaches.'),
+  (2, '2022-08-21', 'Cultural Exploration', 'Immerse yourself in the local culture and traditions.'),
+  (3, '2022-09-10', 'Historical Sites', 'Discover the rich history and architecture of Germany.'),
+  (3, '2022-09-11', 'Culinary Delights', 'Indulge in delicious German cuisine and traditional dishes.'),
+  (4, '2022-09-05', 'Art and Culture', 'Explore the artistic heritage and cultural treasures of Italy.'),
+  (4, '2022-09-06', 'Scenic Landscapes', 'Marvel at the breathtaking landscapes and natural beauty of Italy.'),
+  (5, '2022-09-15', 'City Highlights', 'Experience the vibrant city life and attractions of Beirut.'),
+  (5, '2022-09-16', 'Local Cuisine', 'Taste the flavors of Lebanese cuisine and savor traditional dishes.'),
+  (6, '2022-08-25', 'Beach Retreat', 'Enjoy a relaxing beach getaway and soak up the sun and sea.'),
+  (6, '2022-08-26', 'Water Sports', 'Try thrilling water sports activities and enjoy beachside fun.'),
+  (7, '2022-10-05', 'Mountain Hiking', 'Embark on a challenging hike and explore the stunning mountain trails.'),
+  (7, '2022-10-06', 'Nature Photography', 'Capture breathtaking photos of the picturesque mountain landscapes.'),
+  (8, '2022-10-15', 'City Landmarks', 'Discover iconic landmarks and attractions in the bustling city.'),
+  (8, '2022-10-16', 'Street Food Tour', 'Savor the local street food and culinary delights of the city.');
 
 -- Package Attractions
 INSERT INTO day_attractions (attraction_id, day_id)

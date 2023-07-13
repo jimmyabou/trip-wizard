@@ -1,8 +1,8 @@
 const db = require('../../configs/db.config');
 
-const addDay = (packageId, date) => {
-  const query = 'INSERT INTO days (package_id, date) VALUES ($1, $2)';
-  const values = [packageId, date];
+const addDay = (packageId, date,title,description) => {
+  const query = 'INSERT INTO days (package_id, date, day_title,day_description) VALUES ($1, $2, $3, $4)';
+  const values = [packageId, date,title,description];
 
   return db.query(query, values)
     .then(result => result.rows[0])
@@ -23,7 +23,7 @@ const getDaysByPackageId = (packageId) => {
 };
 
 const deleteDay = (dayId) => {
-  const query = 'DELETE FROM days WHERE id = $1';
+  const query = 'DELETE FROM days WHERE day_id = $1';
   const values = [dayId];
 
   return db.query(query, values)

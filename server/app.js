@@ -14,6 +14,8 @@ const getPackagesRouter = require('./routes/getPackages');
 const deletePackageRouter = require('./routes/deletePackage');
 const addDayRouter = require('./routes/addDay');
 const getDaysRouter = require('./routes/getDays');
+const deleteDayRouter = require('./routes/deleteDay');
+
 
 const app = express();
 
@@ -35,6 +37,7 @@ app.use('/getPackages', getPackagesRouter);
 app.use('/deletePackage', deletePackageRouter);
 app.use('/addDay', addDayRouter);
 app.use('/getDays', getDaysRouter);
+app.use('/deleteDay', deleteDayRouter);
 
 
 
