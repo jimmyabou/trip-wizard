@@ -23,6 +23,11 @@ const App = () => {
 
   const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
 
+  const getUserGreeting = (email) => {
+    const userHandle = email.split('@');
+    return userHandle[0];
+  };
+
 
   return (
     <div className="App">
@@ -34,7 +39,7 @@ const App = () => {
           <Route path="/" element={
             attractionsLoading === true ? <p>Loading...</p> :
               attractionsByCityData.attractions.length === 0 ?
-                < ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} /> :
+                < ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} /> :
                 < ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await....`} />
           } />
           <Route path="/register" element={<UserForm />} />

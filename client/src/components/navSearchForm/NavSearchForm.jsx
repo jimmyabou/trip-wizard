@@ -10,7 +10,7 @@ const NavSearchForm = () => {
   return (
 
     <form action="" name="nav-form" className="nav-form">
-      <NavSearchLocation /> 
+      <NavSearchLocation />
       {/* <Divider orientation="vertical" flexItem /> */}
     </form>
 

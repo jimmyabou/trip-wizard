@@ -37,17 +37,6 @@ const NavMenu = () => {
           </div>
         </li>
       </ul>
-      {user ? (
-        <p
-          style={{
-            fontWeight: 'bold',
-            fontSize: '1rem',
-            textAlign: 'right',
-          }}
-        >
-          Logged in as: {user.email}
-        </p>
-      ) : null}
     </div>
   );
 };
