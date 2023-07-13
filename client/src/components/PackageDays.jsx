@@ -3,7 +3,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useParams } from 'react-router-dom';
-import { TextField, Button, Typography, Modal, IconButton } from '@mui/material';
+import { TextField, Button, Typography, Modal, IconButton, Card } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
@@ -111,18 +111,23 @@ const PackageDays = () => {
     return days
       .sort((a, b) => a.date.localeCompare(b.date))
       .map((day, index) => (
-        <div key={day.day_id} style={{ marginBottom: '10px' }}>
-          <Typography variant="h5">Day {index + 1}: {day.day_title}</Typography>
-          <Typography>{day.day_description}</Typography>
-          <Typography>Date: {day.date.substring(0, 10)}</Typography>
-          <IconButton onClick={() => handleDeleteDay(day.day_id)}>
-            <DeleteIcon />
-          </IconButton>
-          <Button onClick={handleOpenModal} variant="contained" color="primary">Add Attraction</Button>
-        </div>
+        <Card key={day.day_id} style={{ width: 300, margin: 12 }}>
+          <div style={{ padding: '16px' }}>
+            <Typography variant="h5">Day {index + 1}: {day.day_title}</Typography>
+            <Typography>{day.day_description}</Typography>
+            <Typography>Date: {day.date.substring(0, 10)}</Typography>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px' }}>
+            <Button variant="contained" color="primary" style={{ margin: 8, background: "#51D4BF", borderRadius: 20, maxHeight: 30 }} onClick={handleOpenModal}>
+              Add 
+            </Button>
+            <IconButton onClick={() => handleDeleteDay(day.day_id)} style={{ color: 'grey' }}>
+              <DeleteIcon />
+            </IconButton>
+          </div>
+        </Card>
       ));
   };
-
   return (
     <>
       <form onSubmit={handleAddDay} style={{ marginTop: '30px' }}>
@@ -164,7 +169,7 @@ const PackageDays = () => {
               </div>
             )}
           </div>
-          <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '20px' }}>Add</Button>
+          <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '20px',background: "#51D4BF", borderRadius: 20 }}>Add</Button>
         </div>
       </form>
       <div style={{ margin: '20px' }}>{renderDays()}</div>
