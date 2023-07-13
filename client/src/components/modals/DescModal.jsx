@@ -68,8 +68,8 @@ const DescModal = () => {
               )}
               {modalPictures.length > 1 &&
                 <div className='modal__pictures-controller'>
-                  {modalPictureIndex > 0 && <i className="fa-solid fa-circle-chevron-right fa-rotate-180" onClick={handleModalPrevPicture}></i>}
-                  {(modalPictureIndex < modalPictures.length - 1) && <i className="fa-solid fa-circle-chevron-right" onClick={handleModalNextPicture}></i>}
+                  <i className={`fa-solid fa-circle-chevron-right fa-rotate-180 ${modalPictureIndex > 0 ? 'active-icon' : 'inactive-icon'}`} onClick={handleModalPrevPicture}></i>
+                  <i className={`fa-solid fa-circle-chevron-right ${modalPictureIndex < modalPictures.length - 1 ? 'active-icon' : 'inactive-icon'}`} onClick={handleModalNextPicture}></i>
                 </div>}
             </div>
             <h2 style={{ marginBottom: "0.3rem", fontSize: "1.5rem" }}> {attractionData.name} </h2 >
