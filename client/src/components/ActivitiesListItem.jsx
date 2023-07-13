@@ -31,7 +31,7 @@ const ActivitiesListItem = (props) => {
 
   return (
     <li>
-      < div className="activity-list__item" key={attraction.attraction_id} onClick={() => { toggleDescModal(attraction.attraction_id); }}>
+      < div className="activity-list__item" key={attraction.attraction_id}>
         <ActivitiesListFavButton attraction_id={attraction.attraction_id} />
         <img className="activity__photo" src={attraction.pictures[0]}
           alt="activity img"
@@ -39,6 +39,7 @@ const ActivitiesListItem = (props) => {
             currentTarget.onerror = null; // prevents looping
             currentTarget.src = "https://github.com/tamaratell/TripWizard-Styles/blob/master/assets/activity-image-example.jpeg?raw=true";
           }}
+          onClick={() => { toggleDescModal(attraction.attraction_id); }}
         />
         <footer>
           <div className="activity__details">
