@@ -6,15 +6,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './providers/UserContext';
 import AttractionsProvider from './providers/AttractionsContext';
+import { ModalProvider } from './providers/ModalContext';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <AttractionsProvider>
-        <App />
-      </AttractionsProvider>
+      <ModalProvider>
+        <AttractionsProvider>
+          <App />
+        </AttractionsProvider>
+      </ModalProvider>
     </UserProvider>
   </React.StrictMode>,
 );

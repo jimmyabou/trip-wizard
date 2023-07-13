@@ -7,6 +7,8 @@ import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
 import CategoryFilters from './components/CategoryFilters';
+import LoginAlertModal from './components/modals/LoginAlertModal';
+import CategoryFilterModal from './components/modals/CategoryFilterModal';
 
 // CONTEXTS \\
 import UserContext from './providers/UserContext';
@@ -28,6 +30,7 @@ const App = () => {
       <Router>
         <Navbar />
         <CategoryFilters />
+        <LoginAlertModal />
         <Routes>
           <Route path="/" element={
             attractionsLoading === true ? <p>Loading...</p> :

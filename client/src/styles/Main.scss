@@ -2,6 +2,7 @@
 @import './FilterNav/FilterMenu.scss';
 @import './NavBar/NavBar.scss';
 @import './ActivitiesList/ActivitesList.scss';
+@import './Modal/Modal.scss';
 
 
 body {
@@ -63,6 +64,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    cursor: pointer;
   }
 
   button:active {
