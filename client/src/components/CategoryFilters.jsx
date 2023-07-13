@@ -9,7 +9,7 @@ const CategoryFilters = () => {
   const categoriesList = categories.map(
     (category, index) => (<CategoryFilterButton icon={category.icon} name={category.name} key={index} />));
 
-  const { submit, setSubmit, fetchData } = useContext(AttractionsContext);
+  const { fetchData } = useContext(AttractionsContext);
 
   const handleFilterSubmit = () => {
     fetchData();

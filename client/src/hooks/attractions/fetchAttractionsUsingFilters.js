@@ -5,10 +5,7 @@ const FetchAttractionUsingFilters = () => {
 
 
   const [filters, setFilters] = useState([]); //filters to use
-  const [submit, setSubmit] = useState('false'); // run axios request
-
   console.log("filters: ", filters);
-  console.log("submit: ", submit);
 
   //let params = { foo: [5, 2] } axios.get('path/to/api/',{params})
 
@@ -25,11 +22,9 @@ const FetchAttractionUsingFilters = () => {
       ));
       console.log("response", response.data);
       setIsLoading(false);
-      setSubmit('false');
     } catch (error) {
       setError(error);
       setIsLoading(false);
-      setSubmit('false');
     }
   };
 
@@ -41,8 +36,6 @@ const FetchAttractionUsingFilters = () => {
     error,
     filters,
     setFilters,
-    submit,
-    setSubmit,
     fetchData
   };
 

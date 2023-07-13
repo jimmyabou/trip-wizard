@@ -17,7 +17,7 @@ const AttractionsProvider = ({ children }) => {
   const { featuredAttractionsData, isLoading: isLoadingFeatured, error: featuredError } = FetchFeaturedAttractions();
   const { attractionsCitiesList, isLoading: isLoadingAttractionCities, error: attractionCitiesError } = FetchAttractionCities();
   const { attractionsByCityData, isLoading: isLoadingattractionsByCity, error: attractionsByCityError, setCity, city } = FetchAttractionByCity();
-  const { attractionsFilteredList, isLoading: isLoadingAttractionsFilteredList, error: errorAttractionsFilteredList, filters, setFilters, submit, setSubmit, fetchData } = FetchAttractionUsingFilters();
+  const { attractionsFilteredList, isLoading: isLoadingAttractionsFilteredList, error: errorAttractionsFilteredList, filters, setFilters, fetchData } = FetchAttractionUsingFilters();
 
   const handleFavAttraction = async (attraction_id) => {
     const favData = {
@@ -68,8 +68,6 @@ const AttractionsProvider = ({ children }) => {
       favAttractionIds,
       filters, 
       setFilters, 
-      submit, 
-      setSubmit, 
       fetchData
     }}>
       {children}
