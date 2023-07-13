@@ -6,11 +6,12 @@ const UseSlider = () => {
   const [maxValue, setMaxValue] = useState(0);
 
 
+
   return {
     minValue,
     setMinValue,
     maxValue, 
-    setMaxValue, 
+    setMaxValue,
   };
 };
 

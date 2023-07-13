@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import { AttractionsContext } from '../../providers/AttractionsContext';
 
 const FetchAttractionUsingFilters = () => {
 
   // filters \\
   const [filters, setFilters] = useState([]);
+  const [submit, setSubmit] = useState('false');
   console.log("filters: ", filters);
+
 
   //let params = { foo: [5, 2] } axios.get('path/to/api/',{params})
 
@@ -34,9 +37,11 @@ const FetchAttractionUsingFilters = () => {
   return {
     attractionsFilteredList,
     isLoading,
-    error, 
-    filters, 
-    setFilters
+    error,
+    filters,
+    setFilters,
+    submit,
+    setSubmit
   };
 
 

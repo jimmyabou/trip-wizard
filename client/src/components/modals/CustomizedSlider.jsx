@@ -5,7 +5,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 
 import { AttractionsContext } from '../../providers/AttractionsContext';
-
+import ModalContext from '../../providers/ModalContext';
+import UseSlider from '../../hooks/useSlider';
 
 const AirbnbSlider = styled(Slider)(({ theme }) => ({
   color: '#51D4BF',
@@ -53,34 +54,51 @@ AirbnbThumbComponent.propTypes = {
   children: PropTypes.node,
 };
 
-const CustomizedSlider = (props) => {
+const CustomizedSlider = () => {
 
-  console.log("sliderprops: ", props);
-  
-  // const { name, tminValue, tsetMinValue, tmaxValue, tsetMaxValue } = props;
-
-
-  const { setFilters } = useContext(AttractionsContext);
+  const { filterName } = useContext(ModalContext);
+  const { filters, setFilters } = useContext(AttractionsContext);
+  const { minValue, setMinValue, maxValue, setMaxValue } = UseSlider();
 
 
   let min = 0;
   let max = 10000;
 
-  if (props.name === 'Rating') {
+  if (filterName === 'Rating') {
     max = 5;
   }
-
-
-  const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(0);
-
 
   const handleSliderChange = (e, newValue) => {
     setMinValue(e[0]);
     setMaxValue(e[1]);
-    setFilters(prevState => [...prevState, { name: e }]);
 
 
+    if (filterName === 'Rating') {
+      // remove previous rating filter (if exists)
+      setFilters(prevState => prevState.filter(
+        (item) => {
+          if (typeof item === 'object' && 'Rating' in item) {
+            return false; // Exclude objects with the specified key
+          }
+          return true; // Include strings and other objects
+        }
+      ));
+
+      //add new rating
+      setFilters(prevState => [...prevState, { 'Rating': e }]);
+    } else {
+      // remove previous rating filter (if exists)
+      setFilters(prevState => prevState.filter(
+        (item) => {
+          if (typeof item === 'object' && 'Budget' in item) {
+            return false; // Exclude objects with the specified key
+          }
+          return true; // Include strings and other objects
+        }
+      ));
+      //add new Budget
+      setFilters(prevState => [...prevState, { 'Budget': e }]);
+    }
   };
 
 
