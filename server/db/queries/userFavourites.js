@@ -32,6 +32,16 @@ const handleUserFav = async (user_id, attraction_id) => {
   }
 };
 
+const removeUserFav = async (user_id, attraction_id) => {
+  try {
+    const query = 'DELETE FROM favorite_attractions WHERE user_id = $1 AND attraction_id = $2';
+    const values = [user_id, attraction_id];
+    await db.query(query, values);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const getUserFavAttractions = (user_id) => {
   return getFavAttractionIdsFromUser(user_id)
     .then(attractions => {
@@ -40,4 +50,4 @@ const getUserFavAttractions = (user_id) => {
     });
 };
 
-module.exports = { getUserFavAttractions, handleUserFav };
+module.exports = { getUserFavAttractions, handleUserFav, removeUserFav };

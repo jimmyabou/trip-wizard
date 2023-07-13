@@ -6,7 +6,9 @@ import UserForm from './components/UserForm';
 import Navbar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import ActivitiesList from './components/ActivitiesList';
-import PackageDays from './components/PackageDays';
+import LoginAlertModal from './components/modals/LoginAlertModal';
+import DescModal from './components/modals/DescModal';
+import LoadingSpinner from './components/Loading';
 
 // CONTEXTS \\
 import UserContext from './providers/UserContext';
@@ -19,22 +21,34 @@ import CreatePackage from './components/CreatePackage';
 const App = () => {
 
   const { user } = useContext(UserContext);
-  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav } = useContext(AttractionsContext);
+  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity } = useContext(AttractionsContext);
+  const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
+  const getUserGreeting = (email) => {
+    const userHandle = email.split('@');
+    return userHandle[0];
+  };
 
 
   return (
     <div className="App">
       <Router>
         <Navbar />
+        <LoginAlertModal />
+        <DescModal />
         <Routes>
-          <Route path="/" element={isLoadingFeatured === true ? <p>Loading...</p> : <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} />} />
+          <Route path="/" element={
+            attractionsLoading === true ? <LoadingSpinner /> :
+              attractionsByCityData && attractionsByCityData.attractions.length === 0 ?
+                <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} /> :
+                attractionsByCityData && <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await....`} />
+          } />
           <Route path="/register" element={<UserForm/>} />
           <Route path="/login" element={<LoginForm/>} />
           <Route path="/packages" element={<CreatePackage/>} />
           <Route path="/days/:packageId" element={<PackageDays/>} />
           {/* Add more routes here */}
           {user &&
-            <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <p>Loading...</p> : <ActivitiesList attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />} />
+            <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <LoadingSpinner /> : <ActivitiesList attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />} />
           }
 
 

@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import UserContext from "../providers/UserContext";
+import { AttractionsContext } from '../providers/AttractionsContext';
+import { red } from '@mui/material/colors';
 
 const NavMenu = () => {
   const { user, logoutHandler } = useContext(UserContext);
+  const { favAttractionIds } = useContext(AttractionsContext);
   const navigate = useNavigate();
+
+  const isFav = favAttractionIds.length > 0;
 
   const logout = () => {
     navigate('/');
@@ -30,21 +35,10 @@ const NavMenu = () => {
         </li>
         <li>
           <div className="fav-badge">
-            <i className="fa-solid fa-heart"></i>
+            <i className={`fa-solid fa-heart`} style={isFav ? { color: '#F5543E' } : { color: '#FFF' }}></i>
           </div>
         </li>
       </ul>
-      {user ? (
-        <p
-          style={{
-            fontWeight: 'bold',
-            fontSize: '1rem',
-            textAlign: 'right',
-          }}
-        >
-          Logged in as: {user.email}
-        </p>
-      ) : null}
     </div>
   );
 };
