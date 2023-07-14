@@ -10,7 +10,7 @@ VALUES
  240, 
  true, 
  'https://www.viator.com/tours/New-York-City/Statue-of-Liberty-and-Ellis-Island-Guided-Tour/d687-5250P1',
- 'https://cdn.britannica.com/82/183382-050-D832EC3A/Detail-head-crown-Statue-of-Liberty-New.jpg', 
+ '{"https://cdn.britannica.com/82/183382-050-D832EC3A/Detail-head-crown-Statue-of-Liberty-New.jpg"}', 
  'New York', 
  'USA'),
 
@@ -24,7 +24,7 @@ VALUES
  120, 
  false, 
  'https://www.viator.com/tours/New-York-City/Central-Park-Bike-Rental/d687-5557P13',
- 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/75/c4/bb.jpg',
+ '{"https://media.tacdn.com/media/attractions-splice-spp-674x446/06/75/c4/bb.jpg"}',
  'New York',
  'USA'),
 
@@ -38,7 +38,7 @@ VALUES
  180,
  false,
  'https://www.viator.com/tours/New-York-City/9-11-Memorial-and-Museum-Admission-Ticket/d687-5250P23',
- 'https://assets.simpleviewinc.com/simpleview/image/upload/crm/newyorkstate/9-11-memorial-03-marley-white_08304459-fd51-e9bc-1df612407cbe64fb.jpg',
+ '{"https://assets.simpleviewinc.com/simpleview/image/upload/crm/newyorkstate/9-11-memorial-03-marley-white_08304459-fd51-e9bc-1df612407cbe64fb.jpg"}',
  'New York',
  'USA'),
 
@@ -52,7 +52,7 @@ VALUES
  300, 
  false, 
  'https://www.viator.com/tours/New-York-City/New-York-in-One-Day-Guided-Sightseeing-Tour/d687-7081P4',
- ARRAY['https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg", "https://cdn.contexttravel.com/image/upload/w_1500,q_60/v1571947279/blog/36%20Hours%20in%20NYC/NewYorkStreets.jpg"],
+ ARRAY['https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg', 'https://cdn.contexttravel.com/image/upload/w_1500,q_60/v1571947279/blog/36%20Hours%20in%20NYC/NewYorkStreets.jpg'],
  'New York',
  'USA'),
 
@@ -66,7 +66,7 @@ VALUES
  120,
  true,
  'https://www.viator.com/tours/New-York-City/Empire-State-Building-General-and-Skip-the-Line-Tickets/d687-2194EMPIRE',
- 'https://worldadventurists.com/wp-content/uploads/2018/05/empirestate05.jpg',
+ '{"https://worldadventurists.com/wp-content/uploads/2018/05/empirestate05.jpg"}',
  'New York',
  'USA'),
 
@@ -80,7 +80,7 @@ VALUES
  60,
  false,
  'https://www.viator.com/tours/New-York-City/Top-of-the-Rock-Observation-Deck-New-York/d687-3784TOPROCK',
- 'https://images.ctfassets.net/s2zqt2a15zcl/3QzQDDZqI0OQWuW4oKyEQe/b142c2a6f647e0f96a98bbc6b653040a/cover-post-open-door-helicopter.jpg',
+ '{"https://images.ctfassets.net/s2zqt2a15zcl/3QzQDDZqI0OQWuW4oKyEQe/b142c2a6f647e0f96a98bbc6b653040a/cover-post-open-door-helicopter.jpg"}',
  'New York',
  'USA'),
 
@@ -94,7 +94,7 @@ VALUES
  15,
  true,
  'https://www.viator.com/tours/New-York-City/Manhattan-Sky-Tour-New-York-Helicopter-Flight/d687-5024HELI',
- 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6b/8f/3a.jpg',
+ '{"https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6b/8f/3a.jpg"}',
  'New York',
  'USA'),
 
@@ -108,7 +108,7 @@ VALUES
  1080,
  true,
  'https://www.viator.com/tours/New-York-City/New-York-CityPASS/d687-2640NYC',
- 'https://www.metmuseum.org/-/media/images/visit/met-fifth-avenue/fifthave_teaser.jpg?sc_lang=en"',
+ '{"https://www.metmuseum.org/-/media/images/visit/met-fifth-avenue/fifthave_teaser.jpg?sc_lang=en"}',
  'New York',
  'USA'),
 
@@ -122,7 +122,7 @@ VALUES
  120,
  false,
  'https://www.viator.com/en-CA/tours/London/Skip-the-Line-Madame-Tussauds-London/d737-2798TUSSAUDS',
- 'https://assets.simpleviewinc.com/simpleview/image/upload/crm/newyorkstate/Marilyn-Monroe_B1706CCC-AE33-B2FB-23B9CA7F4420EF8C-b1706c41e461b06_b1706d20-e646-e9b5-b442bdcbcac4aba0.jpg',
+ '{"https://assets.simpleviewinc.com/simpleview/image/upload/crm/newyorkstate/Marilyn-Monroe_B1706CCC-AE33-B2FB-23B9CA7F4420EF8C-b1706c41e461b06_b1706d20-e646-e9b5-b442bdcbcac4aba0.jpg"}',
  'New York',
  'USA');
 
@@ -138,7 +138,7 @@ VALUES
  75, 
  false, 
  'https://www.viator.com/tours/New-York-City/Madison-Square-Garden-All-Access-Tour/d687-6341P4',
- 'https://img.msg.com/wp-content/uploads/2021/02/BillyJoel_071818_1902_RT-1.jpg',
+ '{"https://img.msg.com/wp-content/uploads/2021/02/BillyJoel_071818_1902_RT-1.jpg"}',
  'New York',
  'USA'),
 
@@ -152,7 +152,7 @@ VALUES
  120,
  false,
  'https://www.thehighline.org/',
- 'https://media.cntraveler.com/photos/5a83590826924e3c324ef342/16:9/w_2560,c_limit/The-Highline_2018_1407-High-Line-At-The-Rail-Yards---Photo-By-Iwan-Baan_1411215715.jpg',
+ '{"https://media.cntraveler.com/photos/5a83590826924e3c324ef342/16:9/w_2560,c_limit/The-Highline_2018_1407-High-Line-At-The-Rail-Yards---Photo-By-Iwan-Baan_1411215715.jpg"}',
  'New York',
  'USA'),
 
@@ -166,7 +166,7 @@ VALUES
  180,
  false,
  'https://www.viator.com/tours/New-York-City/Little-Italy-Food-Tour-in-New-York/d687-5683FOODTOUR',
- 'https://media-cdn.tripadvisor.com/media/photo-s/06/14/b6/17/little-italy-pizza.jpg',
+ '{"https://media-cdn.tripadvisor.com/media/photo-s/06/14/b6/17/little-italy-pizza.jpg"}',
  'New York',
  'USA'),
 
@@ -180,7 +180,7 @@ VALUES
  60,
  true,
  'https://www.hudsonyardsnewyork.com/discover/vessel',
- 'https://nypost.com/wp-content/uploads/sites/2/2019/03/hudson-yards-vessel-main-1a.jpg',
+ '{"https://nypost.com/wp-content/uploads/sites/2/2019/03/hudson-yards-vessel-main-1a.jpg"}',
  'New York',
  'USA'),
 
@@ -194,7 +194,7 @@ VALUES
  240,
  false,
  'https://www.viator.com/tours/New-York-City/Bronx-Zoo-Admission-Ticket/d687-5831BRONXZOO',
- 'https://travel.usnews.com/images/Bronx_Zoo_sign.jpg',
+ '{"https://travel.usnews.com/images/Bronx_Zoo_sign.jpg"}',
  'New York',
  'USA'),
 
@@ -208,7 +208,7 @@ VALUES
  240,
  true,
  'https://coneyislandfunguide.com/',
- 'https://media.timeout.com/images/105763396/image.jpg',
+ '{"https://media.timeout.com/images/105763396/image.jpg"}',
  'New York',
  'USA'),
 
@@ -222,7 +222,7 @@ VALUES
  180,
  false,
  'https://www.viator.com/tours/New-York-City/New-York-TV-and-Movie-Sites-Tour/d687-2218TVMOVIE',
- 'https://a.storyblok.com/f/112937/569x464/48e2a6cd85/top_new_york_film_sites_you_have_to_visit_web.jpg',
+ '{"https://a.storyblok.com/f/112937/569x464/48e2a6cd85/top_new_york_film_sites_you_have_to_visit_web.jpg"}',
  'New York',
  'USA'),
 
@@ -236,7 +236,7 @@ VALUES
  180,
  true,
  'https://www.viator.com/tours/New-York-City/New-York-Botanical-Garden-Admission/d687-5841NYBG',
- 'https://imageio.forbes.com/blogs-images/micheleherrmann/files/2019/02/NYBGTheOrchidShowSingapore-Arches-MCOB0807-1200x800.jpg?format=jpg&width=1200',
+ '{"https://imageio.forbes.com/blogs-images/micheleherrmann/files/2019/02/NYBGTheOrchidShowSingapore-Arches-MCOB0807-1200x800.jpg?format=jpg&width=1200"}',
  'New York',
  'USA'),
 
@@ -250,7 +250,7 @@ VALUES
  180,
  false,
  'https://www.viator.com/tours/New-York-City/Brooklyn-Heights-and-DUMBO-Walking-Tour/d687-5250BROOKLYN',
- 'https://www.takewalks.com/blog/wp-content/uploads/2012/07/Cranberry-St-1024x768.jpg',
+ '{"https://www.takewalks.com/blog/wp-content/uploads/2012/07/Cranberry-St-1024x768.jpg"}',
  'New York',
  'USA'),
 
@@ -264,7 +264,7 @@ VALUES
  120,
  false,
  'https://www.opentable.com/the-loeb-boathouse-at-central-park',
- 'https://centralparkbikerental.nyc/content/uploads/attractions/5831d0498e7fa_loeb_boathouse_2.jpg',
+ '{"https://centralparkbikerental.nyc/content/uploads/attractions/5831d0498e7fa_loeb_boathouse_2.jpg"}',
  'New York',
  'USA');
 
@@ -280,7 +280,7 @@ VALUES
  60,
  false,
  'https://www.sftravel.com/article/8-things-to-do-near-golden-gate-bridge',
- ARRAY["https://www.goldengate.org/assets/1/6/bridge.jpg", "https://i.natgeofe.com/n/024969fc-c29a-4f2c-b51c-8604c13df722/golden-gate-painter-590.jpg"],
+ ARRAY['https://www.goldengate.org/assets/1/6/bridge.jpg', 'https://i.natgeofe.com/n/024969fc-c29a-4f2c-b51c-8604c13df722/golden-gate-painter-590.jpg'],
  'San Francisco',
  'USA'),
 
@@ -294,7 +294,7 @@ VALUES
  180,
  false,
  'https://www.viator.com/tours/San-Francisco/Alcatraz-and-San-Francisco-City-Tour/d651-2660SFALCATRAZ',
- 'https://www.nps.gov/alca/planyourvisit/images/Alcatraz_8.jpg?maxwidth=1300&maxheight=1300&autorotate=false',
+ '{"https://www.nps.gov/alca/planyourvisit/images/Alcatraz_8.jpg?maxwidth=1300&maxheight=1300&autorotate=false"}',
  'San Francisco',
  'USA'),
 
@@ -308,22 +308,7 @@ VALUES
  120,
  true,
  'https://www.expedia.co.uk/San-Francisco-Fishermans-Wharf.dx800128',
- ARRAY["https://www.omnihotels.com/-/media/images/globals/cityshots/san-francisco-fishermans-wharf-istock-52826370.jpg?h=660&la=en&w=1170", "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/22000/22337-Pier-39.jpg"],
- 'San Francisco',
- 'USA'),
-
-('Union Square',
- 'Shop, dine, or just hang out in this vibrant neighborhood, the heartbeat of San Francisco.',
- 37.7879,
- -122.4074,
- 'Walking',
- 4.5,
- 0,
- 120,
- false,
- 'https://www.expedia.ca/San-Francisco-Union-Square.dx800129',
- ARRAY["https://www.tripsavvy.com/thmb/ml2kHTdsDj6Zqr2PaCX3tarP-hs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-109287627-5b66fb4f46e0fb0050fabc66.jpg", "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/173000/173736-Union-Square.jpg",
- "https://unionsquareshop.com/assets/img/carousel/01.jpg"],
+ ARRAY['https://www.omnihotels.com/-/media/images/globals/cityshots/san-francisco-fishermans-wharf-istock-52826370.jpg?h=660&la=en&w=1170', 'https://a.travel-assets.com/findyours-php/viewfinder/images/res70/22000/22337-Pier-39.jpg'],
  'San Francisco',
  'USA'),
 
@@ -337,7 +322,7 @@ VALUES
  120,
  true,
  'https://www.tripadvisor.ca/Attractions-g60713-Activities-zfn7222615-San_Francisco_California.html',
- ARRAY["https://media.timeout.com/images/102875459/image.jpg", "https://upload.wikimedia.org/wikipedia/commons/7/75/San_Francisco_China_Town_MC.jpg", "https://img.theculturetrip.com/wp-content/uploads/2019/02/e72fcp.jpg", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/c1/dc/5e/chinatown.jpg?w=500&h=-1&s=1"],
+ ARRAY['https://media.timeout.com/images/102875459/image.jpg', 'https://upload.wikimedia.org/wikipedia/commons/7/75/San_Francisco_China_Town_MC.jpg', 'https://img.theculturetrip.com/wp-content/uploads/2019/02/e72fcp.jpg', 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/c1/dc/5e/chinatown.jpg?w=500&h=-1&s=1'],
  'San Francisco',
  'USA'),
 
@@ -351,7 +336,7 @@ VALUES
  60,
  true,
  'https://www.viator.com/tours/San-Francisco/Private-Luxury-Car-Tour-of-San-Francisco/d651-6548P2',
- ARRAY["https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg", "https://a.cdn-hotels.com/gdcs/production86/d861/5855df3c-b990-4888-8baf-94eeb2f7ea48.jpg", "https://live.staticflickr.com/1921/30569574997_78f698f28f_b.jpg"],
+ ARRAY['https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg', 'https://a.cdn-hotels.com/gdcs/production86/d861/5855df3c-b990-4888-8baf-94eeb2f7ea48.jpg', 'https://live.staticflickr.com/1921/30569574997_78f698f28f_b.jpg'],
  'San Francisco',
  'USA'),
 
@@ -365,7 +350,7 @@ VALUES
  180,
  false,
  'https://www.viator.com/tours/San-Francisco/Self-Guided-Bike-Tour-of-Golden-Gate-Park/d651-9215P1',
- 'https://a.cdn-hotels.com/gdcs/production146/d1838/6e00c531-390b-4a91-8964-1c00198ceec9.jpg',
+ '{"https://a.cdn-hotels.com/gdcs/production146/d1838/6e00c531-390b-4a91-8964-1c00198ceec9.jpg"}',
  'San Francisco',
  'USA'),
 
@@ -379,7 +364,7 @@ VALUES
  30,
  false,
  'https://www.sftravel.com/things-to-do/attractions/iconic-sf/lombard-street',
- ARRAY["https://www.sfmta.com/sites/default/files/imce-images/2019/lombard-street-san-fran_2.jpg", "https://s.hdnux.com/photos/01/31/30/42/23431335/5/1200x0.jpg"],
+ ARRAY['https://www.sfmta.com/sites/default/files/imce-images/2019/lombard-street-san-fran_2.jpg', 'https://s.hdnux.com/photos/01/31/30/42/23431335/5/1200x0.jpg'],
  'San Francisco',
  'USA'),
 
@@ -393,7 +378,7 @@ VALUES
  30,
  false,
  'https://www.sftravel.com/things-to-do/attractions/iconic-sf/painted-ladies',
- ARRAY["https://www.travelinusa.us/wp-content/uploads/sites/3/2017/11/Painted-Ladies-San-Francisco-01.jpg", "https://www.sftravel.com/sites/default/files/styles/hero/public/2022-10/painted-ladies-city-skyline-twilight.jpg.webp?itok=MVU3kPdc"],
+ ARRAY['https://www.travelinusa.us/wp-content/uploads/sites/3/2017/11/Painted-Ladies-San-Francisco-01.jpg', 'https://www.sftravel.com/sites/default/files/styles/hero/public/2022-10/painted-ladies-city-skyline-twilight.jpg.webp?itok=MVU3kPdc'],
  'San Francisco',
  'USA'),
 
@@ -407,6 +392,6 @@ VALUES
  180,
  false,
  'https://www.cntraveler.com/activities/san-francisco/exploratorium',
-'https://www.exploratorium.edu/sites/default/files/2023-01/ExploAwardsDinner_050918_079-downsized-for-web.jpeg',
+'{"https://www.exploratorium.edu/sites/default/files/2023-01/ExploAwardsDinner_050918_079-downsized-for-web.jpeg"}',
  'San Francisco',
  'USA');

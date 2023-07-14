@@ -10,7 +10,7 @@ VALUES
  120,
  true,
  'https://www.hotel-locarno.com/en/blog/articles/the-most-beautiful-beaches-of-the-promenade-des-anglais-36589',
- 'https://d2um6tst3jvq2w.cloudfront.net/cache/img/49fb9e32985a75a52ff77ed09b1a106b8de38ff6-49fb9e-450-300-crop.jpg?q=1647273710',
+ '{"https://d2um6tst3jvq2w.cloudfront.net/cache/img/49fb9e32985a75a52ff77ed09b1a106b8de38ff6-49fb9e-450-300-crop.jpg?q=1647273710"}',
  'Nice',
  'France'),
 
@@ -24,7 +24,7 @@ VALUES
  90,
  false,
  'https://rivierabarcrawltours.com/castle-hill-nice-france/',
- 'https://rivierabarcrawltours.com/wp-content/uploads/2020/01/Castle-Hill-Nice-France-cascade-river.jpg',
+ '{"https://rivierabarcrawltours.com/wp-content/uploads/2020/01/Castle-Hill-Nice-France-cascade-river.jpg"}',
  'Nice',
  'France'),
 
@@ -52,7 +52,7 @@ VALUES
  120,
  false,
  'https://www.viator.com/tours/Nice/Food-Lovers-Tour-of-Nice-Local-Markets-and-Best-Shops/d478-70038P9',
- 'https://www.bestofniceblog.com/wp-content/uploads/2012/03/Brocante-Mary-Payne-1-1-20101-300x225.jpg',
+ '{"https://www.bestofniceblog.com/wp-content/uploads/2012/03/Brocante-Mary-Payne-1-1-20101-300x225.jpg"}',
  'Nice',
  'France'),
 
@@ -66,7 +66,7 @@ VALUES
  60,
  true,
  'https://www.viator.com/tours/Nice/Nice-City-Sightseeing-Small-Group-Tour/d478-70038P10',
- 'https://rivierabarcrawltours.com/wp-content/uploads/2020/04/place-massena-apollo-1024x675-1.jpeg',
+ '{"https://rivierabarcrawltours.com/wp-content/uploads/2020/04/place-massena-apollo-1024x675-1.jpeg"}',
  'Nice',
  'France'),
 
@@ -80,7 +80,7 @@ VALUES
  60,
  false,
  'https://www.viator.com/tours/Nice/Historical-Center-Walking-Tour-of-Nice/d478-70038P11',
- 'https://static.seetheworld.com/image_uploader/photos/38/original/sainte-reparate-cathedral-nice-nice-area-153.jpg',
+ '{"https://static.seetheworld.com/image_uploader/photos/38/original/sainte-reparate-cathedral-nice-nice-area-153.jpg"}',
  'Nice',
  'France'),
 
@@ -94,7 +94,7 @@ VALUES
  120,
  true,
  'https://www.viator.com/tours/Nice/Private-Tour-of-the-Marc-Chagall-Museum-in-Nice/d478-7237P23',
- 'https://pleinsud.art/media/pages/lieux/musee-national-marc-chagall/chagall-et-moi-les-50-ans-du-musee-national-marc-chagall/0f83a7e23a-1674478446/img_7934-musee-chagall-nice-1920_960px-22-recadree_0.jpg',
+ '{"https://pleinsud.art/media/pages/lieux/musee-national-marc-chagall/chagall-et-moi-les-50-ans-du-musee-national-marc-chagall/0f83a7e23a-1674478446/img_7934-musee-chagall-nice-1920_960px-22-recadree_0.jpg"}',
  'Nice',
  'France'),
 
@@ -108,7 +108,7 @@ VALUES
  180,
  false,
  'https://www.viator.com/tours/Nice/Nice-City-Tour-and-Old-town-Half-Day-from-Nice-Small-Group/d478-70038P18',
- 'https://frenchriviera.travel/wp-content/uploads/2018/09/Parc-Phoenix1.jpg',
+ '{"https://frenchriviera.travel/wp-content/uploads/2018/09/Parc-Phoenix1.jpg"}',
  'Nice',
  'France'),
 
@@ -136,7 +136,7 @@ VALUES
  120,
  false,
  'https://www.viator.com/tours/Nice/Private-Tour-of-the-Matisse-Museum-in-Nice/d478-7237P24',
- 'https://www.irresistible-riviera.fr/images/decouvrir/musee-matisse/musee-matisse-nice-10-m.jpg',
+ '{"https://www.irresistible-riviera.fr/images/decouvrir/musee-matisse/musee-matisse-nice-10-m.jpg"}',
  'Nice',
  'France');
 
@@ -165,7 +165,7 @@ true,
 420,
 false,
 'https://www.getyourguide.com/paris-l16/paris-full-day-customized-private-tour-t226705/?partner_id=B9IC1H4&psrc=partner_api&currency=EUR',
-ARRAY["https://static01.nyt.com/images/2023/07/01/travel/22hours-paris-tjzf/22hours-paris-tjzf-superJumbo.jpg", "https://www.cia-france.com/media/1804/paris-monument_1100x700.jpeg", "https://images.squarespace-cdn.com/content/v1/58c35a0e579fb3281396b7f0/1628430130397-3J5N090EA4GH6891YZ5P/shangri+la+paris" ],
+ARRAY['https://static01.nyt.com/images/2023/07/01/travel/22hours-paris-tjzf/22hours-paris-tjzf-superJumbo.jpg', 'https://www.cia-france.com/media/1804/paris-monument_1100x700.jpeg', 'https://images.squarespace-cdn.com/content/v1/58c35a0e579fb3281396b7f0/1628430130397-3J5N090EA4GH6891YZ5P/shangri+la+paris' ],
 'Paris',
 'France'),
 
@@ -179,7 +179,7 @@ ARRAY["https://static01.nyt.com/images/2023/07/01/travel/22hours-paris-tjzf/22ho
 120,
 true,
 'http://www.partner.viator.com/en/13257/tours/Paris/Dark-Paris-Myths-and-Legends-Small-Group-Walking-Tour-10-max/d479-19551P49?eap=prod-fxUokaxbikskDHdLPsA3-13257&aid=vba13257en',
-ARRAY["https://www.ourescapeclause.com/wp-content/uploads/2019/12/shutterstock_1598542261-768x1024.jpg", "https://worldinparis.com/wp-content/uploads/2022/01/Place-du-Tertre-Night.jpg", "https://www.discoverwalks.com/blog/wp-content/uploads/2015/07/paris-at-night-big.jpg"],
+'{"https://www.ourescapeclause.com/wp-content/uploads/2019/12/shutterstock_1598542261-768x1024.jpg", "https://worldinparis.com/wp-content/uploads/2022/01/Place-du-Tertre-Night.jpg", "https://www.discoverwalks.com/blog/wp-content/uploads/2015/07/paris-at-night-big.jpg"}',
 'Paris',
 'France'),
 
@@ -193,7 +193,7 @@ ARRAY["https://www.ourescapeclause.com/wp-content/uploads/2019/12/shutterstock_1
 660,
 true,
 'http://www.partner.viator.com/en/13257/tours/Paris/Luxury-private-day-tour-to-Champagne-from-Paris/d479-35428P6?eap=prod-xyxY1Y4tF3MsHDmXNout-13257&aid=vba13257en',
-'https://i.pinimg.com/originals/65/00/ca/6500cabdbe20020144dc1ba44dc4aa77.jpg',
+'{"https://i.pinimg.com/originals/65/00/ca/6500cabdbe20020144dc1ba44dc4aa77.jpg"}',
 'Paris',
 'France'),
 
@@ -207,7 +207,7 @@ true,
 120,
 true,
 'https://www.example.com/bookings/eiffel-tower',
-'https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/03/25/12/eiffel.jpg',
+'{"https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/03/25/12/eiffel.jpg"}',
 'Paris',
 'France'),
 
@@ -221,7 +221,7 @@ true,
 180,
 true,
 'https://www.louvre.fr/en',
-'https://media.architecturaldigest.com/photos/5900cc370638dd3b70018b33/1:1/w_2066,h_2066,c_limit/Secrets%20of%20Louvre%201.jpg',
+'{"https://media.architecturaldigest.com/photos/5900cc370638dd3b70018b33/1:1/w_2066,h_2066,c_limit/Secrets%20of%20Louvre%201.jpg"}',
 'Paris',
 'France'),
 
@@ -235,7 +235,7 @@ true,
 60,
 true,
 'https://parisjetaime.com/eng/culture/tours-de-notre-dame-de-paris-p3540',
-'https://upload.wikimedia.org/wikipedia/commons/f/f7/Notre-Dame_de_Paris%2C_4_October_2017.jpg',
+'{"https://upload.wikimedia.org/wikipedia/commons/f/f7/Notre-Dame_de_Paris%2C_4_October_2017.jpg"}',
 'Paris',
 'France');
 
