@@ -165,10 +165,6 @@ VALUES ('Free Crime & Punishment Tour inc. Jack The Ripper! (Available in Englis
         180,
         false,
         'https://www.guruwalk.com/walks/39315-free-crime-punishment-tour-inc-jack-the-ripper?ref=ojlgpuf3oo1nuk2s74m5',
-        ARRAY['https://media.guruwalk.com/jpqmw3p0vkas66kqc7l8hq32417g',
-              'https://media.guruwalk.com/tenin3vomzuo8ggs9q3ljsku8pv1',
-              'https://media.guruwalk.com/fxua415d6m0md2iw7oykjgy0sqg2',
-              'https://media.guruwalk.com/e18wsk7atm1l69e8x646wcar2ay1',
-              'https://media.guruwalk.com/tq3d5eq01gd9ymd5hbjb2ffevjyx'],
+        ARRAY['https://static1.squarespace.com/static/6161bb5d58ee4e21599a0ec6/t/61d6eb459130b924a371a34f/1641474897516/IMG_86402c.jpg?format=1500w'],
         'London',
         'United Kingdom');

@@ -26,6 +26,13 @@ const NavMenu = () => {
         </li>
         <li>
           {user ? (
+            <Link to={`/packages`}>Packages</Link>
+          ) : (
+            <a href="#">Packages</a>
+          )}
+        </li>
+        <li>
+          {user ? (
             <a href="#" onClick={logout}>Logout</a>
           ) : (
             <Link to="/login">Login</Link>

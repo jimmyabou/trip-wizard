@@ -22,9 +22,9 @@ VALUES
     4.7,
     7,
     120,
-    false,
+    true,
     'https://www.viator.com/tours/Granada/Generalife-Entrance-Ticket/d554-5550P49',
-    '{"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/74/c9/40/caption.jpg?w=1200&h=1200&s=1"}',
+    '{"https://cdn.kimkim.com/files/a/images/894b11252e0c5b3c4829352dc434a217b08f85e2/big-bbdcc41e16ba96e757dfe2aeea5020aa.jpg"}',
     'Granada',
     'Spain'),
 
@@ -94,7 +94,7 @@ VALUES
     90,
     false,
     'https://www.viator.com/tours/Granada/Carrera-del-Darro-Walking-Tour/d554-5550P54',
-    '{"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ojA6e66e6kUxYEMYg8w0wydT_zkOnfcGDfUnkFz-XRhThV3gMjf29EIjThCr5gt5Q8s&usqp=CAU"}',
+    '{"https://visitasguiadasalhambra.online/wp-content/uploads/carrera-del-darro-en-albaicin.jpg"}',
     'Granada',
     'Spain'),
 
