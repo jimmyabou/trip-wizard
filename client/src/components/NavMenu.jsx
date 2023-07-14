@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import UserContext from "../providers/UserContext";
 import { AttractionsContext } from '../providers/AttractionsContext';
 import { red } from '@mui/material/colors';
@@ -7,10 +7,12 @@ import { red } from '@mui/material/colors';
 const NavMenu = () => {
   const { user, logoutHandler } = useContext(UserContext);
   const { favAttractionIds } = useContext(AttractionsContext);
+  const navigate = useNavigate();
 
   const isFav = favAttractionIds.length > 0;
 
   const logout = () => {
+    navigate('/');
     logoutHandler();
   };
 
@@ -37,17 +39,6 @@ const NavMenu = () => {
           </div>
         </li>
       </ul>
-      {user ? (
-        <p
-          style={{
-            fontWeight: 'bold',
-            fontSize: '1rem',
-            textAlign: 'right',
-          }}
-        >
-          Logged in as: {user.email}
-        </p>
-      ) : null}
     </div>
   );
 };

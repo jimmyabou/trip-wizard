@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS favorite_attractions CASCADE;
 DROP TABLE IF EXISTS line_items CASCADE;
-DROP TABLE IF EXISTS package_attractions CASCADE;
+DROP TABLE IF EXISTS day_attractions CASCADE;
 DROP TABLE IF EXISTS days CASCADE;
 DROP TABLE IF EXISTS orders CASCADE;
 DROP TABLE IF EXISTS packages CASCADE;
@@ -41,13 +41,10 @@ CREATE TABLE favorite_attractions (
 CREATE TABLE packages (
   package_id SERIAL PRIMARY KEY,
   user_id integer REFERENCES users (id) NOT NULL,
-  name varchar NOT NULL,
-  total_cost integer NOT NULL,
-  total_days integer NOT NULL,
-  created_at timestamp NOT NULL
+  name varchar NOT NULL
 );
 
-CREATE TABLE package_attractions (
+CREATE TABLE day_attractions (
   attraction_id integer REFERENCES attractions (attraction_id) NOT NULL,
   day_id integer NOT NULL,
   PRIMARY KEY (attraction_id, day_id)
@@ -74,5 +71,7 @@ CREATE TABLE line_items (
 CREATE TABLE days (
   day_id SERIAL PRIMARY KEY,
   package_id integer REFERENCES packages (package_id) NOT NULL,
-  date date NOT NULL
+  date date NOT NULL,
+  day_title varchar NOT NULL,
+  day_description varchar NOT NULL
 );
