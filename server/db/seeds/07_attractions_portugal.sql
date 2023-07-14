@@ -66,7 +66,7 @@ VALUES
  120,
  true,
  'https://www.viator.com/tours/Lisbon/Alfama-District-Walking-Tour/d538-5550P32',
- '{"https://www.thegeographicalcure.com/wp-content/uploads/2021/09/img_614f7ca1d4eba", "https://nowinportugal.com/wp-content/uploads/2022/01/Alfama-Neighbourhood-Guide.jpg"}',
+ '{"https://www.planetware.com/photos-large/P/portugal-lisbon-old-quarter.jpg"}',
  'Lisbon',
  'Portugal'),
 

@@ -38,7 +38,7 @@ VALUES
  120,
  true,
  'https://www.viator.com/tours/Nice/Best-of-Nice-Hour-Bike-Tour/d478-70038P13',
- '{"https://media.tacdn.com/media/attractions-splice-spp-674x446/06/70/0a/58.jpg", "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/70/0a/5a.jpg"}',
+ '{"https://a.cdn-hotels.com/gdcs/production137/d367/3700ee9a-66ca-491b-8b7e-df8977f85008.jpg"}',
  'Nice',
  'France'),
 
@@ -122,7 +122,7 @@ VALUES
  90,
  true,
  'https://www.viator.com/tours/Nice/Nice-City-Tour-and-Old-town-Half-Day-from-Nice-Small-Group/d478-70038P18',
- '{"https://media.tacdn.com/media/attractions-splice-spp-674x446/06/70/0a/70.jpg", "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/70/0a/72.jpg"}',
+ '{"https://perfectlyprovence.co/wp-content/uploads/2020/11/Eglise-Russe.CRT-COTE-DAZUR-FRANCEPierre-BEHAR.jpg"}',
  'Nice',
  'France'),
 
