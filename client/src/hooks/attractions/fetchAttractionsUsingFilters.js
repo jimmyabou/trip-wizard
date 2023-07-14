@@ -5,7 +5,6 @@ const FetchAttractionUsingFilters = () => {
 
 
   const [filters, setFilters] = useState([]);
-
   const [attractionsFilteredList, setAttractionsFilteredList] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -38,11 +37,11 @@ const FetchAttractionUsingFilters = () => {
       const response = await axios.get(`/attractions/filtered/${city}`, {
         params: paramsSelected
       });
-      setAttractionsFilteredList(response.data.attractions);
+      setAttractionsFilteredList(response.data);
       setIsLoading(false);
     } catch (error) {
       setError(error);
-      setIsLoading(false);
+      setIsLoading(true);
     }
   };
 

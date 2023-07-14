@@ -6,12 +6,11 @@ import ModalContext from '../providers/ModalContext';
 
 
 const CategoryFilterButton = (props) => {
+  const {name } = props;
 
   const [active, setActive] = useState(false); //change background color of filter btns
   const { handleOpenModalCategoryFilter, setFilterName } = useContext(ModalContext);
-
   const { city, setFilters } = useContext(AttractionsContext);
-
   const handleFilter = (name) => {
 
 
@@ -33,7 +32,7 @@ const CategoryFilterButton = (props) => {
   return (
 
     <button className="nav-category__menu-item"
-      onClick={() => handleFilter(props.name)}
+      onClick={() => handleFilter(name)}
       style={{ backgroundColor: active ? "#51D4BF" : "white" }}
     >
       <i className={props.icon}></i>

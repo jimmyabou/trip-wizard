@@ -82,7 +82,6 @@ const getAttractionsWithFilters = (categories, price, rating, city) => {
   }
 
   sql += ';';
-  console.log("sql", sql);
 
   return db
     .query(sql)

@@ -22,7 +22,7 @@ import CreatePackage from './components/CreatePackage';
 const App = () => {
 
   const { user } = useContext(UserContext);
-  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity, attractionsFilteredList, isLoadingAttractionsFilteredList  } = useContext(AttractionsContext);
+  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity, attractionsFilteredList, isLoadingAttractionsFilteredList } = useContext(AttractionsContext);
   const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
 
   function shuffle(arr) {
@@ -47,16 +47,10 @@ const App = () => {
     <div className="App">
       <Router>
         <Navbar />
-        <CategoryFilters />
         <LoginAlertModal />
         <DescModal />
         <Routes>
-          <Route path="/" element={
-            attractionsLoading === true ? <LoadingSpinner /> :
-              attractionsByCityData && attractionsByCityData.attractions.length === 0 ?
-                <ActivitiesList attractions={shuffle(featuredAttractionsData.attractions)} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} /> :
-                attractionsByCityData && <ActivitiesList attractions={shuffle(attractionsByCityData.attractions)} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await...`} />
-          } />
+          <Route path="/" element={<CategoryFilters shuffle={shuffle} getUserGreeting={getUserGreeting}/>} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/packages" element={<CreatePackage />} />

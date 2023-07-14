@@ -11,7 +11,6 @@ const FetchFeaturedAttractions = () => {
       try {
         const response = await axios.get('/attractions/featured');
         setfeaturedAttractionsData(response.data);
-        console.log(response.data);
         setIsLoading(false);
       } catch (error) {
         setError(error);

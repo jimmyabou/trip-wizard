@@ -62,7 +62,7 @@ const CustomizedSlider = () => {
 
 
   let min = 0;
-  let max = 10000;
+  let max = 500;
 
   if (filterName === 'Rating') {
     max = 5;
