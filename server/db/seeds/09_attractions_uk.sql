@@ -16,6 +16,7 @@ VALUES ('South Bank (Available in Spanish)',
               'https://media.guruwalk.com/kud5owr7jg2nxcc07qfp7k7ggv60'],
         'London',
         'United Kingdom');
+
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('Greenwich a fairytale place (Available in Spanish)',
         'Please book at least one day in advance as you need to make a reservation for the museum and you have to ensure that the group is full. Minimum 6 adults are needed for the tour to depart.<br><br> <strong>Try to arrive at least 10 minutes before the tour starts</strong> .<br><br> This is a free tour, that is to say free tour not free, where you value the quality of the visit. <strong><br><br>Keep in mind that you can pay in cash or card but euros or another currency that is not the pound are not accepted.</strong><br><br> Enter the colorful Royal Borough of Greenwich, famous for its maritime history and for being the location of the meridian, and above all for having been occupied by royalty for centuries.<br><br> We will begin by telling the story of the only surviving clipper in the world, the fastest of its time, Cutty Sark.<br><br> We will be amazed by the magnificent architecture of its university, we will discover all the uses it has had and what it was in the past.<br><br> We will walk through its splendid park and go up to the observatory to enjoy spectacular views and discover all the history, mysteries and curiosities of the Royal Observatory. Without failing to visit the Naval Museum.<br><br> We will visit one of the best markets in London, with a vibrant atmosphere and cobblestone floors. Book now and enjoy a unique experience in a fairytale place.<br><br><br></p><p>Free tour: Book for free and pay what you want at the end',
@@ -34,9 +35,10 @@ VALUES ('Greenwich a fairytale place (Available in Spanish)',
               'https://d1i21eq0w7p1n3.cloudfront.net/a89dvjub4a215y8wafq3h86ne1hm'],
         'London',
         'United Kingdom');
+
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('The Original Free Tour of London (Available in English)',
-        'No other tour covers so many major London landmarks! Have your cameras at the ready as we walk past Westminster Abbey and the Big Ben, and see where the Queen and Prince Charles live as we stroll past Buckingham and St. James’s Palaces. On this 3-hour free walking tour you''ll tick off many of London''s must-see sites.<br></strong>&nbsp;<br>&nbsp;Your London Free Tour starts in front of the Apple Store in Covent Garden and finishes by Westminster Abbey. <br><br>&nbsp;<strong>Around every corner is another piece of royal history on this free London walking tour! <br><br></strong>Your expert local guide will take you to Buckingham Palace, the official residence of Her Majesty Queen Elizabeth II (some tours will even see the changing of the guard!), and you’ll walk past St James’s Palace, where Princes William and Harry grew up and Prince Charles still lives. You’ll also see Westminster Abbey, where the Queen was crowned, Princess Diana was farewelled, and Kate and William were married. However, it’s not only the current royals who feature on this London walking tour – you’ll also hear about other kings and queens who left their mark on Great Britain.<br>&nbsp;<br>&nbsp;<strong>Of course though, it’s not just the royals who helped to shape London</strong>, <br><br>the UK and indeed, the world. Your guide will tell you about Winston Churchill as you walk past the Churchill War Rooms, talk about Guy Fawkes as you stroll past the Houses of Parliament, and tell you about Admiral Nelson as you visit the Nelson Column on Trafalgar Square. With other must-see sites like Covent Garden, Horse Guards Parade and of course, the Big Ben, this London gratuity-based free walking tour shows you many of London''s major landmarks. <br><br><strong>Tour Highlights:<br></strong><br></p><ul><li>The Free Tour starts in front of the Apple Store in Covent Garden&nbsp;</li><li>See the homes of the Queen and Prince Charles, Buckingham and St James’s Palaces respectively</li><li>Visit the stunning Westminster Abbey, site of royal coronations, weddings and funerals</li><li>Learn about Guy Fawkes and his attempt to blow up the Houses of Parliament</li><li>Look up at the iconic Big Ben</li><li>See Nelson’s Column on Trafalgar Square</li><li>Hear about Winston Churchill outside the Churchill War Rooms</li><li>Stroll down the famous Horse Guards Parade.</li></ul><p>Free tour: Book for free and pay what you want at the end',
+        'No other tour covers so many major London landmarks! Have your cameras at the ready as we walk past Westminster Abbey and the Big Ben, and see where the Queen and Prince Charles live as we stroll past Buckingham and St. James Palaces. On this 3-hour free walking tour you''ll tick off many of London''s must-see sites.Your London Free Tour starts in front of the Apple Store in Covent Garden and finishes by Westminster Abbey. Around every corner is another piece of royal history on this free London walking tour! Your guide will tell you about Winston Churchill as you walk past the Churchill War Rooms, talk about Guy Fawkes as you stroll past the Houses of Parliament, and tell you about Admiral Nelson as you visit the Nelson Column on Trafalgar Square. With other must-see sites like Covent Garden, Horse Guards Parade and of course, the Big Ben, this London gratuity-based free walking tour shows you many major landmarks.',
         51.512229,
         -0.123497,
         'Walking Tour',
@@ -52,6 +54,7 @@ VALUES ('The Original Free Tour of London (Available in English)',
               'https://media.guruwalk.com/02wm3bw5310od03nwlm9t8bjs9s6'],
         'London',
         'United Kingdom');
+
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('History, betrayals and mystery in London (Available in Spanish)',
         'Do you want to move to London without leaving home? Join us on this Virtual Tour to discover an area of London full of history, mystery and anecdotes. We will start at the Roman wall and I will tell you why it was necessary to build it, how the Romans first arrived in London and what they did to occupy the territory. We will discover who was arriving after the most powerful Empire in the world, betrayals, battles, dynasties, etc. You will accompany us to the Tower of London fortress with the most history in the United Kingdom to discover all the uses it has had and what mysteries it houses. To finish I will tell you the anecdotes of one of the most emblematic and spectacular bridges in the world, the famous Tower Bridge. You do not miss the hype! Any questions or queries are welcome so go ahead!',
@@ -70,6 +73,7 @@ VALUES ('History, betrayals and mystery in London (Available in Spanish)',
               'https://media.guruwalk.com/dfzbqtn281mi8fhhjie4bkxmkeif'],
         'London',
         'United Kingdom');
+
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('Scenic Stroll on the Southbank (Available in )',
         'The Southbank is the heart of London''s cultural scene, with opportunities to experience theatre, art, and literature. There are so many beautiful things about the history of this area that you will discover, once you take this tour. Learn more about the history of the Globe theatre, the best upcoming cultural events, and find hidden gems that you likely wouldn''t find by yourself. Intrigued? Then book my tour to find out more!',
@@ -87,6 +91,7 @@ VALUES ('Scenic Stroll on the Southbank (Available in )',
               'https://d1i21eq0w7p1n3.cloudfront.net/6yero2f0ba23qdav4atjjcb380pe'],
         'London',
         'United Kingdom');
+
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('Essential London Free Tour - Westminster (Available in Spanish)',
         'Walking around the most iconic places in central London is something that no visitor can miss, but most people stay above ground and miss out on many of the things that make this part of London so important. If you want to see familiar places like Trafalgar Square, Buckingham Palace, the Houses of Parliament or Westminster Abbey from a different point of view, this is the tour for you. From Covent Garden to Parliament Square via The Mall, St. Jame''s Park and much more, we won''t leave a corner unexplored as we enter the heart of London.',
@@ -105,9 +110,10 @@ VALUES ('Essential London Free Tour - Westminster (Available in Spanish)',
               'https://d1i21eq0w7p1n3.cloudfront.net/iazl4svzv5szujzcbyrcidszznn4'],
         'London',
         'United Kingdom');
+
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('Climbing experience on The O2 Arena in London',
-        'Up at The O2 is a 90-minute experience you won’t forget. Zip up your climb jacket. Pull-on your boots. Hook up your harness. Then make your way up the south face of one of the most striking buildings in London’s skyline. Leading the way will be one of our friendly climb guides. They know all sorts of interesting facts about The O2, from its unique architecture to its famous visitors. So feel free to ask questions as you climb. At the summit, you’ll be standing 52 meters above the legendary arena, with 360-degree views across this historic part of London beside the River Thames. Ready to experience something out of the ordinary?',
+        'Up at The O2 is a 90-minute experience you wont forget. Zip up your climb jacket. Pull-on your boots. Hook up your harness. Then make your way up the south face of one of the most striking buildings in Londons skyline. Leading the way will be one of our friendly climb guides. They know all sorts of interesting facts about The O2, from its unique architecture to its famous visitors. So feel free to ask questions as you climb. At the summit, youll be standing 52 meters above the legendary arena, with 360-degree views across this historic part of London beside the River Thames. Ready to experience something out of the ordinary?',
         51.503038,
         0.003154,
         'Sports/Action',
@@ -128,6 +134,7 @@ VALUES ('Climbing experience on The O2 Arena in London',
               'https://media.manawa.com/cache/activity_gallery_zoom_770x500/media/2022/03/1027b673c8518bba07a80e19332982dd.jpg'],
         'London',
         'United Kingdom');
+
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('Free Hidden London Tour (Available in English)',
         'Discover the best of hidden London on this unique free walking tour! One of the best free things to do in London, this free walking tour of London will introduce you to a side of London you haven’t seen before! Join this free walking tour of London and you’ll find London’s Oldest House, meet a Talking Cat and discover which of the famous London attractions is home to Secret Pineapples! You’ll also find Historic Golden Statues, Literary Pubs and hear one of London’s greatest love stories which still influences a global Wedding Tradition. Plus find out why Dragons are important to the city, which iconic London building Broke All The Rules of advertising and more! With all the best kept secrets of the City of London included, this free walking tour of London will introduce you to a whole new way of London sightseeing!',
@@ -146,9 +153,10 @@ VALUES ('Free Hidden London Tour (Available in English)',
               'https://media.guruwalk.com/9qgjy217ex5zx29b1br8hoogxplj'],
         'London',
         'United Kingdom');
+
 INSERT INTO attractions (name, description, latitude, longitude, category, rating, price, duration, featured, booking_url, pictures, city, country)
 VALUES ('Free Crime & Punishment Tour inc. Jack The Ripper! (Available in English)',
-        'Bring London’s dark history to life on this sinister free walking tour! As the lights go down and darkness falls, this free walking tour will introduce you to the murky world of crime and punishment in London with gruesome true stories including Jack The Ripper where you’ll visit the last remaining site of his famous murders. You’ll discover the truth behind London’s criminal history and visit the Criminal Court that is home to ‘Deadmans Walk’, all whilst finding the historic landmark which lays claim to being the oldest execution site in the city. Along the way, you’ll hear many of London’s most famous criminal stories as you relive the ‘heist of the century’ at the Bank of England, recount the story of the Great Train Murder at Fenchurch Street and discover which historic crime inspired a classic Charles Dickens novel. As you make your way through the dark streets of London, you’ll discover the background of London’s most infamous criminals and their most heinous crimes while getting up close to many of London’s historic (and perhaps haunted) criminal locations including the Tower of London, The Old Bailey, and St Paul’s Cathedral on a walking tour that explores the true London and a past long forgotten.',
+        'Bring the dark history of London to life on this sinister free walking tour! As the lights go down and darkness falls, this free walking tour will introduce you to the murky world of crime and punishment in London with gruesome true stories including Jack The Ripper where you will visit the last remaining site of his famous murders. Discover the truth behind London criminal history and visit the Criminal Court that is home to Deadmans Walk, all whilst finding the historic landmark which lays claim to being the oldest execution site in the city. Along the way, you will hear many of the most famous criminal stories as you relive the heist of the century at the Bank of England, recount the story of the Great Train Murder at Fenchurch Street and discover which historic crime inspired a classic Charles Dickens novel.',
         51.520219,
         -0.097677,
         'Walking Tour',
