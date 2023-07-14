@@ -31,7 +31,7 @@ const NavMenu = () => {
         </li>
         <li>
           {user ? (
-            <Link to={`/packages/${user.id}`}>Packages</Link>
+            <Link to={`/packages`}>Packages</Link>
           ) : (
             <a href="#" onClick={handleLoginAlert}>Packages</a>
           )}
