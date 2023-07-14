@@ -2,16 +2,21 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import UserContext from "../providers/UserContext";
 import { AttractionsContext } from '../providers/AttractionsContext';
-import { red } from '@mui/material/colors';
+import ModalContext from '../providers/ModalContext';
 
 const NavMenu = () => {
   const { user, logoutHandler } = useContext(UserContext);
   const { favAttractionIds } = useContext(AttractionsContext);
+  const { handleOpenLoginModal } = useContext(ModalContext);
 
   const isFav = favAttractionIds.length > 0;
 
   const logout = () => {
     logoutHandler();
+  };
+
+  const handleLoginAlert = () => {
+    handleOpenLoginModal();
   };
 
   return (
@@ -21,14 +26,14 @@ const NavMenu = () => {
           {user ? (
             <Link to={`/favorites/${user.id}`}>Favorites</Link>
           ) : (
-            <a href="#">Favorites</a>
+            <a href="#" onClick={handleLoginAlert}>Favorites</a>
           )}
         </li>
         <li>
           {user ? (
-            <Link to={`/packages`}>Packages</Link>
+            <Link to={`/packages/${user.id}`}>Packages</Link>
           ) : (
-            <a href="#">Packages</a>
+            <a href="#" onClick={handleLoginAlert}>Packages</a>
           )}
         </li>
         <li>
