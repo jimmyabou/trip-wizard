@@ -3,18 +3,18 @@ const router = express.Router();
 const attractions = require('../db/queries/attractions.js');
 
 
-router.get('/filtered', (req, res) => {
-  console.log("req.query", req.query);
-  const { categories, price, rating } = req.query;
-  attractions.getAttractionsWithFilters( categories, price, rating)
-    .then((products) => {
-      res.json({ products });
-    }).catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-});
+// router.get('/filtered', (req, res) => {
+//   console.log("req.query", req.query);
+//   const { categories, price, rating } = req.query;
+//   attractions.getAttractionsWithFilters( categories, price, rating)
+//     .then((products) => {
+//       res.json({ products });
+//     }).catch(err => {
+//       res
+//         .status(500)
+//         .json({ error: err.message });
+//     });
+// });
 
 
 router.get('/', (req, res) => {

@@ -47,6 +47,9 @@ const getAttractionbyId = (attraction_id) => {
 const getAttractionsWithFilters = ( categories, price, rating) => {
 
   //if no city provided then use filter on all cities
+
+  //build query using conditional statements
+  
   console.log("here: ",  categories, price, rating);
 
 
