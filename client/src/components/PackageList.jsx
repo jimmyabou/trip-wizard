@@ -19,9 +19,10 @@ const PackageList = () => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {packages.map((pkg) => (
-        <Card style={{ width: 300, margin: 12 }} key={pkg.package_id}>
+        <Card style={{  margin: 12 }} key={pkg.package_id}>
           <CardMedia
-            style={{ height: 140 }}
+            style={{ height: 140 ,width: '25rem',
+              height: '16rem'}}
             image="https://globalgrasshopper.com/wp-content/uploads/2016/06/Maremma-Tuscany.jpg"
             title="Package image"
           />
