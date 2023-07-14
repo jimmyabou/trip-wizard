@@ -24,10 +24,23 @@ const App = () => {
   const { user } = useContext(UserContext);
   const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity } = useContext(AttractionsContext);
   const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
+
+  function shuffle(arr) {
+    const shuffledArray = [...arr];
+
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[i]];
+    }
+
+    return shuffledArray;
+  }
+
   const getUserGreeting = (email) => {
     const userHandle = email.split('@');
     return userHandle[0];
   };
+
 
 
   return (
@@ -41,13 +54,13 @@ const App = () => {
           <Route path="/" element={
             attractionsLoading === true ? <LoadingSpinner /> :
               attractionsByCityData && attractionsByCityData.attractions.length === 0 ?
-                <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} /> :
-                attractionsByCityData && <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await....`} />
+                <ActivitiesList attractions={shuffle(featuredAttractionsData.attractions)} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} /> :
+                attractionsByCityData && <ActivitiesList attractions={shuffle(attractionsByCityData.attractions)} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await...`} />
           } />
-          <Route path="/register" element={<UserForm/>} />
-          <Route path="/login" element={<LoginForm/>} />
-          <Route path="/packages" element={<CreatePackage/>} />
-          <Route path="/days/:packageId" element={<PackageDays/>} />
+          <Route path="/register" element={<UserForm />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/packages" element={<CreatePackage />} />
+          <Route path="/days/:packageId" element={<PackageDays />} />
           {/* Add more routes here */}
           {user &&
             <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <LoadingSpinner /> : <ActivitiesList attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />} />
