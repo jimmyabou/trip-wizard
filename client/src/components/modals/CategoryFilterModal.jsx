@@ -7,6 +7,7 @@ import CustomizedSlider from './CustomizedSlider';
 const CategoryFilterModal = () => {
 
   const { handleCloseModalCategoryFilter, isOpenCategoryFilter, filterName } = useContext(ModalContext);
+  console.log("isOpenCategoryFilter", isOpenCategoryFilter);
 
   return (
     <div>

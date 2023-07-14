@@ -6,14 +6,14 @@ import ModalContext from '../providers/ModalContext';
 const ActivitiesListFavButton = ({ attraction_id }) => {
   const { handleFavAttraction, favAttractionIds } = useContext(AttractionsContext);
   const { user } = useContext(UserContext);
-  const { handleOpenModal } = useContext(ModalContext);
+  const { handleOpenLoginModal } = useContext(ModalContext);
 
 
   const toggleFavorite = (attraction_id, user) => {
     if (user) {
       handleFavAttraction(attraction_id);
     } else {
-      handleOpenModal();
+      handleOpenLoginModal();
     }
   };
 
