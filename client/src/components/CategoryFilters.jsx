@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import categories from '../mocks/categories.js';
 
@@ -16,6 +16,7 @@ import UserContext from '../providers/UserContext.js';
 const CategoryFilters = (props) => {
   const { shuffle, getUserGreeting } = props;
 
+
   const { user } = useContext(UserContext);
   const { featuredAttractionsData, isLoadingFeatured,
     favAttractionsData, isLoadingFav,
@@ -29,7 +30,6 @@ const CategoryFilters = (props) => {
   const haveFilteredByCategoryData = attractionsFilteredList && attractionsFilteredList.attractions.length > 0;
   const haveAttractionsByCityData = !(attractionsByCityData && attractionsByCityData.attractions.length === 0);
 
-
   const categoriesList = categories.map(
     (category, index) => (<CategoryFilterButton icon={category.icon} name={category.name} key={index} />));
 
@@ -40,7 +40,7 @@ const CategoryFilters = (props) => {
   };
 
   const handleClear = () => {
-    console.log("clear filters");
+    setFilters([])
   };
 
 
