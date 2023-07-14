@@ -31,7 +31,6 @@ const FetchAttractionUsingFilters = () => {
         params[key] = value;
       }
     });
-
     return params;
   };
 

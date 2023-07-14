@@ -44,36 +44,58 @@ const getAttractionbyId = (attraction_id) => {
     });
 };
 
-const getAttractionsWithFilters = ( categories, price, rating) => {
+const getAttractionsWithFilters = (categories, price, rating, city) => {
 
-  //if no city provided then use filter on all cities
+  // Construct the SQL query with filters
+  let sql = `
+    SELECT *
+    FROM attractions
+  `;
 
-  //build query using conditional statements
-  
-  console.log("here: ",  categories, price, rating);
+  // Create an array to store the WHERE conditions
+  const conditions = [];
 
+  // Add category filter using the LIKE statement with wildcard
+  if (categories && categories.length > 0) {
+    const categoryConditions = categories.map(category => `category LIKE '%${category}%'`).join(' OR ');
+    conditions.push(categoryConditions);
+  }
 
-  // const queryString = `
-  // SELECT *
-  // FROM attractions
-  // WHERE category LIKE '%Tasting%'
-  //    OR category LIKE '%Cultural%'
-  //    OR category LIKE '%Walking%'
-  //    OR category LIKE '%Dining%'
-  //    OR category LIKE '%Luxury%'
-  //    OR category LIKE '%Sightsee%'
-  //    AND rating BETWEEN $1 AND $2
-  //    AND price BETWEEN $3 AND $4;
-  //   `;
-  // const values = [ratingMin, ratingMax, priceMin, priceMax];
-  // return db
-  //   .query(queryString, values)
-  //   .then((attractions) => {
-  //     return attractions.rows;
-  //   })
-  //   .catch((err) => {
-  //     console.log(err.message);
-  //   });
+  // Add price filter
+  if (price && price.length === 2) {
+    conditions.push(`price BETWEEN ${price[0]} AND ${price[1]} `);
+    // conditions.push(price[0]);
+    // conditions.push(price[1]);
+  }
+
+  // Add rating filter
+  if (rating && rating.length === 2) {
+    conditions.push(`rating BETWEEN ${rating[0]} AND ${rating[1]}`);
+    // conditions.push(rating[0]);
+    // conditions.push(rating[1]);
+  }
+
+  // Add city filter
+  if (city) {
+    conditions.push(`city = '${city}'`);
+    // conditions.push(city);
+  }
+
+  // Append WHERE clause if any conditions exist
+  if (conditions.length > 0) {
+    sql += `WHERE ${conditions.join(' AND ')}`;
+  }
+
+  sql += ';';
+
+  return db
+    .query(sql)
+    .then((attractions) => {
+      return attractions.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 
 
