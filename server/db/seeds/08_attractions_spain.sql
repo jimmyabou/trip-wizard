@@ -134,7 +134,7 @@ VALUES
     4.6,
     0,
     90,
-    false,
+    true,
     'https://www.viator.com/tours/Granada/Carmen-de-los-Martires-Visit/d554-5550P57',
     '{"https://i0.wp.com/www.rulandomundo.com/wp-content/uploads/carmen-de-los-martires.jpg?fit=1024%2C769&ssl=1"}',
     'Granada',
