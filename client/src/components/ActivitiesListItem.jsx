@@ -33,6 +33,7 @@ const ActivitiesListItem = (props) => {
     <li>
       < div className="activity-list__item" key={attraction.attraction_id}>
         <ActivitiesListFavButton attraction_id={attraction.attraction_id} />
+        <button className='featured'> Featured </button>
         <img className="activity__photo" src={attraction.pictures[0]}
           alt="activity img"
           onError={({ currentTarget }) => {
