@@ -64,21 +64,16 @@ const getAttractionsWithFilters = (categories, price, rating, city) => {
   // Add price filter
   if (price && price.length === 2) {
     conditions.push(`price BETWEEN ${price[0]} AND ${price[1]} `);
-    // conditions.push(price[0]);
-    // conditions.push(price[1]);
   }
 
   // Add rating filter
   if (rating && rating.length === 2) {
     conditions.push(`rating BETWEEN ${rating[0]} AND ${rating[1]}`);
-    // conditions.push(rating[0]);
-    // conditions.push(rating[1]);
   }
 
   // Add city filter
-  if (city) {
+  if (city && city !== 'Location') {
     conditions.push(`city = '${city}'`);
-    // conditions.push(city);
   }
 
   // Append WHERE clause if any conditions exist
@@ -87,6 +82,7 @@ const getAttractionsWithFilters = (categories, price, rating, city) => {
   }
 
   sql += ';';
+  console.log("sql", sql);
 
   return db
     .query(sql)

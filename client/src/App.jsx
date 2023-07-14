@@ -22,7 +22,7 @@ import CreatePackage from './components/CreatePackage';
 const App = () => {
 
   const { user } = useContext(UserContext);
-  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity } = useContext(AttractionsContext);
+  const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity, attractionsFilteredList, isLoadingAttractionsFilteredList  } = useContext(AttractionsContext);
   const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
 
   function shuffle(arr) {

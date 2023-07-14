@@ -3,12 +3,12 @@ const router = express.Router();
 const attractions = require('../db/queries/attractions.js');
 
 
-router.get('/filtered', (req, res) => {
-  console.log("req.query", req.query);
-  const { categories, price, rating, city } = req.query;
+router.get('/filtered/:city', (req, res) => {
+  const city =  req.params.city; 
+  const { categories, price, rating } = req.query;
   attractions.getAttractionsWithFilters( categories, price, rating, city)
-    .then((products) => {
-      res.json({ products });
+    .then((attractions) => {
+      res.json({ attractions });
     }).catch(err => {
       res
         .status(500)
@@ -18,7 +18,6 @@ router.get('/filtered', (req, res) => {
 
 
 router.get('/', (req, res) => {
-  console.log('home');
   attractions.getAllAttractions().then(data => {
     res.json({ attractions: data });
   });

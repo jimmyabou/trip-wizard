@@ -69,6 +69,8 @@ const AttractionsProvider = ({ children }) => {
       city,
       handleFavAttraction,
       favAttractionIds,
+      attractionsFilteredList,
+      isLoadingAttractionsFilteredList,
       filters, 
       setFilters, 
       fetchData

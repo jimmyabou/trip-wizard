@@ -9,27 +9,18 @@ const CategoryFilters = () => {
   const categoriesList = categories.map(
     (category, index) => (<CategoryFilterButton icon={category.icon} name={category.name} key={index} />));
 
-  const { fetchData, city, setFilters } = useContext(AttractionsContext);
+  const { fetchData, city, setFilters} = useContext(AttractionsContext);
 
   const handleFilterSubmit = () => {
     //when user submits filters then add city to the list
-    
-    // remove previous rating filter (if exists)
-    setFilters(prevState => prevState.filter(
-      (item) => {
-        if (typeof item === 'object' && 'City' in item) {
-          console.log("item to exclude: ", item);
-          return false; // Exclude objects with the specified key
-        }
-        return true; // Include strings and other objects
-      }
-    ));
-    //add new City
-    setFilters(prevState => [...prevState, { 'City': city }]);
-
-    fetchData();
+    fetchData(city);
 
   };
+
+  const handleClear = () => {
+    console.log("clear filters");
+  };
+
 
   return (
     <>
@@ -39,11 +30,18 @@ const CategoryFilters = () => {
           {categoriesList}
         </div>
 
-        <button className="nav-category__filter-btn"
-          onClick={handleFilterSubmit}>
-          <i className="fa-solid fa-bars"></i>
-          <h3> Filter</h3>
-        </button>
+        <div>
+          <button className="nav-category__filter-btn"
+            onClick={handleFilterSubmit}>
+            <i className="fa-solid fa-bars"></i>
+            <h3> Filter</h3>
+          </button>
+          <button className="nav-category__filter-btn"
+            onClick={handleClear}>
+            <i class="fa-solid fa-xmark"></i>
+            <h3>Clear</h3>
+          </button>
+        </div>
       </nav>
 
     </>
