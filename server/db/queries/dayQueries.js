@@ -1,8 +1,8 @@
 const db = require('../../configs/db.config');
 
-const createDay = (packageId, date) => {
-  const query = 'INSERT INTO days (package_id, date) VALUES ($1, $2)';
-  const values = [packageId, date];
+const addDay = (packageId, date,title,description) => {
+  const query = 'INSERT INTO days (package_id, date, day_title,day_description) VALUES ($1, $2, $3, $4)';
+  const values = [packageId, date,title,description];
 
   return db.query(query, values)
     .then(result => result.rows[0])
@@ -11,9 +11,19 @@ const createDay = (packageId, date) => {
     });
 };
 
+const getDaysByPackageId = (packageId) => {
+  const query = 'SELECT * FROM days WHERE package_id = $1 ORDER BY date';
+  const values = [packageId];
+
+  return db.query(query, values)
+    .then(result => result.rows)
+    .catch(error => {
+      console.error(error);
+    });
+};
 
 const deleteDay = (dayId) => {
-  const query = 'DELETE FROM days WHERE id = $1';
+  const query = 'DELETE FROM days WHERE day_id = $1';
   const values = [dayId];
 
   return db.query(query, values)
@@ -23,16 +33,16 @@ const deleteDay = (dayId) => {
     });
 };
 
-const deleteAndReassignAttractions = async (dayId, order) => {
+const deleteAndReassignAttractions = async (dayId, attractionsArray) => {
   try {
     // Delete existing attractions for the day
-    await db.query('DELETE FROM attractions WHERE day_id = $1', [dayId]);
+    await db.query('DELETE FROM day_attractions WHERE day_id = $1', [dayId]);
 
     // Reassign attractions based on the order array index
-    for (let i = 0; i < order.length; i++) {
-      const attractionId = order[i];
-      const query = 'INSERT INTO attractions (day_id, attraction_id, order) VALUES ($1, $2, $3)';
-      const values = [dayId, attractionId, i + 1];
+    for (let i = 0; i < attractionsArray; i++) {
+      const attractionId = attractionsArray[i];
+      const query = 'INSERT INTO day_attractions (day_id, attraction_id) VALUES ($1, $2)';
+      const values = [dayId, attractionId];
       await db.query(query, values);
     }
 
@@ -44,9 +54,8 @@ const deleteAndReassignAttractions = async (dayId, order) => {
 
 
 module.exports = {
-  createDay,
+  addDay,
   deleteDay,
   deleteAndReassignAttractions,
-  deleteAttraction,
-  addAttraction,
+  getDaysByPackageId
 };

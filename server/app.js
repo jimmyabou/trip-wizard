@@ -9,6 +9,13 @@ const createUserRouter = require('./routes/createUser');
 const loginUser = require('./routes/loginUser');
 const attractionsRouter = require('./routes/attractions');
 const favoritesRouter = require('./routes/userFavourites');
+const createPackageRouter = require('./routes/createPackage');
+const getPackagesRouter = require('./routes/getPackages');
+const deletePackageRouter = require('./routes/deletePackage');
+const addDayRouter = require('./routes/addDay');
+const getDaysRouter = require('./routes/getDays');
+const deleteDayRouter = require('./routes/deleteDay');
+
 
 const app = express();
 
@@ -24,10 +31,13 @@ app.use('/createUser', createUserRouter);
 app.use('/login', loginUser);
 app.use('/attractions', attractionsRouter);
 app.use('/attractions/featured', attractionsRouter);
-app.use('/attractions/cities', attractionsRouter);
 app.use('/favorites', favoritesRouter);
-
-
+app.use('/createPackage', createPackageRouter);
+app.use('/getPackages', getPackagesRouter);
+app.use('/deletePackage', deletePackageRouter);
+app.use('/addDay', addDayRouter);
+app.use('/getDays', getDaysRouter);
+app.use('/deleteDay', deleteDayRouter);
 
 
 

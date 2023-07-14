@@ -12,9 +12,11 @@ export const loginUser = async (credentials) => {
 
     if (response.data === 'Invalid username or password') {
       alert(response.data);
+      return;
     }
-    else if (response.data === 'User does not exist') {
+    else if (response.data === 'user does not exist') {
       alert(response.data);
+      return;
     }
     console.log(user);
     return user;
