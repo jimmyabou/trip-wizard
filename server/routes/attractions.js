@@ -2,8 +2,21 @@ const express = require('express');
 const router = express.Router();
 const attractions = require('../db/queries/attractions.js');
 
+router.get('/filtered', (req, res) => {
+  console.log("here");
+  console.log("req.query", req.query);
+  // attractions.getAttractionsWithFilters()
+  //   .then((products) => {
+  //     res.json({ products });
+  //   }).catch(err => {
+  //     res
+  //       .status(500)
+  //       .json({ error: err.message });
+  //   });
+});
 
 router.get('/', (req, res) => {
+  console.log('home');
   attractions.getAllAttractions().then(data => {
     res.json({ attractions: data });
   });
@@ -34,6 +47,9 @@ router.get('/:city', (req, res) => {
     });
 });
 
+
+
+
 router.get('/attraction/:attraction_id', (req, res) => {
   const { attraction_id } = req.params;
   console.log("reached server");
@@ -44,5 +60,7 @@ router.get('/attraction/:attraction_id', (req, res) => {
       res.status(500).json({ error: `Failed to fetch attractions for attraction id ${attraction_id}` });
     });
 });
+
+
 
 module.exports = router;

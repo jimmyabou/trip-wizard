@@ -31,6 +31,7 @@ app.use('/createUser', createUserRouter);
 app.use('/login', loginUser);
 app.use('/attractions', attractionsRouter);
 app.use('/attractions/featured', attractionsRouter);
+app.use('/attractions/filtered', attractionsRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/createPackage', createPackageRouter);
 app.use('/getPackages', getPackagesRouter);

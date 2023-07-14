@@ -45,7 +45,8 @@ export const ModalProvider = ({ children }) => {
       handleOpenModalCategoryFilter,
       handleCloseModalCategoryFilter,
       filterName,
-      setFilterName
+      setFilterName,
+
     }}>{children}
     </ModalContext.Provider>
 

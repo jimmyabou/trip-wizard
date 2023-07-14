@@ -14,17 +14,7 @@ const CategoryFilterButton = (props) => {
 
   const handleFilter = (name) => {
 
-    // remove previous rating filter (if exists)
-    setFilters(prevState => prevState.filter(
-      (item) => {
-        if (typeof item === 'object' && 'City' in item) {
-          return false; // Exclude objects with the specified key
-        }
-        return true; // Include strings and other objects
-      }
-    ));
-    //add new City
-    setFilters(prevState => [...prevState, { 'City': city }]);
+
 
     setActive(!active);
     //ratings and budget have modals pop up

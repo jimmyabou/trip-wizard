@@ -44,11 +44,43 @@ const getAttractionbyId = (attraction_id) => {
     });
 };
 
+const getAttractionsWithFilters = (ratingMin = 0, ratingMax = 5, priceMin = 0, priceMax = 5000) => {
+
+  //if no city provided then use filter on all cities
+
+
+  const queryString = `
+  SELECT *
+  FROM attractions
+  WHERE category LIKE '%Tasting%'
+     OR category LIKE '%Cultural%'
+     OR category LIKE '%Walking%'
+     OR category LIKE '%Dining%'
+     OR category LIKE '%Luxury%'
+     OR category LIKE '%Sightsee%'
+     AND rating BETWEEN $1 AND $2
+     AND price BETWEEN $3 AND $4;
+    `;
+  const values = [ratingMin, ratingMax, priceMin, priceMax];
+  return db
+    .query(queryString, values)
+    .then((attractions) => {
+      return attractions.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+
+
+
 module.exports = {
   getAllAttractions,
   getFeaturedAttractions,
   getAttractionsByCity,
   getAttractionsByCategory,
   getAllAttractionsCities,
-  getAttractionbyId
+  getAttractionbyId,
+  getAttractionsWithFilters
 };

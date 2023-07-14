@@ -6,6 +6,7 @@ const UseModalCategoryFilter = () => {
   const [filterName, setFilterName] = useState(false);
 
 
+
   const handleOpenModalCategoryFilter = () => {
     setIsOpenCategoryFilter(true);
   };
@@ -19,7 +20,7 @@ const UseModalCategoryFilter = () => {
     handleOpenModalCategoryFilter,
     handleCloseModalCategoryFilter, 
     filterName, 
-    setFilterName
+    setFilterName,
   };
 };
 

@@ -4,22 +4,44 @@ import axios from 'axios';
 const FetchAttractionUsingFilters = () => {
 
 
-  const [filters, setFilters] = useState([]); //filters to use
-  console.log("filters: ", filters);
+  const [filters, setFilters] = useState([]); //filters to use. 
 
-  //let params = { foo: [5, 2] } axios.get('path/to/api/',{params})
 
+ 
   const [attractionsFilteredList, setAttractionsFilteredList] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
 
+  const transformFiltersToParams = (filters) => {
+
+    const params = {
+      categories: [],
+    };
+
+    filters.forEach((item) => {
+      if (typeof item === 'string') {
+        params.categories.push(item);
+      } else if (typeof item === 'object') {
+        let [key, value] = Object.entries(item)[0];
+        key = key.toLocaleLowerCase();
+        if (key === 'budget') {
+          key = 'price';
+        }
+        params[key] = value;
+      }
+    });
+
+    return params;
+  };
+
+
   const fetchData = async () => {
     try {
-      const response = await axios.get('/attractions/cities');
-      setAttractionsFilteredList(response.data.attractions.map(
-        attractionCity => ({ label: attractionCity.city })
-      ));
+      const response = await axios.get('/attractions/filtered', {
+        params: transformFiltersToParams(filters)
+      });
+      setAttractionsFilteredList(response.data.attractions);
       console.log("response", response.data);
       setIsLoading(false);
     } catch (error) {
@@ -27,7 +49,6 @@ const FetchAttractionUsingFilters = () => {
       setIsLoading(false);
     }
   };
-
 
 
   return {
