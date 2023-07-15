@@ -72,7 +72,7 @@ const PackageDays = () => {
       .sort((a, b) => a.date.localeCompare(b.date))
       .map((day, index) => (
         <Card
-          key={day.day_id}
+          key={day.day_id}  //key pro unique key
           style={{
             marginBottom: '10px',
             padding: '10px',

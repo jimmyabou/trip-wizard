@@ -7,7 +7,7 @@ router.post('/:dayId', async (req, res) => {
     const { dayId } = req.params;
     const { attractions } = req.body;
     await attractionQueries.insertAttractionsByDay(dayId, attractions);
-    res.json('success');
+    res.json({dayId});
   } catch (error) {
     console.error(error);
   }

@@ -19,7 +19,7 @@ const PackageList = () => {
   }, [newPackageAdded]);
 
   const planTripHandler = (packageId) => {
-    navigate(`/days/${packageId}`);
+    navigate(`/packages/${packageId}/days`);
   };
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>

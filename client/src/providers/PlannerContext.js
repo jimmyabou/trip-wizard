@@ -20,6 +20,7 @@ export const PlannerProvider = ({ children }) => {
   const [activeDayId, setActiveDayId] = useState(null);
   const [expanded, setExpanded] = useState(false);
   const [packageId, setPackageId] = useState(null);
+  const [updateDayAttractions, setUpdateDayAttractions] = useState(null);
 
   
     const fetchDays = async (packageId) => {
@@ -97,9 +98,12 @@ export const PlannerProvider = ({ children }) => {
     handleCloseModal();
 
     try {
-      await axios.post(`/insertAttractionsByDay/${activeDayId}`, { attractions: selectedAttractions });
+      const response=await axios.post(`/insertAttractionsByDay/${activeDayId}`, { attractions: selectedAttractions });
       setSelectedAttractions([]);
-      console.log('successfully updated attraction list for this day');
+      setUpdateDayAttractions(response.data.dayId);//grabs the day id after inserting attractions in DB
+      console.log('successfully updated attraction list for this day',response.data.dayId);
+      
+      // console.log(updateDayAttractions);
     } catch (error) {
       console.error(error);
     }
@@ -166,6 +170,8 @@ export const PlannerProvider = ({ children }) => {
         getAttractions,
         packageId,
         setPackageId,
+        updateDayAttractions,
+        setUpdateDayAttractions,
       }}
     >
       {children}

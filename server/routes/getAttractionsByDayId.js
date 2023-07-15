@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const attractionQueries = require('../db/queries/dayQueries.js');
 
-router.get('/getAttractions/:dayId', async (req, res) => {
+router.get('/:dayId', async (req, res) => {
   try {
     const { dayId } = req.params;
     const attractions = await attractionQueries.getAttractionsByDayId(dayId);
