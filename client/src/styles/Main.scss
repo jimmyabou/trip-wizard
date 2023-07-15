@@ -67,6 +67,11 @@ body {
     cursor: pointer;
   }
 
+  button:active {
+    vertical-align: top;
+    padding: 8px 13px 6px;
+  }
+
   li {
     list-style: none;
   }

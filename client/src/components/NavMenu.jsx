@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UserContext from "../providers/UserContext";
 import { AttractionsContext } from '../providers/AttractionsContext';
-import { red } from '@mui/material/colors';
+import ModalContext from '../providers/ModalContext';
 
 const NavMenu = () => {
   const { user, logoutHandler } = useContext(UserContext);
   const { favAttractionIds } = useContext(AttractionsContext);
+  const { handleOpenLoginModal } = useContext(ModalContext);
   const navigate = useNavigate();
 
   const isFav = favAttractionIds.length > 0;
@@ -16,6 +17,10 @@ const NavMenu = () => {
     logoutHandler();
   };
 
+  const handleLoginAlert = () => {
+    handleOpenLoginModal();
+  };
+
   return (
     <div className="nav-menu">
       <ul>
@@ -23,7 +28,14 @@ const NavMenu = () => {
           {user ? (
             <Link to={`/favorites/${user.id}`}>Favorites</Link>
           ) : (
-            <a href="#">Favorites</a>
+            <a href="#" onClick={handleLoginAlert}>Favorites</a>
+          )}
+        </li>
+        <li>
+          {user ? (
+            <Link to={`/packages`}>Packages</Link>
+          ) : (
+            <a href="#" onClick={handleLoginAlert}>Packages</a>
           )}
         </li>
         <li>

@@ -1,12 +1,16 @@
 import React, { createContext, useState } from 'react';
+import UseModalCategoryFilter from '../hooks/modals/UseModalCategoryFilter';
+import useModalLoginAlert from '../hooks/modals/useModalLoginAlert';
 const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
 
+  
   const [isOpen, setIsOpen] = useState(false);
   const [isDescOpen, setIsDescOpen] = useState(false);
   const [selectedAttractionId, setSelectedAttractionId] = useState(null);
-
+  const { isOpenCategoryFilter, handleOpenModalCategoryFilter, handleCloseModalCategoryFilter, filterName, setFilterName } = UseModalCategoryFilter();
+  
   const handleOpenLoginModal = () => {
     setIsOpen(true);
   };
@@ -28,12 +32,28 @@ export const ModalProvider = ({ children }) => {
     setSelectedAttractionId(null);
   };
 
-
   return (
-    <ModalContext.Provider value={{ isOpen, isDescOpen, handleOpenLoginModal, handleCloseLoginModal, handleOpenDescModal, handleCloseDescModal, selectedAttractionId }}>
-      {children}
+    <ModalContext.Provider value={{
+      isOpen,
+      isDescOpen,
+      handleOpenLoginModal,
+      handleCloseLoginModal,
+      handleOpenDescModal,
+      handleCloseDescModal,
+      selectedAttractionId,
+      isOpenCategoryFilter,
+      handleOpenModalCategoryFilter,
+      handleCloseModalCategoryFilter,
+      filterName,
+      setFilterName,
+
+    }}>{children}
     </ModalContext.Provider>
+
   );
+
 };
+
+
 
 export default ModalContext;
