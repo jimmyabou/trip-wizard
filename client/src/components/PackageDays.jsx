@@ -426,5 +426,3 @@ const [expanded, setExpanded] = useState(false);
 };
 
 export default PackageDays;
-
-
