@@ -8,7 +8,7 @@ import { UserProvider } from './providers/UserContext';
 import AttractionsProvider from './providers/AttractionsContext';
 import { ModalProvider } from './providers/ModalContext';
 import Modal from 'react-modal';
-
+import { PlannerProvider } from './providers/PlannerContext';
 Modal.setAppElement('#root');
 
 
@@ -16,11 +16,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider>
+          <PlannerProvider>
       <ModalProvider>
         <AttractionsProvider>
           <App />
         </AttractionsProvider>
       </ModalProvider>
+          </PlannerProvider>
     </UserProvider>
   </React.StrictMode>,
 );

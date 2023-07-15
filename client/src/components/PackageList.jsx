@@ -3,8 +3,13 @@ import UserContext from '../providers/UserContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Card, CardContent, Typography, Button, CardMedia, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+// import { PlannerContext } from '../providers/PlannerContext';
 
 const PackageList = () => {
+//   const {
+//     packageId,
+//   } = useContext(PlannerContext);
+  
   const navigate = useNavigate();
   const { user, fetchPackages, packages, newPackageAdded, onPackageClick, deletePackage } = useContext(UserContext);
   const userId = user.id;
