@@ -46,6 +46,15 @@ const PackageDayDetails = ({ dayNumber, day }) => {
  
   }
 
+  const deleteAttractionFromDay = async (dayId, attractionId ) => {
+    try {
+      await axios.delete('/deleteAttractionFromDay', { data: { dayId, attractionId } });
+      setUpdateDayAttractions('trigger delete')
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <>
@@ -65,7 +74,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", marginLeft: '20px', marginTop: '20px'}}>
+          <div style={{ display: "flex", flexDirection: "column", marginLeft: '20px', marginTop: '20px', flexWrap: "wrap", maxWidth: "10%", overflow: "auto"}}>
             <Typography variant="h5">
               Day {dayNumber}{" "}
               <div >
@@ -78,25 +87,28 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             <Typography>{day.day_description}</Typography>
           </div>
           
-          <div style={{display: "flex"}}>   {attractions.map((attraction) => (
-            
-            <img
-            key={attraction.attraction_id}
-            src={attraction.pictures[0]}
-            alt={attraction.name}
-            style={{
-              width: "4rem",
-              height: "4rem",
-              borderRadius: "50%",
-              marginRight: "10px",
-              position: "relative",
-              marginBottom: "-30px", // Adjust the value as per your preference
-              zIndex: 1, // Ensure the images stay above the text content
-            }}
-                  />
-             
-            ))}</div>
-          
+          {/* <div style={{ display: "flex", flexDirection: "column", width: "70%"}}> */}
+          <div style={{ display: "flex",maxWidth: "70%", flexWrap: "wrap"}}>
+  {attractions.map((attraction, index) => (
+    
+      
+      <img
+      key={attraction.attraction_id}
+        src={attraction.pictures[0]}
+        alt={attraction.name}
+        style={{
+          width: "4rem",
+          height: "4rem",
+          borderRadius: "50%",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.7)",
+          margin: '4px',
+          border: "1px solid rgba(255, 255, 255, 0.1)",//u started
+        }}
+      />
+    
+  ))}
+</div>
+          {/* </div> */}
           
           
           <div style={{ display: "flex", alignItems: "center" }}>
@@ -176,7 +188,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                     style={{
                       width: "5rem",
                       height: "5rem",
-                      borderRadius: "50%",
+                      borderRadius: "5%",
                       marginRight: "10px",
                     }}
                   />
@@ -195,8 +207,19 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                   }}>
                     <Typography variant="h5">{attraction.name}</Typography>
                   <Typography>{attraction.description}</Typography></div>
+                <div>
+                <DeleteIcon
+              style={{
+                color: "grey",
+                cursor: "pointer",
+                marginLeft: "10px",
+                fontSize: "30px",
+              }}
+              onClick={()=>deleteAttractionFromDay(day.day_id, attraction.attraction_id )}
+            /></div>
                 </div>
               </Card>
+              
             ))}
         </div>
       </Card>

@@ -17,6 +17,7 @@ const getDaysRouter = require('./routes/getDays');
 const deleteDayRouter = require('./routes/deleteDay');
 const getAttractionsByDayId = require('./routes/getAttractionsByDayId');
 const insertAttractionsByDayId = require('./routes/insertAttractionsByDay');
+const deleteAttractionFromDayRoute = require('./routes/deleteAttractionFromDay');
 
 
 const app = express();
@@ -43,6 +44,7 @@ app.use('/getDays', getDaysRouter);
 app.use('/deleteDay', deleteDayRouter);
 app.use('/getAttractionsByDay', getAttractionsByDayId);
 app.use('/insertAttractionsByDay', insertAttractionsByDayId);
+app.use('/deleteAttractionFromDay', deleteAttractionFromDayRoute);
 
 
 

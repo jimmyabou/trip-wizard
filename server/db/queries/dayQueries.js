@@ -74,7 +74,7 @@ const getAttractionsByDayId = (dayId) => {
 };
 const insertAttractionsByDay = async (dayId, attractionIds) => {
   const query = `INSERT INTO day_attractions (day_id, attraction_id)
-                 VALUES ($1, $2)`;
+                 VALUES ($1, $2) ON CONFLICT DO NOTHING`;
 
   for (let i = 0; i < attractionIds.length; i++) {
     const attractionId = attractionIds[i];
@@ -88,11 +88,25 @@ const insertAttractionsByDay = async (dayId, attractionIds) => {
 };
 
 
+const deleteAttractionFromDay = async (dayId, attractionId) => {
+  const query = `DELETE FROM day_attractions
+                 WHERE day_id = $1 AND attraction_id = $2`;
+  try {
+    await db.query(query, [dayId, attractionId]);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+
 module.exports = {
   addDay,
   deleteDay,
   // deleteAndReassignAttractions,
   getDaysByPackageId,
   getAttractionsByDayId,
-  insertAttractionsByDay
+  insertAttractionsByDay,
+  deleteAttractionFromDay
 };
