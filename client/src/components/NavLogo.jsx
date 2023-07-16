@@ -7,12 +7,16 @@ import { AttractionsContext } from '../providers/AttractionsContext';
 const NavLogo = () => {
 
   const navigate = useNavigate();
-  const { setFilters } = useContext(AttractionsContext);
+  const { setFilters, setAttractionsFilteredList, setAttractionsByCity, setCity } = useContext(AttractionsContext);
 
 
   const handleLogoClick = () => {
     navigate('/');
     setFilters([]);
+    setAttractionsFilteredList(null);
+    setAttractionsByCity(null);
+    setCity("Location");
+
 
   };
 

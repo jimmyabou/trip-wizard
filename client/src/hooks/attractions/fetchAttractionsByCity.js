@@ -26,6 +26,7 @@ const FetchAttractionByCity = () => {
 
   return {
     attractionsByCityData,
+    setAttractionsByCity,
     isLoading,
     error, 
     setCity,

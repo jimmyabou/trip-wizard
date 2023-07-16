@@ -21,7 +21,7 @@ const CategoryFilters = (props) => {
   const { featuredAttractionsData, isLoadingFeatured,
     favAttractionsData, isLoadingFav,
     attractionsByCityData, isLoadingattractionsByCity,
-    attractionsFilteredList, isLoadingAttractionsFilteredList,
+    attractionsFilteredList, setAttractionsFilteredList, isLoadingAttractionsFilteredList,
     fetchData, city, setFilters
   } = useContext(AttractionsContext);
 
@@ -41,6 +41,7 @@ const CategoryFilters = (props) => {
 
   const handleClear = () => {
     setFilters([]);
+    setAttractionsFilteredList(null);
   };
 
 
