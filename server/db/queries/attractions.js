@@ -58,7 +58,7 @@ const getAttractionsWithFilters = (categories, price, rating, city) => {
   // Add category filter using the LIKE statement with wildcard
   if (categories && categories.length > 0) {
     const categoryConditions = categories.map(category => `category LIKE '%${category}%'`).join(' OR ');
-    conditions.push(categoryConditions);
+    conditions.push('('+ categoryConditions + ')');
   }
 
   // Add price filter
