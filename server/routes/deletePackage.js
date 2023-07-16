@@ -6,7 +6,7 @@ router.delete('/:packageId', (req, res) => {
   const { packageId } = req.params;
   packageQueries.deletePackage(packageId)
     .then(() => {
-      res.send('package deleted');
+      res.send(`package deleted ${packageId}`);
     })
     .catch(error => {
       console.error(error);

@@ -75,7 +75,7 @@ const PackageDetails = () => {
     <>
       <form
         onSubmit={() => handleAddDay(packageId)}
-        style={{ marginTop: "30px" }}
+        style={{ marginTop: "30px", display: "flex", justifyContent: "center" }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
           <TextField
@@ -125,12 +125,13 @@ const PackageDetails = () => {
             type="submit"
             variant="contained"
             color="primary"
-            style={{
-              marginLeft: "20px",
-              background: "#51D4BF",
-              borderRadius: 20,
-              height: "50px",
-            }}
+            // style={{
+            //   marginLeft: "20px",
+            //   background: "#51D4BF",
+            //   borderRadius: 20,
+            //   height: "50px",
+            // }}
+            style={{ marginLeft: "20px",padding: '6px 16px', minWidth: 150, maxHeight:50,background: "#51D4BF", fontFamily: "DM Sans",letterSpacing: '0.02rem', borderRadius: '10px',fontSize: '1.3rem' }}
           >
             Add
           </Button>

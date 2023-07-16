@@ -23,13 +23,19 @@ const PackageDayDetails = ({ dayNumber, day }) => {
   } = useContext(PlannerContext);
   const [isExpanded, setIsExpanded] = useState(false);
   const [attractions, setAttractions] = useState([]);
-  const [updateAttractions, setUpdateAttractions] = useState(false);
+  const [totalDuration, setTotalDuration] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  // const [updateAttractions, setUpdateAttractions] = useState(false);
 
   useEffect(() => {
   const getAttractionsByDay = async (dayId) => {
     try {
       let response = await axios.get(`/getAttractionsByDay/${dayId}`);
       setAttractions(response.data.attractions);
+      console.log(response.data.attractions)
+      setTotalDuration(response.data.attractions.total_duration/60);
+      setTotalPrice(response.data.attractions.total_price);
     } catch (error) {
       console.error(error);
     }
@@ -64,7 +70,8 @@ const PackageDayDetails = ({ dayNumber, day }) => {
           padding: "10px",
           display: "flex",
           flexDirection: "column",
-          backgroundColor: '#fafafa'
+          backgroundColor: '#fafafa',
+          borderRadius: '10px'
         }}
       >
         <div
@@ -75,20 +82,22 @@ const PackageDayDetails = ({ dayNumber, day }) => {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", marginLeft: '20px', marginTop: '20px', flexWrap: "wrap", maxWidth: "10%", overflow: "auto"}}>
-            <Typography variant="h5">
+            <Typography variant="h5" style={{fontFamily: "DM Sans",letterSpacing: '0.02rem',fontStyle: 'italic', fontWeight: 'bold'}}>
               Day {dayNumber}{" "}
               <div >
-              <Typography variant="h6" component="span">
+              <Typography  component="span" style={{fontFamily: "DM Sans"}}>
               <TodayIcon style={{ fontSize: "25px", color: "#9e9e9e", verticalAlign: 'middle'}} />  {day.date.substring(0, 10)} 
               </Typography>
               </div>
             </Typography>
-            <Typography variant="h6"> {day.day_title}</Typography>
-            <Typography>{day.day_description}</Typography>
+            <Typography variant="h6" style={{fontFamily: "DM Sans",letterSpacing: '0.02rem'}}> {day.day_title}</Typography>
+            <Typography style={{fontFamily: "DM Sans",letterSpacing: '0.02rem'}}>{day.day_description}</Typography>
+            {/* <Typography>Total hours:___hrs</Typography>
+            <Typography>Total Price:$ ___</Typography> */}
           </div>
           
           {/* <div style={{ display: "flex", flexDirection: "column", width: "70%"}}> */}
-          <div style={{ display: "flex",maxWidth: "70%", flexWrap: "wrap"}}>
+          <div style={{ display: "flex",maxWidth: "75%", flexWrap: "wrap"}}>
   {attractions.map((attraction, index) => (
     
       
@@ -120,6 +129,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                 backgroundColor: "#51D4BF",
                 width: "56px",
                 height: "56px",
+                marginRight: '20px'
               }}
             >
               <AddIcon style={{ fontSize: "32px" }} />
@@ -130,6 +140,8 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                 cursor: "pointer",
                 marginLeft: "10px",
                 fontSize: "40px",
+                marginRight: '20px'
+          
               }}
               onClick={() => handleDeleteDay(day.day_id)}
             />
@@ -172,7 +184,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             .map((attraction) => (
               <Card
                 key={attraction.attraction_id}
-                style={{ width: "70%", marginBottom: "10px" }}
+                style={{ width: "70%", marginBottom: "10px", borderRadius: '10px' }}
               >
                 <div
                   style={{
@@ -198,16 +210,16 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                 marginLeft: '20px'
                   }}>
                     <div style={{ width: '-moz-max-content', width: 'max-content' }}>
-                      <Typography variant="h5"><i className="fa-regular fa-hourglass-half" style={{color: "grey"}}></i> {attraction.duration / 60}h</Typography></div>
+                      <Typography variant="h5"><i className="fa-regular fa-hourglass-half" style={{color: "rgb(81, 212, 191)"}}></i> {attraction.duration / 60}h</Typography></div>
                     <div style={{ width: '-moz-max-content', width: 'max-content' }}>
-                      <Typography variant="h5"><i className="fa-solid fa-dollar-sign" style={{color: "grey"}}></i> {attraction.price}</Typography></div>
+                      <Typography variant="h5"><i className="fa-solid fa-dollar-sign" style={{color: "rgb(81, 212, 191)"}}></i> {attraction.price}</Typography></div>
                   </div>
                   <div style={{
                     marginLeft: "20px",
                   }}>
-                    <Typography variant="h5">{attraction.name}</Typography>
-                  <Typography>{attraction.description}</Typography></div>
-                <div>
+                    <Typography variant="h5" style={{fontFamily: "DM Sans",letterSpacing: '0.02rem', fontStyle: 'italic'}}>{attraction.name}</Typography>
+                  <Typography style={{fontFamily: "DM Sans",letterSpacing: '0.02rem'}}>{attraction.description}</Typography></div>
+                <div style={{ marginLeft: "auto" }}>
                 <DeleteIcon
               style={{
                 color: "grey",

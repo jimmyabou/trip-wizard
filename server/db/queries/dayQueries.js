@@ -58,10 +58,22 @@ const deleteDay = (dayId) => {
 // };
 
 const getAttractionsByDayId = (dayId) => {
-  const query = `SELECT attractions.*
-                FROM attractions
-                JOIN day_attractions ON attractions.attraction_id = day_attractions.attraction_id
-                WHERE day_attractions.day_id = $1`;
+  // const query = `SELECT attractions.*
+  //               FROM attractions
+  //               JOIN day_attractions ON attractions.attraction_id = day_attractions.attraction_id
+  //               WHERE day_attractions.day_id = $1`;
+    const query = `
+    SELECT a.*, d.total_duration
+    FROM attractions a
+    JOIN (
+      SELECT da.attraction_id, SUM(attractions.duration) AS total_duration
+      FROM day_attractions da
+      JOIN attractions ON da.attraction_id = attractions.attraction_id
+      WHERE da.day_id = $1
+      GROUP BY da.attraction_id
+    ) d ON a.attraction_id = d.attraction_id;
+    
+  `;
   const values = [dayId];
 
   return db

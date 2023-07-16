@@ -63,7 +63,8 @@ export const UserProvider = ({ children }) => {
   //delete a packge from package list
   const deletePackage = async (packageId) => {
     try {
-      await axios.delete(`/deletePackage/${packageId}`);
+      const res=await axios.delete(`/deletePackage/${packageId}`);
+      console.log(res.data)
       setPackages((prevPackages) =>
         prevPackages.filter((pkg) => pkg.package_id !== packageId)
       );

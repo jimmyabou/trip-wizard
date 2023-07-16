@@ -70,7 +70,7 @@ CREATE TABLE line_items (
 
 CREATE TABLE days (
   day_id SERIAL PRIMARY KEY,
-  package_id integer REFERENCES packages (package_id) NOT NULL,
+  package_id integer REFERENCES packages (package_id) ON DELETE CASCADE NOT NULL ,
   date date NOT NULL,
   day_title varchar NOT NULL,
   day_description varchar NOT NULL
