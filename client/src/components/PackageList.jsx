@@ -28,7 +28,7 @@ const PackageList = () => {
           <CardMedia
             style={{ height: 140 ,width: '25rem',
               height: '16rem'}}
-            image="https://globalgrasshopper.com/wp-content/uploads/2016/06/Maremma-Tuscany.jpg"
+            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk5wzKT4mSUaBE94iW5_5bNTGdF0LZ1-qsAw&usqp=CAU"
             title="Package image"
           />
           <CardContent>

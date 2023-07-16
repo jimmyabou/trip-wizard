@@ -23,11 +23,8 @@ const PackageDayDetails = ({ dayNumber, day }) => {
   } = useContext(PlannerContext);
   const [isExpanded, setIsExpanded] = useState(false);
   const [attractions, setAttractions] = useState([]);
+  const [updateAttractions, setUpdateAttractions] = useState(false);
 
-  // useEffect(() => {
-  //   getAttractionsByDay(updateDayAttractions);
-  //   setUpdateDayAttractions(null)
-  // }, [updateDayAttractions]);
   useEffect(() => {
   const getAttractionsByDay = async (dayId) => {
     try {
@@ -37,15 +34,18 @@ const PackageDayDetails = ({ dayNumber, day }) => {
       console.error(error);
     }
   };
+  
   getAttractionsByDay(day.day_id);
+  setUpdateDayAttractions(null)
+
 }, [updateDayAttractions]);
  
 
   async function handleExpand() {
     setIsExpanded(!isExpanded);
-    setUpdateDayAttractions(day.day_id)
-    
+ 
   }
+
 
   return (
     <>
@@ -77,6 +77,28 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             <Typography variant="h6"> {day.day_title}</Typography>
             <Typography>{day.day_description}</Typography>
           </div>
+          
+          <div style={{display: "flex"}}>   {attractions.map((attraction) => (
+            
+            <img
+            key={attraction.attraction_id}
+            src={attraction.pictures[0]}
+            alt={attraction.name}
+            style={{
+              width: "4rem",
+              height: "4rem",
+              borderRadius: "50%",
+              marginRight: "10px",
+              position: "relative",
+              marginBottom: "-30px", // Adjust the value as per your preference
+              zIndex: 1, // Ensure the images stay above the text content
+            }}
+                  />
+             
+            ))}</div>
+          
+          
+          
           <div style={{ display: "flex", alignItems: "center" }}>
             <Fab
               color="primary"
@@ -109,7 +131,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             alignItems: "center",
           }}
         >
-          {attractions && (
+          {attractions.length>0 && (
             <div
               style={{
                 display: "flex",
