@@ -55,6 +55,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
           padding: "10px",
           display: "flex",
           flexDirection: "column",
+          backgroundColor: '#fafafa'
         }}
       >
         <div
@@ -64,12 +65,14 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", flexDirection: "column", marginLeft: '20px', marginTop: '20px'}}>
             <Typography variant="h5">
               Day {dayNumber}{" "}
+              <div >
               <Typography variant="h6" component="span">
-                {day.date.substring(0, 10)} <TodayIcon />
+              <TodayIcon style={{ fontSize: "25px", color: "#9e9e9e", verticalAlign: 'middle'}} />  {day.date.substring(0, 10)} 
               </Typography>
+              </div>
             </Typography>
             <Typography variant="h6"> {day.day_title}</Typography>
             <Typography>{day.day_description}</Typography>
@@ -135,7 +138,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             .map((attraction) => (
               <Card
                 key={attraction.attraction_id}
-                style={{ width: "60%", marginBottom: "10px" }}
+                style={{ width: "70%", marginBottom: "10px" }}
               >
                 <div
                   style={{
@@ -149,17 +152,27 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                     src={attraction.pictures[0]}
                     alt={attraction.name}
                     style={{
-                      width: "10vh",
-                      height: "10vh",
+                      width: "5rem",
+                      height: "5rem",
                       borderRadius: "50%",
                       marginRight: "10px",
                     }}
                   />
-                  <div>
-                    <Typography variant="h6">{attraction.name}</Typography>
-                    <Typography>${attraction.price}</Typography>
-                    <Typography>{attraction.duration / 60} hours</Typography>
+                  <div  style={{
+                    display: "flex",
+                flexDirection: "column",
+                marginLeft: '20px'
+                  }}>
+                    <div style={{ width: '-moz-max-content', width: 'max-content' }}>
+                      <Typography variant="h5"><i className="fa-regular fa-hourglass-half" style={{color: "grey"}}></i> {attraction.duration / 60}h</Typography></div>
+                    <div style={{ width: '-moz-max-content', width: 'max-content' }}>
+                      <Typography variant="h5"><i className="fa-solid fa-dollar-sign" style={{color: "grey"}}></i> {attraction.price}</Typography></div>
                   </div>
+                  <div style={{
+                    marginLeft: "20px",
+                  }}>
+                    <Typography variant="h5">{attraction.name}</Typography>
+                  <Typography>{attraction.description}</Typography></div>
                 </div>
               </Card>
             ))}
