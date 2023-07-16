@@ -14,7 +14,7 @@ import UserContext from '../providers/UserContext.js';
 
 
 const CategoryFilters = (props) => {
-  const { shuffle, getUserGreeting } = props;
+  const { getUserGreeting } = props;
 
 
   const { user } = useContext(UserContext);
@@ -40,7 +40,7 @@ const CategoryFilters = (props) => {
   };
 
   const handleClear = () => {
-    setFilters([])
+    setFilters([]);
   };
 
 
@@ -74,7 +74,7 @@ const CategoryFilters = (props) => {
             (haveAttractionsByCityData && attractionsByCityData) ? <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} awaits...`} /> :
 
               // display featured
-              <ActivitiesList attractions={shuffle(featuredAttractionsData.attractions)} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} />
+              <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} />
 
       }
 

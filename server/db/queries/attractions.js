@@ -9,7 +9,7 @@ const getAllAttractions = () => {
 
 
 const getFeaturedAttractions = () => {
-  return db.query("SELECT *FROM attractions WHERE featured = 't';")
+  return db.query("SELECT *FROM attractions WHERE featured = 't' ORDER BY RANDOM();")
     .then(attractions => {
       return attractions.rows;
     });

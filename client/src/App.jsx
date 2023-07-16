@@ -25,16 +25,7 @@ const App = () => {
   const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity, attractionsFilteredList, isLoadingAttractionsFilteredList } = useContext(AttractionsContext);
   const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
 
-  function shuffle(arr) {
-    const shuffledArray = [...arr];
 
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const randomIndex = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[i]];
-    }
-
-    return shuffledArray;
-  }
 
   const getUserGreeting = (email) => {
     const userHandle = email.split('@');
@@ -50,7 +41,7 @@ const App = () => {
         <LoginAlertModal />
         <DescModal />
         <Routes>
-          <Route path="/" element={<CategoryFilters shuffle={shuffle} getUserGreeting={getUserGreeting}/>} />
+          <Route path="/" element={<CategoryFilters getUserGreeting={getUserGreeting} />} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/packages" element={<CreatePackage />} />
