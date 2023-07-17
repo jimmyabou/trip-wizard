@@ -21,6 +21,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import PackageDayList from "./PackageDayList";
 // import ActivitiesListItem from './ActivitiesListItem';
+// import ActivitiesList from "./ActivitiesList";
+import { AttractionsContext } from "../providers/AttractionsContext";
+import PackageDayModalFav from "./PackageDayModalFav";
+
+
 
 const PackageDetails = () => {
   const {
@@ -60,6 +65,15 @@ const PackageDetails = () => {
 
     setPackageId,
   } = useContext(PlannerContext);
+  const { featuredAttractionsData,
+     isLoadingFeatured,
+      favAttractionsData,
+       isLoadingFav,
+        attractionsByCityData,
+         isLoadingattractionsByCity,
+          attractionsFilteredList,
+           isLoadingAttractionsFilteredList } = useContext(AttractionsContext);
+
 
   const { packageId } = useParams();
 
@@ -125,12 +139,7 @@ const PackageDetails = () => {
             type="submit"
             variant="contained"
             color="primary"
-            // style={{
-            //   marginLeft: "20px",
-            //   background: "#51D4BF",
-            //   borderRadius: 20,
-            //   height: "50px",
-            // }}
+          
             style={{ marginLeft: "20px",padding: '6px 16px', minWidth: 150, maxHeight:50,background: "#51D4BF", fontFamily: "DM Sans",letterSpacing: '0.02rem', borderRadius: '10px',fontSize: '1.3rem' }}
           >
             Add
@@ -169,6 +178,9 @@ const PackageDetails = () => {
               justifyContent: "center",
             }}
           >
+            <PackageDayModalFav isOpen={isOpen }selectedAttractions={selectedAttractions} handleAddAttraction={handleAddAttraction} attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />
+
+
             {attractions.map((attraction) => (
               <Card
                 key={attraction.id}
