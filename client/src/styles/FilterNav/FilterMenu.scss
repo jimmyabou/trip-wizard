@@ -4,9 +4,10 @@
   flex-wrap: wrap;
   max-width: 85%;
   margin: 0 auto;
-  margin-bottom: 2rem;
-  justify-content: space-between;
+  margin-bottom: 1rem;
+  justify-content: center;
   width: 100vw;
+  height: min-content;
 
   .nav-category__btn-container {
     display: flex;

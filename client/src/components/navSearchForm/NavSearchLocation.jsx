@@ -25,9 +25,9 @@ const NavSearchLocation = () => {
       options={isLoadingAttractionCities === true ? cities : attractionsCitiesList}
       isOptionEqualToValue={(option, value) => option.label === value}
       sx={{ width: 500 }}
-
+      style={{ fontFamily: 'DM Sans' }}
       renderInput={(params) => <TextField {...params} size="large"
-      sx={{ "& fieldset": { border: 'none' },}}
+        sx={{ "& fieldset": { border: 'none' }, }}
       />}
     />
   );
