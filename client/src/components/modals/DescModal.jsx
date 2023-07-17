@@ -50,7 +50,6 @@ const DescModal = () => {
     }
   };
 
-
   return (
     <div>
       <Modal isOpen={isDescOpen} onRequestClose={handleCloseDescModal} className="modal__desc">
@@ -62,7 +61,7 @@ const DescModal = () => {
                 <LoadingSpinner />
               ) : (
                 <img src={modalPictures[modalPictureIndex]} alt=""
-                  style={{ width: "100%", objectFit: "cover", borderRadius: "15px", marginTop: "1rem" }}
+                  style={{ width: "40rem", objectFit: "cover", borderRadius: "15px", marginTop: "1rem", height: "30rem", marginLeft: '0.5rem' }}
                   onLoad={() => setImageLoading(false)}
                 />
               )}
