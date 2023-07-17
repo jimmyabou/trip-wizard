@@ -1,15 +1,12 @@
-import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-
+import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 export const PlannerContext = createContext();
 
 export const PlannerProvider = ({ children }) => {
-  // const { packageId } = useParams();
   const [days, setDays] = useState([]);
-  const [newDayTitle, setNewDayTitle] = useState('');
-  const [newDayDescription, setNewDayDescription] = useState('');
+  const [newDayTitle, setNewDayTitle] = useState("");
+  const [newDayDescription, setNewDayDescription] = useState("");
   const [newDayDate, setNewDayDate] = useState(new Date());
   const [dayAdded, setDayAdded] = useState(false);
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
@@ -22,47 +19,50 @@ export const PlannerProvider = ({ children }) => {
   const [packageId, setPackageId] = useState(null);
   const [updateDayAttractions, setUpdateDayAttractions] = useState(null);
 
-  
-    const fetchDays = async (packageId) => {
-      console.log(packageId, 'from')
+  const fetchDays = async (packageId) => {
+    console.log(packageId, "from");
 
-      try {
-        const response = await axios.get(`/getdays/${packageId}`);
-        setDays(response.data.days);
-        setDayAdded(false);
-        console.log(days)
-        console.log(packageId)
-      } catch (error) {
-        console.error(error);
-      }
-    };
- //////////////////////////////////////////////////
-    // useEffect(() => {
-    //   if (packageId) {
-    //     fetchDays();
-    //   }
-    // }, [packageId]);
+    try {
+      const response = await axios.get(`/getdays/${packageId}`);
+      setDays(response.data.days);
+      setDayAdded(false);
+      console.log(days);
+      console.log(packageId);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-   
-////////////////////////////////////////////////////////////////
-    const getAttractions = async () => {
-      try {
-        const response = await axios.get('/attractions');
-        setAttractions(response.data.attractions);
-        setFetchAttractions(false);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const getAttractions = async () => {
+    try {
+      const response = await axios.get("/attractions");
+      setAttractions(response.data.attractions);
+      setFetchAttractions(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  
+  const getPackageFavoritedattractions = async (userId) => {
+    try {
+      const response = await axios.get(
+        `/getPackageFavoritedattractions/${userId}`
+      );
+      setAttractions(response.data.attractions);
+      setFetchAttractions(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const toggleDatePicker = () => {
     setIsDatePickerOpen(!isDatePickerOpen);
   };
 
   const handleDeleteDay = async (dayId) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this day?');
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this day?"
+    );
     if (confirmDelete) {
       try {
         await axios.delete(`/deleteDay/${dayId}`);
@@ -85,7 +85,10 @@ export const PlannerProvider = ({ children }) => {
   };
 
   const handleAddAttraction = (attractionId) => {
-    setSelectedAttractions((prevSelectedAttractions) => [...prevSelectedAttractions, attractionId]);
+    setSelectedAttractions((prevSelectedAttractions) => [
+      ...prevSelectedAttractions,
+      attractionId,
+    ]);
   };
 
   const handleRemoveAttraction = (attractionId) => {
@@ -98,19 +101,22 @@ export const PlannerProvider = ({ children }) => {
     handleCloseModal();
 
     try {
-      const response=await axios.post(`/insertAttractionsByDay/${activeDayId}`, { attractions: selectedAttractions });
+      const response = await axios.post(
+        `/insertAttractionsByDay/${activeDayId}`,
+        { attractions: selectedAttractions }
+      );
       setSelectedAttractions([]);
-      setUpdateDayAttractions(response.data.dayId);//grabs the day id after inserting attractions in DB
-      console.log('successfully updated attraction list for this day',response.data.dayId);
-      
-      // console.log(updateDayAttractions);
+      setUpdateDayAttractions(response.data.dayId); //grabs the day id after inserting attractions in DB
+      console.log(
+        "successfully updated attraction list for this day",
+        response.data.dayId
+      );
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleAddDay = async (packageId) => {
-    // event.preventDefault();
     try {
       const newDay = {
         title: newDayTitle,
@@ -120,8 +126,8 @@ export const PlannerProvider = ({ children }) => {
       };
       await axios.post(`/addDay/${packageId}`, newDay);
       setDayAdded(true);
-      setNewDayTitle('');
-      setNewDayDescription('');
+      setNewDayTitle("");
+      setNewDayDescription("");
       setNewDayDate(new Date());
     } catch (error) {
       console.error(error);
@@ -172,6 +178,7 @@ export const PlannerProvider = ({ children }) => {
         setPackageId,
         updateDayAttractions,
         setUpdateDayAttractions,
+        getPackageFavoritedattractions,
       }}
     >
       {children}

@@ -1,13 +1,13 @@
-import React, { createContext, useState } from 'react';
-import { loginUser } from '../hooks/users/loginUser';
+import React, { createContext, useState } from "react";
+import { loginUser } from "../hooks/users/loginUser";
 
-import axios from 'axios';
+import axios from "axios";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const getUser = () => JSON.parse(localStorage.getItem('user'));
+  const getUser = () => JSON.parse(localStorage.getItem("user"));
   const [newPackageAdded, setNewPackageAdded] = useState(false);
-  const [packageName, setPackageName] = useState('');
+  const [packageName, setPackageName] = useState("");
   const [user, setUser] = useState(getUser());
   const [packages, setPackages] = useState([]);
 
@@ -17,33 +17,33 @@ export const UserProvider = ({ children }) => {
 
       const user = {
         email: data.email,
-        id: data.userId
+        id: data.userId,
       };
 
       // Persist user data in local storage
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
       setUser(getUser());
-
     } catch (error) {
       console.error(error);
     }
   };
 
   const logoutHandler = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
     setUser(getUser());
   };
 
   //create package handlers
-  const createPackage=async(userId,packageName)=>{
+  const createPackage = async (userId, packageName) => {
     try {
-
-      console.log(userId,packageName);
-      const response = await axios.post('/createPackage', { packageName,userId })
-        console.log(response.data);
-        setPackageName('');
-        setNewPackageAdded(true);
-      
+      console.log(userId, packageName);
+      const response = await axios.post("/createPackage", {
+        packageName,
+        userId,
+      });
+      console.log(response.data);
+      setPackageName("");
+      setNewPackageAdded(true);
     } catch (error) {
       console.error(error);
     }
@@ -63,8 +63,8 @@ export const UserProvider = ({ children }) => {
   //delete a packge from package list
   const deletePackage = async (packageId) => {
     try {
-      const res=await axios.delete(`/deletePackage/${packageId}`);
-      console.log(res.data)
+      const res = await axios.delete(`/deletePackage/${packageId}`);
+      console.log(res.data);
       setPackages((prevPackages) =>
         prevPackages.filter((pkg) => pkg.package_id !== packageId)
       );
@@ -73,7 +73,20 @@ export const UserProvider = ({ children }) => {
     }
   };
   return (
-    <UserContext.Provider value={{ user, handleLogin, logoutHandler, createPackage,packageName, newPackageAdded,setPackageName,fetchPackages,packages,deletePackage  }}>
+    <UserContext.Provider
+      value={{
+        user,
+        handleLogin,
+        logoutHandler,
+        createPackage,
+        packageName,
+        newPackageAdded,
+        setPackageName,
+        fetchPackages,
+        packages,
+        deletePackage,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

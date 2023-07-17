@@ -1,14 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {
-  TextField,
-  Button,
-  Card,
-  Typography,
-  Modal,
-  IconButton,
-  Fab,
-} from "@mui/material";
+import {  TextField,  Button,  Card,  Typography,  Modal,  IconButton,  Fab,} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -23,11 +15,18 @@ import PackageDayList from "./PackageDayList";
 // import ActivitiesListItem from './ActivitiesListItem';
 // import ActivitiesList from "./ActivitiesList";
 import { AttractionsContext } from "../providers/AttractionsContext";
-import PackageDayModalFav from "./PackageDayModalFav";
+// import PackageDayModalFav from "./PackageDayModalFav__unused";
+import PackageDayModalActivitiesList from "./PackageDayModalActivitiesList";
+import ActivitiesList from "./ActivitiesList";
+import ReactModal from 'react-modal';
+import zIndex from "@mui/material/styles/zIndex";
+import UserContext from '../providers/UserContext';
+
 
 
 
 const PackageDetails = () => {
+  const { user } = useContext(UserContext);
   const {
     days,
     newDayTitle,
@@ -62,17 +61,17 @@ const PackageDetails = () => {
     setAttractions,
     fetchDays,
     getAttractions,
-
+    getPackageFavoritedattractions,
     setPackageId,
   } = useContext(PlannerContext);
-  const { featuredAttractionsData,
-     isLoadingFeatured,
-      favAttractionsData,
-       isLoadingFav,
-        attractionsByCityData,
-         isLoadingattractionsByCity,
-          attractionsFilteredList,
-           isLoadingAttractionsFilteredList } = useContext(AttractionsContext);
+  // const { featuredAttractionsData,
+  //    isLoadingFeatured,
+  //     favAttractionsData,
+  //      isLoadingFav,
+  //       attractionsByCityData,
+  //        isLoadingattractionsByCity,
+  //         attractionsFilteredList,
+  //          isLoadingAttractionsFilteredList } = useContext(AttractionsContext);
 
 
   const { packageId } = useParams();
@@ -82,7 +81,8 @@ const PackageDetails = () => {
   }, [dayAdded]);
 
   useEffect(() => {
-    getAttractions();
+    // getAttractions();
+    getPackageFavoritedattractions(user.id);
   }, [fetchAttractions]);
 
   return (
@@ -149,7 +149,7 @@ const PackageDetails = () => {
       <div style={{ margin: "20px" }}>
         <PackageDayList days={days}></PackageDayList>
       </div>
-      <Modal open={isOpen} onClose={handleCloseModal}>
+      <Modal open={isOpen} onClose={handleCloseModal} >
         <Card
           style={{
             position: "absolute",
@@ -178,101 +178,9 @@ const PackageDetails = () => {
               justifyContent: "center",
             }}
           >
-            <PackageDayModalFav isOpen={isOpen }selectedAttractions={selectedAttractions} handleAddAttraction={handleAddAttraction} attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />
-
-
-            {attractions.map((attraction) => (
-              <Card
-                key={attraction.id}
-                style={{
-                  width: "40vh",
-                  margin: "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  padding: "16px",
-                  borderRadius: "8px",
-                  boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <div style={{ maxHeight: "300px", overflow: "auto" }}>
-                  <img
-                    src={attraction.pictures[0]}
-                    alt="Attraction"
-                    style={{
-                      width: "100%",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                    }}
-                  />
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      justifyContent: "space-between",
-                      paddingRight: "16px",
-                    }}
-                  >
-                    <div>
-                      <Typography variant="h6">{attraction.country}</Typography>
-                      <Typography variant="subtitle1">
-                        {attraction.city}
-                      </Typography>
-                    </div>
-                    <div>
-                      <Typography variant="h6">
-                        Price: ${attraction.price}
-                      </Typography>
-                      <Typography>
-                        Duration: {attraction.duration / 60}hours
-                      </Typography>
-                    </div>
-                  </div>
-                  <Typography>{attraction.description}</Typography>
-                </div>
-                {!selectedAttractions.includes(attraction.attraction_id) && (
-                  <div
-                    style={{
-                      marginTop: "auto",
-                      paddingTop: "10px",
-                    }}
-                  >
-                    <Fab
-                      color="primary"
-                      aria-label="Add Attraction"
-                      onClick={() =>
-                        handleAddAttraction(attraction.attraction_id)
-                      }
-                      style={{
-                        backgroundColor: "#51D4BF",
-                        width: "35px",
-                        height: "30px",
-                      }}
-                    >
-                      <AddIcon style={{ fontSize: "32px" }} />
-                    </Fab>
-                  </div>
-                )}
-                {selectedAttractions.includes(attraction.attraction_id) && (
-                  <DeleteIcon
-                    style={{
-                      color: "grey",
-                      cursor: "pointer",
-                      marginLeft: "10px",
-                      fontSize: "40px",
-                      marginTop: "auto",
-                      paddingTop: "10px",
-                    }}
-                    onClick={() =>
-                      handleRemoveAttraction(attraction.attraction_id)
-                    }
-                  />
-                )}
-              </Card>
-            ))}
-          </div>
+            {/* <PackageDayModalFav isOpen={isOpen }selectedAttractions={selectedAttractions} handleAddAttraction={handleAddAttraction} attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} /> */}
+            <PackageDayModalActivitiesList attractions={attractions} handleAddAttraction={handleAddAttraction} selectedAttractions={selectedAttractions}/>
+</div>
           <Button
             variant="contained"
             color="primary"
@@ -286,14 +194,118 @@ const PackageDetails = () => {
               height: "50px",
               zIndex: "999",
               background: "#51D4BF",
+              fontFamily: "DM Sans",
+              letterSpacing: '0.02rem',
+               borderRadius: '10px',
+               fontSize: '1.3rem'
             }}
+            // style={{ marginLeft: "20px",padding: '6px 16px', minWidth: 150, maxHeight:50,background: "#51D4BF",  }}
+
           >
             Save
           </Button>
         </Card>
+
+
       </Modal>
     </>
   );
 };
 
 export default PackageDetails;
+
+
+
+
+// {attractions.map((attraction) => (
+//   <Card
+//     key={attraction.id}
+//     style={{
+//       width: "40vh",
+//       margin: "20px",
+//       display: "flex",
+//       flexDirection: "column",
+//       justifyContent: "space-between",
+//       alignItems: "center",
+//       padding: "16px",
+//       borderRadius: "8px",
+//       boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
+//     }}
+//   >
+//     <div style={{ maxHeight: "300px", overflow: "auto" }}>
+//       <img
+//         src={attraction.pictures[0]}
+//         alt="Attraction"
+//         style={{
+//           width: "100%",
+//           height: "200px",
+//           objectFit: "cover",
+//           borderRadius: "8px",
+//         }}
+//       />
+//       <div
+//         style={{
+//           display: "flex",
+//           flexWrap: "wrap",
+//           justifyContent: "space-between",
+//           paddingRight: "16px",
+//         }}
+//       >
+//         <div>
+//           <Typography variant="h6">{attraction.country}</Typography>
+//           <Typography variant="subtitle1">
+//             {attraction.city}
+//           </Typography>
+//         </div>
+//         <div>
+//           <Typography variant="h6">
+//             Price: ${attraction.price}
+//           </Typography>
+//           <Typography>
+//             Duration: {attraction.duration / 60}hours
+//           </Typography>
+//         </div>
+//       </div>
+//       <Typography>{attraction.description}</Typography>
+//     </div>
+//     {!selectedAttractions.includes(attraction.attraction_id) && (
+//       <div
+//         style={{
+//           marginTop: "auto",
+//           paddingTop: "10px",
+//         }}
+//       >
+//         <Fab
+//           color="primary"
+//           aria-label="Add Attraction"
+//           onClick={() =>
+//             handleAddAttraction(attraction.attraction_id)
+//           }
+//           style={{
+//             backgroundColor: "#51D4BF",
+//             width: "35px",
+//             height: "30px",
+//           }}
+//         >
+//           <AddIcon style={{ fontSize: "32px" }} />
+//         </Fab>
+//       </div>
+//     )}
+//     {selectedAttractions.includes(attraction.attraction_id) && (
+//       <DeleteIcon
+//         style={{
+//           color: "grey",
+//           cursor: "pointer",
+//           marginLeft: "10px",
+//           fontSize: "40px",
+//           marginTop: "auto",
+//           paddingTop: "10px",
+//         }}
+//         onClick={() =>
+//           handleRemoveAttraction(attraction.attraction_id)
+//         }
+//       />
+//     )}
+//   </Card>
+// ))}
+// </div>

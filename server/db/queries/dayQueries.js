@@ -37,32 +37,8 @@ const deleteDay = (dayId) => {
     });
 };
 
-// const deleteAndReassignAttractions = async (dayId, attractionsArray) => {
-//   try {
-//     // Delete existing attractions for the day
-//     await db.query("DELETE FROM day_attractions WHERE day_id = $1", [dayId]);
-
-//     // Reassign attractions based on the order array index
-//     for (let i = 0; i < attractionsArray; i++) {
-//       const attractionId = attractionsArray[i];
-//       const query =
-//         "INSERT INTO day_attractions (day_id, attraction_id) VALUES ($1, $2)";
-//       const values = [dayId, attractionId];
-//       await db.query(query, values);
-//     }
-
-//     console.log("success");
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
 const getAttractionsByDayId = (dayId) => {
-  // const query = `SELECT attractions.*
-  //               FROM attractions
-  //               JOIN day_attractions ON attractions.attraction_id = day_attractions.attraction_id
-  //               WHERE day_attractions.day_id = $1`;
-    const query = `
+  const query = `
     SELECT a.*, d.total_duration
     FROM attractions a
     JOIN (
@@ -99,7 +75,6 @@ const insertAttractionsByDay = async (dayId, attractionIds) => {
   }
 };
 
-
 const deleteAttractionFromDay = async (dayId, attractionId) => {
   const query = `DELETE FROM day_attractions
                  WHERE day_id = $1 AND attraction_id = $2`;
@@ -110,15 +85,48 @@ const deleteAttractionFromDay = async (dayId, attractionId) => {
   }
 };
 
+//get favorited attractios and display them in the modal to add to the package day
 
+const getPackageFavoritedattractions = (userId) => {
+  console.log("reached pg");
+  const favoritedAttractionsPromise = db.query(
+    `SELECT attractions.*
+     FROM attractions 
+     INNER JOIN favorite_attractions ON attractions.attraction_id = favorite_attractions.attraction_id AND favorite_attractions.user_id = $1;`,
+    [userId]
+  );
 
+  const randomAttractionsPromise = db.query(
+    `SELECT attractions.*
+     FROM attractions 
+     WHERE attractions.attraction_id NOT IN (
+       SELECT attraction_id
+       FROM favorite_attractions
+       WHERE user_id = $1
+     )
+     ORDER BY RANDOM();`,
+    [userId]
+  );
+
+  return Promise.all([favoritedAttractionsPromise, randomAttractionsPromise])
+    .then(([favoritedAttractions, randomAttractions]) => {
+      const favoritedAttractionsRows = favoritedAttractions.rows;
+      const randomAttractionsRows = randomAttractions.rows;
+
+      return [...favoritedAttractionsRows, ...randomAttractionsRows];
+    })
+    .catch((error) => {
+      console.error(error);
+      return [];
+    });
+};
 
 module.exports = {
   addDay,
   deleteDay,
-  // deleteAndReassignAttractions,
   getDaysByPackageId,
   getAttractionsByDayId,
   insertAttractionsByDay,
-  deleteAttractionFromDay
+  deleteAttractionFromDay,
+  getPackageFavoritedattractions,
 };
