@@ -72,7 +72,7 @@ const CategoryFilters = (props) => {
           (haveFilteredByCategoryData && attractionsFilteredList) ? <ActivitiesList attractions={attractionsFilteredList.attractions} pageTitle={`Your filtered experiences await...`} /> :
 
             //if haveAttractionsByCityData and attractionsByCityData the display it
-            (haveAttractionsByCityData && attractionsByCityData) ? <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} awaits...`} /> :
+            (haveAttractionsByCityData && attractionsByCityData) ? <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await...`} /> :
 
               // display featured
               <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} />
