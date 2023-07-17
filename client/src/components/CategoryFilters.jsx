@@ -53,7 +53,7 @@ const CategoryFilters = (props) => {
           {categoriesList}
         </div>
 
-        <div>
+        <div className='nav-category__btn-container'>
           <button className="nav-category__filter-btn"
             onClick={handleFilterSubmit}>
             <i className="fa-solid fa-bars"></i>

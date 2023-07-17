@@ -3,20 +3,27 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 85%;
-  margin-top: 2rem;
   margin: 0 auto;
+  margin-bottom: 2rem;
   justify-content: space-between;
   width: 100vw;
 
-  .nav-category__filter-btn {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 500;
+  .nav-category__btn-container {
+    display: flex;
+
+    .nav-category__filter-btn {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0.5rem;
+    }
   }
+
 
   .nav-category__menu {
     display: flex;
-    margin-left: 20rem;
+    flex-wrap: wrap;
+    align-items: center;
 
 
     .nav-category__menu-item {
@@ -30,7 +37,7 @@
       align-items: center;
       margin: 1.3rem;
       background-color: white;
-      
+
 
 
       i {
