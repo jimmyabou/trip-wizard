@@ -50,6 +50,11 @@ const NavMenu = () => {
             <i className={`fa-solid fa-heart`} style={isFav ? { color: '#F5543E' } : { color: '#FFF' }}></i>
           </div>
         </li>
+        <li>
+          <div className="hamburger-menu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </li>
       </ul>
     </div>
   );

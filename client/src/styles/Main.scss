@@ -145,6 +145,10 @@ body {
   animation: spin 2s linear infinite;
 }
 
+.hamburger-menu {
+  display: none;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -153,4 +157,52 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+//MEDIA QUERIES
+
+@media screen and (max-width: 1024px) {
+  nav {
+    flex-direction: column;
+    margin-bottom: 6rem;
+
+    .logo {
+      align-self: flex-start;
+    }
+
+    nav .nav-menu ul li .fav-badge {
+      width: 7rem;
+    }
+
+  }
+
+  nav .nav-menu a {
+    display: none;
+  }
+
+  .fav-badge {
+    position: fixed;
+    top: 2.5rem;
+    right: 1rem;
+    justify-content: space-evenly;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    border-radius: 50%;
+    background-color: #51D4BF;
+    height: 3.2rem;
+    width: 3.2rem;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 2.5rem;
+    right: 4.5rem;
+
+    .fa-bars {
+      color: #FFF;
+      font-size: 1.6rem;
+    }
+  }
+
 }
