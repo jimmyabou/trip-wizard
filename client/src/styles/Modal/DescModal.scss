@@ -31,6 +31,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  min-width: 40rem;
 
   .activity__details-booking-info {
     display: flex;
@@ -42,6 +43,7 @@
     p {
       font-size: 0.8rem;
       color: rgba(9, 11, 23, 0.35);
+      text-align: justify;
     }
 
     span {
