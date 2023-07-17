@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import logo from '../logo.jpg';
+import logo from './logo.jpg';
 import { useNavigate } from 'react-router-dom';
-import { AttractionsContext } from '../providers/AttractionsContext';
+import { AttractionsContext } from '../../providers/AttractionsContext';
 
 
 const NavLogo = () => {

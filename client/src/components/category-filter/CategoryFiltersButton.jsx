@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 
-import { AttractionsContext } from '../providers/AttractionsContext';
-import ModalContext from '../providers/ModalContext';
+import { AttractionsContext } from '../../providers/AttractionsContext';
+import ModalContext from '../../providers/ModalContext';
 
 
 

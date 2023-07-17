@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import EnhancedActivitiesListItem from './EnhancedActivitiesListItem';
 import ActivitiesListFavButton from './ActivitiesListFavButton';
-import ModalContext from '../providers/ModalContext';
+import ModalContext from '../../providers/ModalContext';
 
 const ActivitiesListItem = (props) => {
 

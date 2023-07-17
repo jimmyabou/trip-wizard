@@ -1,16 +1,16 @@
 import React, { useContext, useState } from 'react';
 
-import categories from '../mocks/categories.js';
+import categories from '../../mocks/categories.js';
 
 // COMPONENTS \\
-import CategoryFilterButton from './CategoryFiltersButton';
-import CategoryFilterModal from './modals/CategoryFilterModal';
-import LoadingSpinner from './Loading.jsx';
-import ActivitiesList from './ActivitiesList.jsx';
+import CategoryFilterButton from './CategoryFiltersButton.jsx';
+import CategoryFilterModal from '../modals/CategoryFilterModal.jsx';
+import LoadingSpinner from '../Loading.jsx';
+import ActivitiesList from '../activities-list/ActivitiesList.jsx';
 
 // CONTEXTS \\
-import { AttractionsContext } from '../providers/AttractionsContext';
-import UserContext from '../providers/UserContext.js';
+import { AttractionsContext } from '../../providers/AttractionsContext.js';
+import UserContext from '../../providers/UserContext.js';
 
 
 const CategoryFilters = (props) => {

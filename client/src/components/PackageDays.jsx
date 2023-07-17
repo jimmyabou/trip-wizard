@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import ActivitiesListItem from './ActivitiesListItem';
+import ActivitiesListItem from './activities-list/ActivitiesListItem';
 
 const PackageDays = () => {
   const { packageId } = useParams();
@@ -88,7 +88,7 @@ const PackageDays = () => {
   const handleOpenModal = (dayid) => {
     setFetchAttractions(true);
     setIsOpen(true);
-    console.log(dayid)
+    console.log(dayid);
     setActiveDayId(dayid);
   };
 
@@ -107,7 +107,7 @@ const PackageDays = () => {
   };
 
   const handleSaveAttractions = () => {
-    console.log(selectedAttractions,activeDayId);
+    console.log(selectedAttractions, activeDayId);
     handleCloseModal();
   };
 
@@ -123,8 +123,8 @@ const PackageDays = () => {
             <Typography>Date: {day.date.substring(0, 10)}</Typography>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px' }}>
-            <Button variant="contained" color="primary" style={{ margin: 8, background: "#51D4BF", borderRadius: 20, maxHeight: 30 }} onClick={()=>handleOpenModal(day.day_id)}>
-              Add 
+            <Button variant="contained" color="primary" style={{ margin: 8, background: "#51D4BF", borderRadius: 20, maxHeight: 30 }} onClick={() => handleOpenModal(day.day_id)}>
+              Add
             </Button>
             <IconButton onClick={() => handleDeleteDay(day.day_id)} style={{ color: 'grey' }}>
               <DeleteIcon />
@@ -174,7 +174,7 @@ const PackageDays = () => {
               </div>
             )}
           </div>
-          <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '20px',background: "#51D4BF", borderRadius: 20 }}>Add</Button>
+          <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '20px', background: "#51D4BF", borderRadius: 20 }}>Add</Button>
         </div>
       </form>
       <div style={{ margin: '20px' }}>{renderDays()}</div>
@@ -196,8 +196,8 @@ const PackageDays = () => {
                     <Typography variant="subtitle1">{attraction.city}</Typography>
                   </div>
                   <div>
-                  <Typography variant="h6">Price: ${attraction.price}</Typography>
-                  <Typography>Duration: {attraction.duration/60}hours</Typography>
+                    <Typography variant="h6">Price: ${attraction.price}</Typography>
+                    <Typography>Duration: {attraction.duration / 60}hours</Typography>
                   </div>
                 </div>
                 <Typography>{attraction.description}</Typography>

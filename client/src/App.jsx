@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 
 // COMPONENTS \\
-import UserForm from './components/UserForm';
-import Navbar from './components/NavBar';
-import LoginForm from './components/LoginForm';
-import ActivitiesList from './components/ActivitiesList';
-import CategoryFilters from './components/CategoryFilters';
+import UserForm from './components/login/UserForm';
+import Navbar from './components/nav/NavBar';
+import LoginForm from './components/login/LoginForm';
+import ActivitiesList from './components/activities-list/ActivitiesList';
+import CategoryFilters from './components/category-filter/CategoryFilters';
 import LoginAlertModal from './components/modals/LoginAlertModal';
 import DescModal from './components/modals/DescModal';
 import LoadingSpinner from './components/Loading';

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import UserContext from "../providers/UserContext";
-import { AttractionsContext } from '../providers/AttractionsContext';
-import ModalContext from '../providers/ModalContext';
+import UserContext from "../../providers/UserContext";
+import { AttractionsContext } from '../../providers/AttractionsContext';
+import ModalContext from '../../providers/ModalContext';
 
 const NavMenu = () => {
   const { user, logoutHandler } = useContext(UserContext);

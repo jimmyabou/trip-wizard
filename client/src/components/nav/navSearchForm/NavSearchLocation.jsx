@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { AttractionsContext } from '../../providers/AttractionsContext';
-import cities from '../../mocks/cities';
+import { AttractionsContext } from '../../../providers/AttractionsContext';
+import cities from '../../../mocks/cities';
 
 
 
