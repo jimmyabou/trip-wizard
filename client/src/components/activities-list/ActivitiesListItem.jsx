@@ -62,7 +62,7 @@ const ActivitiesListItem = (props) => {
             </div>
 
           </div>
-          {location.pathname.includes('favorites') && <EnhancedActivitiesListItem description={attraction.description} price={attraction.price} />}
+          {location.pathname.includes('favorites') && <EnhancedActivitiesListItem description={attraction.description} price={attraction.price} url={attraction.booking_url} />}
         </footer>
       </div >
     </li>

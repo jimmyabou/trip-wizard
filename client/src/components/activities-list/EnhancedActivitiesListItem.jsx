@@ -2,7 +2,7 @@ import React from 'react';
 
 const EnhancedActivitiesListItem = (props) => {
 
-  const { description, price } = props;
+  const { description, price, url } = props;
 
   const shortenDescription = (str) => {
     const firstSentence = str.split('. ')[0];
@@ -33,11 +33,13 @@ const EnhancedActivitiesListItem = (props) => {
           <span>${price}</span>
           <p>per adult</p>
         </div>
-        <button id="reserve">
-          Reserve
-        </button>
+        <a href={url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+          <button id="reserve">
+            Reserve
+          </button>
+        </a>
       </div>
-    </div>
+    </div >
   );
 
 
