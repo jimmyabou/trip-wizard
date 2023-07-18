@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import ActivitiesListItem from './ActivitiesListItem';
+// import ActivitiesListItem from './ActivitiesListItem';
 
 const PackageDays = () => {
   const { packageId } = useParams();

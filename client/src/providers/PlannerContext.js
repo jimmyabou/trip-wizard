@@ -60,17 +60,17 @@ export const PlannerProvider = ({ children }) => {
   };
 
   const handleDeleteDay = async (dayId) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this day?"
-    );
-    if (confirmDelete) {
+    // const confirmDelete = window.confirm(
+    //   "Are you sure you want to delete this day?"
+    // );
+    // if (confirmDelete) {
       try {
         await axios.delete(`/deleteDay/${dayId}`);
         setDayAdded(true);
       } catch (error) {
         console.error(error);
       }
-    }
+    
   };
 
   const handleOpenModal = (dayid) => {
