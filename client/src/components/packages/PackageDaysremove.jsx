@@ -6,7 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TodayIcon from '@mui/icons-material/Today';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import { PlannerContext } from '../providers/PlannerContext';
+import { PlannerContext } from '../../providers/PlannerContext';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';

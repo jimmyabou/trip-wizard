@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import { TextField, Button, Box } from "@mui/material";
-import UserContext from "../providers/UserContext";
+import UserContext from "../../providers/UserContext";
 import PackageList from "./PackageList";
 
 const CreatePackage = () => {
-  const { user, packageName,  createPackage,setPackageName } = useContext(UserContext);
-  const handleSubmit =  (event) => {
-    const userId=user.id
+  const { user, packageName, createPackage, setPackageName } = useContext(UserContext);
+  const handleSubmit = (event) => {
+    const userId = user.id;
     event.preventDefault();
-    createPackage(userId,packageName)
-  }
+    createPackage(userId, packageName);
+  };
 
   return (
     <>
@@ -23,7 +23,7 @@ const CreatePackage = () => {
           value={packageName}
           onChange={(event) => setPackageName(event.target.value)}
         />
-        <Button type="submit" variant="contained" color="primary" style={{ padding: '6px 16px', minWidth: 150, maxHeight:50,background: "#51D4BF", fontFamily: "DM Sans",letterSpacing: '0.02rem', borderRadius: '10px',fontSize: '1.3rem' }}>
+        <Button type="submit" variant="contained" color="primary" style={{ padding: '6px 16px', minWidth: 150, maxHeight: 50, background: "#51D4BF", fontFamily: "DM Sans", letterSpacing: '0.02rem', borderRadius: '10px', fontSize: '1.3rem' }}>
           Add Trip
         </Button>
       </form>

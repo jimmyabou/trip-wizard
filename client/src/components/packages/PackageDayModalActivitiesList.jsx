@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
-import ActivitiesListItem from './activities-list/ActivitiesListItem.jsx'
+import ActivitiesListItem from '../activities-list/ActivitiesListItem.jsx';
 import { Fab } from '@mui/material';
 import AddIcon from "@mui/icons-material/Add";
 
 const PackageDayModalActivitiesList = (props) => {
 
-  const [unselectedAttractions, setUnselectedAttractions] = useState([])
+  const [unselectedAttractions, setUnselectedAttractions] = useState([]);
   const { attractions, pageTitle, username, button, handleAddAttraction, selectedAttractions, isOpen } = props;
   const filterUnselectedAttractions = () => {
     const filteredAttractions = attractions.filter(attraction => !selectedAttractions.includes(attraction.attraction_id));

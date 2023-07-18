@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import UserContext from '../providers/UserContext';
+import UserContext from '../../providers/UserContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Card, CardContent, Typography, Button, CardMedia, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';

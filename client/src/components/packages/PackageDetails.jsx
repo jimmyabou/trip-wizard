@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { TextField, Button, Card, Typography,  IconButton, Fab, } from "@mui/material";
+import { TextField, Button, Card, Typography, IconButton, Fab, } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { PlannerContext } from "../providers/PlannerContext";
+import { PlannerContext } from "../../providers/PlannerContext";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import PackageDayList from "./PackageDayList";
 import PackageDayModalActivitiesList from "./PackageDayModalActivitiesList";
-import UserContext from '../providers/UserContext';
+import UserContext from '../../providers/UserContext';
 import Modal from "react-modal";
 
 
@@ -69,7 +69,7 @@ const PackageDetails = () => {
         onSubmit={() => handleAddDay(packageId)}
         style={{ marginTop: "30px", display: "flex", justifyContent: "center" }}
       >
-        <div style={{ display: "flex", alignItems: "center", zIndex: 0  }}>
+        <div style={{ display: "flex", alignItems: "center", zIndex: 0 }}>
           <TextField
             label="Title"
             variant="outlined"
@@ -150,7 +150,7 @@ const PackageDetails = () => {
           },
         }}
       >
-        <div style={{ display: "flex", justifyContent: "start",marginLeft: "auto" }}>
+        <div style={{ display: "flex", justifyContent: "start", marginLeft: "auto" }}>
           <IconButton aria-label="close" onClick={handleCloseModal}>
             <CloseIcon />
           </IconButton>

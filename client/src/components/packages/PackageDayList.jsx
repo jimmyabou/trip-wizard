@@ -1,7 +1,7 @@
 import "react-datepicker/dist/react-datepicker.css";
 import PackageDayDetails from "./PackageDayDetails";
 
-const PackageDayList = ({days}) => {
+const PackageDayList = ({ days }) => {
   return (
     <>
       {days

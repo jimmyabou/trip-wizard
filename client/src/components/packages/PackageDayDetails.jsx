@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Card, Typography, Fab, } from "@mui/material";
-import { PlannerContext } from "../providers/PlannerContext";
+import { PlannerContext } from "../../providers/PlannerContext";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import TodayIcon from "@mui/icons-material/Today";
@@ -25,7 +25,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
       try {
         let response = await axios.get(`/getAttractionsByDay/${dayId}`);
         setAttractions(response.data.attractions.attractions);
-        console.log(response.data.attractions)
+        console.log(response.data.attractions);
         setTotalDuration(response.data.attractions.totalDuration / 60);
         setTotalPrice(response.data.attractions.totalPrice);
       } catch (error) {
@@ -34,7 +34,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
     };
 
     getAttractionsByDay(day.day_id);
-    setUpdateDayAttractions(null)
+    setUpdateDayAttractions(null);
 
   }, [updateDayAttractions]);
 
@@ -45,7 +45,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
   const deleteAttractionFromDay = async (dayId, attractionId) => {
     try {
       await axios.delete('/deleteAttractionFromDay', { data: { dayId, attractionId } });
-      setUpdateDayAttractions('trigger delete')
+      setUpdateDayAttractions('trigger delete');
     } catch (error) {
       console.error(error);
     }
@@ -81,7 +81,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             </Typography>
             <Typography variant="h6" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}> {day.day_title}</Typography>
             <Typography variant="h6" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}>{day.day_description}</Typography>
-            <Typography  variant="h5" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}><i className="fa-regular fa-hourglass-half" style={{ color: "rgb(81, 212, 191)" }}></i> {totalDuration}hrs</Typography>
+            <Typography variant="h5" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}><i className="fa-regular fa-hourglass-half" style={{ color: "rgb(81, 212, 191)" }}></i> {totalDuration}hrs</Typography>
             <Typography variant="h5"><i className="fa-solid fa-dollar-sign" style={{ color: "rgb(81, 212, 191)" }}></i> {totalPrice}</Typography>
           </div>
           <div style={{ display: "flex", maxWidth: "75%", flexWrap: "wrap" }}>
