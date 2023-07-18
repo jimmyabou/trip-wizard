@@ -161,7 +161,7 @@ body {
 
 //MEDIA QUERIES
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1400px) {
   nav {
     flex-direction: column;
     margin-bottom: 6rem;
@@ -181,7 +181,7 @@ body {
   }
 
   .fav-badge {
-    position: fixed;
+    position: absolute;
     top: 2.5rem;
     right: 1rem;
     justify-content: space-evenly;
@@ -195,7 +195,7 @@ body {
     width: 3.2rem;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     top: 2.5rem;
     right: 4.5rem;
 
@@ -205,4 +205,37 @@ body {
     }
   }
 
+}
+
+@media screen and (max-width: 560px) {
+  nav .nav-form {
+    width: 65%;
+  }
+
+  nav {
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+  }
+
+  nav .logo {
+    margin-bottom: 1rem;
+  }
+
+  body h1 {
+    font-size: 2rem;
+  }
+
+  .fav-badge {
+    top: 1.6rem;
+    right: 1.5rem;
+  }
+
+  .hamburger-menu {
+    top: 1.6rem;
+    right: 5rem;
+  }
+
+  .nav-category .nav-category__menu {
+    margin-top: 1rem;
+  }
 }
