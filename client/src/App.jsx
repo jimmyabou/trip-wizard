@@ -48,7 +48,8 @@ const App = () => {
           <Route path="/packages/:packageId/days" element={<PackageDetails />} />
           {/* Add more routes here */}
           {user &&
-            <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <LoadingSpinner /> : <ActivitiesList attractions={favAttractionsData} pageTitle={"Your Favorite Experiences"} />} />
+            <Route path={`/favorites/${user.id}`} element={isLoadingFav === true ? <LoadingSpinner /> : <ActivitiesList attractions={favAttractionsData} username={user ? getUserGreeting(user.email) : null}
+              pageTitle={"Your Favorite Experiences"} />} />
           }
 
 
