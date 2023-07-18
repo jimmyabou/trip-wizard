@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 
 // COMPONENTS \\
-import UserForm from './components/UserForm';
-import Navbar from './components/NavBar';
-import LoginForm from './components/LoginForm';
-import ActivitiesList from './components/ActivitiesList';
-import CategoryFilters from './components/CategoryFilters';
+import UserForm from './components/login/UserForm';
+import Navbar from './components/nav/NavBar';
+import LoginForm from './components/login/LoginForm';
+import ActivitiesList from './components/activities-list/ActivitiesList';
+import CategoryFilters from './components/category-filter/CategoryFilters';
 import LoginAlertModal from './components/modals/LoginAlertModal';
 import DescModal from './components/modals/DescModal';
 import LoadingSpinner from './components/Loading';
@@ -25,16 +25,7 @@ const App = () => {
   const { featuredAttractionsData, isLoadingFeatured, favAttractionsData, isLoadingFav, attractionsByCityData, isLoadingattractionsByCity, attractionsFilteredList, isLoadingAttractionsFilteredList } = useContext(AttractionsContext);
   const attractionsLoading = isLoadingFeatured === true && isLoadingattractionsByCity ? true : false;
 
-  function shuffle(arr) {
-    const shuffledArray = [...arr];
 
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const randomIndex = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[i]];
-    }
-
-    return shuffledArray;
-  }
 
   const getUserGreeting = (email) => {
     const userHandle = email.split('@');
@@ -50,7 +41,7 @@ const App = () => {
         <LoginAlertModal />
         <DescModal />
         <Routes>
-          <Route path="/" element={<CategoryFilters shuffle={shuffle} getUserGreeting={getUserGreeting}/>} />
+          <Route path="/" element={<CategoryFilters getUserGreeting={getUserGreeting} />} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/packages" element={<CreatePackage />} />

@@ -1,27 +1,27 @@
 import React, { useContext, useState } from 'react';
 
-import categories from '../mocks/categories.js';
+import categories from '../../mocks/categories.js';
 
 // COMPONENTS \\
-import CategoryFilterButton from './CategoryFiltersButton';
-import CategoryFilterModal from './modals/CategoryFilterModal';
-import LoadingSpinner from './Loading.jsx';
-import ActivitiesList from './ActivitiesList.jsx';
+import CategoryFilterButton from './CategoryFiltersButton.jsx';
+import CategoryFilterModal from '../modals/CategoryFilterModal.jsx';
+import LoadingSpinner from '../Loading.jsx';
+import ActivitiesList from '../activities-list/ActivitiesList.jsx';
 
 // CONTEXTS \\
-import { AttractionsContext } from '../providers/AttractionsContext';
-import UserContext from '../providers/UserContext.js';
+import { AttractionsContext } from '../../providers/AttractionsContext.js';
+import UserContext from '../../providers/UserContext.js';
 
 
 const CategoryFilters = (props) => {
-  const { shuffle, getUserGreeting } = props;
+  const { getUserGreeting } = props;
 
 
   const { user } = useContext(UserContext);
   const { featuredAttractionsData, isLoadingFeatured,
     favAttractionsData, isLoadingFav,
     attractionsByCityData, isLoadingattractionsByCity,
-    attractionsFilteredList, isLoadingAttractionsFilteredList,
+    attractionsFilteredList, setAttractionsFilteredList, isLoadingAttractionsFilteredList,
     fetchData, city, setFilters
   } = useContext(AttractionsContext);
 
@@ -40,7 +40,8 @@ const CategoryFilters = (props) => {
   };
 
   const handleClear = () => {
-    setFilters([])
+    setFilters([]);
+    setAttractionsFilteredList(null);
   };
 
 
@@ -52,7 +53,7 @@ const CategoryFilters = (props) => {
           {categoriesList}
         </div>
 
-        <div>
+        <div className='nav-category__btn-container'>
           <button className="nav-category__filter-btn"
             onClick={handleFilterSubmit}>
             <i className="fa-solid fa-bars"></i>
@@ -71,10 +72,10 @@ const CategoryFilters = (props) => {
           (haveFilteredByCategoryData && attractionsFilteredList) ? <ActivitiesList attractions={attractionsFilteredList.attractions} pageTitle={`Your filtered experiences await...`} /> :
 
             //if haveAttractionsByCityData and attractionsByCityData the display it
-            (haveAttractionsByCityData && attractionsByCityData) ? <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} awaits...`} /> :
+            (haveAttractionsByCityData && attractionsByCityData) ? <ActivitiesList attractions={attractionsByCityData.attractions} pageTitle={`Your experiences in ${attractionsByCityData.attractions[0].city} await...`} /> :
 
               // display featured
-              <ActivitiesList attractions={shuffle(featuredAttractionsData.attractions)} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} />
+              <ActivitiesList attractions={featuredAttractionsData.attractions} pageTitle={"Helping you find your way..."} username={user ? getUserGreeting(user.email) : null} />
 
       }
 

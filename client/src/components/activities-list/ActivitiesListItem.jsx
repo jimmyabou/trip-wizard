@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import EnhancedActivitiesListItem from './EnhancedActivitiesListItem';
 import ActivitiesListFavButton from './ActivitiesListFavButton';
-import ModalContext from '../providers/ModalContext';
+import ModalContext from '../../providers/ModalContext';
 
 const ActivitiesListItem = (props) => {
 
@@ -25,14 +25,14 @@ const ActivitiesListItem = (props) => {
   };
 
   const toggleDescModal = (attraction_id) => {
-    console.log(attraction_id);
+    // console.log(attraction_id);
     handleOpenDescModal(attraction_id);
   };
 
   return (
     <li>
       < div className="activity-list__item" key={attraction.attraction_id}>
-        <div class="activity-list__item_container">
+        <div className="activity-list__item_container">
           <ActivitiesListFavButton attraction_id={attraction.attraction_id} />
           {attraction.featured && <button className='featured'> Featured </button>}
           <img className="activity__photo" src={attraction.pictures[0]}

@@ -1,5 +1,5 @@
 const cities = [
-  {"label": " "},
+  {"label": ""},
   { "label": "Paris" },
   { "label": "Ottawa" },
   { "label": "London" },

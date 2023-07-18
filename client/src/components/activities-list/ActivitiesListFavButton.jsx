@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { AttractionsContext } from '../providers/AttractionsContext';
-import UserContext from '../providers/UserContext';
-import ModalContext from '../providers/ModalContext';
+import { AttractionsContext } from '../../providers/AttractionsContext';
+import UserContext from '../../providers/UserContext';
+import ModalContext from '../../providers/ModalContext';
 
 const ActivitiesListFavButton = ({ attraction_id }) => {
   const { handleFavAttraction, favAttractionIds } = useContext(AttractionsContext);

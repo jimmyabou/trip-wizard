@@ -48,6 +48,7 @@ const FetchAttractionUsingFilters = () => {
 
   return {
     attractionsFilteredList,
+    setAttractionsFilteredList,
     isLoading,
     error,
     filters,
