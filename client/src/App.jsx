@@ -41,7 +41,7 @@ const App = () => {
         <LoginAlertModal />
         <DescModal />
         <Routes>
-          <Route path="/" element={<CategoryFilters getUserGreeting={getUserGreeting} />} />
+          <Route path="/" element={isLoadingFeatured === true ? <LoadingSpinner /> : <CategoryFilters getUserGreeting={getUserGreeting} />} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/packages" element={<CreatePackage />} />
