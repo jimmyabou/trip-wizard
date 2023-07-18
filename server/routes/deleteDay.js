@@ -1,14 +1,15 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const dayQueries = require('../db/queries/dayQueries.js');
+const dayQueries = require("../db/queries/dayQueries.js");
 
-router.delete('/:dayId', (req, res) => {
+router.delete("/:dayId", (req, res) => {
   const { dayId } = req.params;
-  dayQueries.deleteDay(dayId)
+  dayQueries
+    .deleteDay(dayId)
     .then(() => {
-      res.json({ message: 'day deleted' });
+      res.json({ message: "day deleted" });
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
     });
 });

@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const attractionQueries = require('../db/queries/dayQueries.js');
+const attractionQueries = require("../db/queries/dayQueries.js");
 
-router.delete('/', async (req, res) => {
+router.delete("/", async (req, res) => {
   try {
     const { dayId, attractionId } = req.body;
     await attractionQueries.deleteAttractionFromDay(dayId, attractionId);
-    res.json({ dayId, attractionId, message: 'Attraction deleted' });
+    res.json({ dayId, attractionId, message: "Attraction deleted" });
   } catch (error) {
     console.error(error);
   }

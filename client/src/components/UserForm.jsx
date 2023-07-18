@@ -18,7 +18,6 @@ const UserForm = () => {
       alert('Passwords do not match');
       return;
     }
-    // console.log("send to axios")
     const userData = {
       username,
       password,
@@ -29,7 +28,6 @@ const UserForm = () => {
 
     createUser(userData)
       .then(response => {
-        // console.log(response);
         alert('User successfully created');
         setEmptyForm(!emptyform);
         navigate('/login');

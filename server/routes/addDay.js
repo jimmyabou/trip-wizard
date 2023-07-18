@@ -1,17 +1,18 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const dayQueries = require('../db/queries/dayQueries.js');
+const dayQueries = require("../db/queries/dayQueries.js");
 
-router.post('/:packageId', (req, res) => {
+router.post("/:packageId", (req, res) => {
   const { packageId } = req.params;
   const { title, description, date } = req.body;
-  dayQueries.addDay(packageId, date,title,description)
+  dayQueries
+    .addDay(packageId, date, title, description)
     .then(() => {
-      res.json({ message: 'day added successfuly' });
+      res.json({ message: "day added successfuly" });
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
-      res.json({ message: 'error' });
+      res.json({ message: "error" });
     });
 });
 

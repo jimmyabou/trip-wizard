@@ -1,9 +1,5 @@
-import React, { useState ,useContext, useEffect } from "react";
-import {
-  Card,
-  Typography,
-  Fab,
-} from "@mui/material";
+import React, { useState, useContext, useEffect } from "react";
+import { Card, Typography, Fab, } from "@mui/material";
 import { PlannerContext } from "../providers/PlannerContext";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -11,8 +7,6 @@ import TodayIcon from "@mui/icons-material/Today";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
-// import ActivitiesListItem from './ActivitiesListItem';
-
 
 const PackageDayDetails = ({ dayNumber, day }) => {
   const {
@@ -26,33 +20,29 @@ const PackageDayDetails = ({ dayNumber, day }) => {
   const [totalDuration, setTotalDuration] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // const [updateAttractions, setUpdateAttractions] = useState(false);
-
   useEffect(() => {
-  const getAttractionsByDay = async (dayId) => {
-    try {
-      let response = await axios.get(`/getAttractionsByDay/${dayId}`);
-      setAttractions(response.data.attractions);
-      console.log(response.data.attractions)
-      setTotalDuration(response.data.attractions.total_duration/60);
-      setTotalPrice(response.data.attractions.total_price);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  
-  getAttractionsByDay(day.day_id);
-  setUpdateDayAttractions(null)
+    const getAttractionsByDay = async (dayId) => {
+      try {
+        let response = await axios.get(`/getAttractionsByDay/${dayId}`);
+        setAttractions(response.data.attractions.attractions);
+        console.log(response.data.attractions)
+        setTotalDuration(response.data.attractions.totalDuration / 60);
+        setTotalPrice(response.data.attractions.totalPrice);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-}, [updateDayAttractions]);
- 
+    getAttractionsByDay(day.day_id);
+    setUpdateDayAttractions(null)
+
+  }, [updateDayAttractions]);
 
   async function handleExpand() {
     setIsExpanded(!isExpanded);
- 
   }
 
-  const deleteAttractionFromDay = async (dayId, attractionId ) => {
+  const deleteAttractionFromDay = async (dayId, attractionId) => {
     try {
       await axios.delete('/deleteAttractionFromDay', { data: { dayId, attractionId } });
       setUpdateDayAttractions('trigger delete')
@@ -60,7 +50,6 @@ const PackageDayDetails = ({ dayNumber, day }) => {
       console.error(error);
     }
   };
-
 
   return (
     <>
@@ -81,45 +70,40 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", marginLeft: '20px', marginTop: '20px', flexWrap: "wrap", maxWidth: "10%", overflow: "auto"}}>
-            <Typography variant="h5" style={{fontFamily: "DM Sans",letterSpacing: '0.02rem',fontStyle: 'italic', fontWeight: 'bold'}}>
+          <div style={{ display: "flex", flexDirection: "column", marginLeft: '20px', marginTop: '20px', flexWrap: "wrap", maxWidth: "10%", overflow: "auto" }}>
+            <Typography variant="h5" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem', fontStyle: 'italic', fontWeight: 'bold' }}>
               Day {dayNumber}{" "}
               <div >
-              <Typography  component="span" style={{fontFamily: "DM Sans"}}>
-              <TodayIcon style={{ fontSize: "25px", color: "#9e9e9e", verticalAlign: 'middle'}} />  {day.date.substring(0, 10)} 
-              </Typography>
+                <Typography component="span" style={{ fontFamily: "DM Sans" }}>
+                  <TodayIcon style={{ fontSize: "25px", color: "#9e9e9e", verticalAlign: 'middle' }} />  {day.date.substring(0, 10)}
+                </Typography>
               </div>
             </Typography>
-            <Typography variant="h6" style={{fontFamily: "DM Sans",letterSpacing: '0.02rem'}}> {day.day_title}</Typography>
-            <Typography style={{fontFamily: "DM Sans",letterSpacing: '0.02rem'}}>{day.day_description}</Typography>
-            {/* <Typography>Total hours:___hrs</Typography>
-            <Typography>Total Price:$ ___</Typography> */}
+            <Typography variant="h6" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}> {day.day_title}</Typography>
+            <Typography variant="h6" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}>{day.day_description}</Typography>
+            <Typography  variant="h5" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}><i className="fa-regular fa-hourglass-half" style={{ color: "rgb(81, 212, 191)" }}></i> {totalDuration}hrs</Typography>
+            <Typography variant="h5"><i className="fa-solid fa-dollar-sign" style={{ color: "rgb(81, 212, 191)" }}></i> {totalPrice}</Typography>
           </div>
-          
-          {/* <div style={{ display: "flex", flexDirection: "column", width: "70%"}}> */}
-          <div style={{ display: "flex",maxWidth: "75%", flexWrap: "wrap"}}>
-  {attractions.map((attraction, index) => (
-    
-      
-      <img
-      key={attraction.attraction_id}
-        src={attraction.pictures[0]}
-        alt={attraction.name}
-        style={{
-          width: "4rem",
-          height: "4rem",
-          borderRadius: "50%",
-          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.7)",
-          margin: '4px',
-          border: "1px solid rgba(255, 255, 255, 0.1)",//u started
-        }}
-      />
-    
-  ))}
-</div>
-          {/* </div> */}
-          
-          
+          <div style={{ display: "flex", maxWidth: "75%", flexWrap: "wrap" }}>
+            {attractions.map((attraction, index) => (
+
+
+              <img
+                key={attraction.attraction_id}
+                src={attraction.pictures[0]}
+                alt={attraction.name}
+                style={{
+                  width: "4rem",
+                  height: "4rem",
+                  borderRadius: "50%",
+                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.7)",
+                  margin: '4px',
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
+              />
+
+            ))}
+          </div>
           <div style={{ display: "flex", alignItems: "center" }}>
             <Fab
               color="primary"
@@ -129,7 +113,8 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                 backgroundColor: "#51D4BF",
                 width: "56px",
                 height: "56px",
-                marginRight: '20px'
+                marginRight: '20px',
+                zIndex: 0
               }}
             >
               <AddIcon style={{ fontSize: "32px" }} />
@@ -141,7 +126,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                 marginLeft: "10px",
                 fontSize: "40px",
                 marginRight: '20px'
-          
+
               }}
               onClick={() => handleDeleteDay(day.day_id)}
             />
@@ -155,7 +140,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             alignItems: "center",
           }}
         >
-          {attractions.length>0 && (
+          {attractions.length > 0 && (
             <div
               style={{
                 display: "flex",
@@ -204,34 +189,33 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                       marginRight: "10px",
                     }}
                   />
-                  <div  style={{
+                  <div style={{
                     display: "flex",
-                flexDirection: "column",
-                marginLeft: '20px'
+                    flexDirection: "column",
+                    marginLeft: '20px'
                   }}>
                     <div style={{ width: '-moz-max-content', width: 'max-content' }}>
-                      <Typography variant="h5"><i className="fa-regular fa-hourglass-half" style={{color: "rgb(81, 212, 191)"}}></i> {attraction.duration / 60}h</Typography></div>
+                      <Typography variant="h5"><i className="fa-regular fa-hourglass-half" style={{ color: "rgb(81, 212, 191)" }}></i> {attraction.duration / 60}h</Typography></div>
                     <div style={{ width: '-moz-max-content', width: 'max-content' }}>
-                      <Typography variant="h5"><i className="fa-solid fa-dollar-sign" style={{color: "rgb(81, 212, 191)"}}></i> {attraction.price}</Typography></div>
+                      <Typography variant="h5"><i className="fa-solid fa-dollar-sign" style={{ color: "rgb(81, 212, 191)" }}></i> {attraction.price}</Typography></div>
                   </div>
                   <div style={{
                     marginLeft: "20px",
                   }}>
-                    <Typography variant="h5" style={{fontFamily: "DM Sans",letterSpacing: '0.02rem', fontStyle: 'italic'}}>{attraction.name}</Typography>
-                  <Typography style={{fontFamily: "DM Sans",letterSpacing: '0.02rem'}}>{attraction.description}</Typography></div>
-                <div style={{ marginLeft: "auto" }}>
-                <DeleteIcon
-              style={{
-                color: "grey",
-                cursor: "pointer",
-                marginLeft: "10px",
-                fontSize: "30px",
-              }}
-              onClick={()=>deleteAttractionFromDay(day.day_id, attraction.attraction_id )}
-            /></div>
+                    <Typography variant="h5" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem', fontStyle: 'italic' }}>{attraction.name}</Typography>
+                    <Typography style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}>{attraction.description}</Typography></div>
+                  <div style={{ marginLeft: "auto" }}>
+                    <DeleteIcon
+                      style={{
+                        color: "grey",
+                        cursor: "pointer",
+                        marginLeft: "10px",
+                        fontSize: "30px",
+                      }}
+                      onClick={() => deleteAttractionFromDay(day.day_id, attraction.attraction_id)}
+                    /></div>
                 </div>
               </Card>
-              
             ))}
         </div>
       </Card>

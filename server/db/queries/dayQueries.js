@@ -60,6 +60,29 @@ const getAttractionsByDayId = (dayId) => {
       throw error;
     });
 };
+
+const calculateTotalPriceAndDuration = (attractions) => {
+  let totalPrice = 0;
+  let totalDuration = 0;
+  attractions.forEach((attraction) => {
+    totalPrice += attraction.price;
+    totalDuration += Number(attraction.total_duration);
+  });
+
+  return { totalPrice, totalDuration };
+};
+const getAttractionsAndTotalsByDayId = async (dayId) => {
+  try {
+    const attractions = await getAttractionsByDayId(dayId);
+    const totals = calculateTotalPriceAndDuration(attractions);
+    return { attractions, ...totals };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+
 const insertAttractionsByDay = async (dayId, attractionIds) => {
   const query = `INSERT INTO day_attractions (day_id, attraction_id)
                  VALUES ($1, $2) ON CONFLICT DO NOTHING`;
@@ -129,4 +152,5 @@ module.exports = {
   insertAttractionsByDay,
   deleteAttractionFromDay,
   getPackageFavoritedattractions,
+  getAttractionsAndTotalsByDayId
 };
