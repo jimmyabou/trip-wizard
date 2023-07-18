@@ -8,11 +8,11 @@ DROP TABLE IF EXISTS attractions CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username varchar NOT NULL,
+  username varchar,
   password varchar NOT NULL,
   email varchar NOT NULL,
-  address varchar NOT NULL,
-  phone_number varchar NOT NULL
+  address varchar,
+  phone_number varchar
 );
 
 CREATE TABLE attractions (

@@ -1,6 +1,6 @@
 INSERT INTO users (username, password, email, address, phone_number)
 VALUES 
-  ('john_doe', '$2a$10$NpHHzDL/qk3B08qbhUPf4eq21IO7rsfg/zxFngtLbw7oc8527nbNa', 'john@example.com', '123 Main St', '555-123-4567'),
+  ('john_doe', '$2a$10$NpHHzDL/qk3B08qbhUPf4eq21IO7rsfg/zxFngtLbw7oc8527nbNa', 'bryan@example.com', '123 Main St', '555-123-4567'),
   ('jane_smith', '$2a$10$CyDsHi0WmR2PBzMs1iT3JeOTiirmhy25RUW25IhosGWeByq9ijXze', 'jane@example.com', '456 Oak St', '987-654-3210'),
   ('mike_johnson', '$2a$10$4hG/UkS0jc/luOKveLb3t.rzo00UcPGVEQ1KTbEeMr/BAKty9SDPS', 'mike@example.com', '789 Elm St', '555-555-5555'),
   ('sarah_wilson', '$2a$10$NpHHzDL/qk3B08qbhUPf4eq21IO7rsfg/zxFngtLbw7oc8527nbNa', 'sarah@example.com', '123 Maple St', '111-222-3333'),

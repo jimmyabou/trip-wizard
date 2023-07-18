@@ -28,7 +28,6 @@ const UserForm = () => {
 
     createUser(userData)
       .then(response => {
-        alert('User successfully created');
         setEmptyForm(!emptyform);
         navigate('/login');
       })
@@ -65,7 +64,7 @@ const UserForm = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               fullWidth
-              required
+              // required
             />
           </div>
 
@@ -86,7 +85,7 @@ const UserForm = () => {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               fullWidth
-              required
+              // required
             />
           </div>
           <div style={{ marginTop: '1rem' }}>
@@ -96,7 +95,7 @@ const UserForm = () => {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               fullWidth
-              required
+              // required
             />
           </div>
           <div style={{ marginTop: '1rem' }}>
