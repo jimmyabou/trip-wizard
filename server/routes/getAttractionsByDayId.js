@@ -6,7 +6,6 @@ router.get('/:dayId', async (req, res) => {
   try {
     const { dayId } = req.params;
     const attractions = await attractionQueries.getAttractionsAndTotalsByDayId(dayId);
-    console.log({attractions})
     res.json({ attractions });
   } catch (error) {
     console.error(error);
