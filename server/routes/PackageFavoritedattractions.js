@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 const dayQueries = require("../db/queries/dayQueries.js");
 
-router.post("/:packageId", (req, res) => {
-  const { packageId } = req.params;
-  const { title, description, date } = req.body;
+router.get("/:userId", (req, res) => {
+  const { userId } = req.params;
+  console.log("reached the route");
   dayQueries
-    .addDay(packageId, date, title, description)
-    .then(() => {
-      res.json({ message: "day added successfuly" });
+    .getPackageFavoritedattractions(userId)
+    .then((attractions) => {
+      res.json({ attractions });
     })
     .catch((error) => {
       console.error(error);

@@ -19,9 +19,6 @@ const LoginForm = () => {
       setEmptyForm(!emptyform);
       navigate('/');
     });
-    // console.log("Submitted email:", email);
-    // console.log("Submitted password:", password);
-
   };
   useEffect(() => {
     setPassword('');

@@ -1,14 +1,15 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const packageQueries = require('../db/queries/packageQueries.js');
+const packageQueries = require("../db/queries/packageQueries.js");
 
-router.delete('/:packageId', (req, res) => {
+router.delete("/:packageId", (req, res) => {
   const { packageId } = req.params;
-  packageQueries.deletePackage(packageId)
+  packageQueries
+    .deletePackage(packageId)
     .then(() => {
-      res.send('package deleted');
+      res.send(`package deleted ${packageId}`);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
     });
 });

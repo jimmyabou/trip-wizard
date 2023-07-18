@@ -15,7 +15,7 @@ const CreatePackage = () => {
   return (
     <>
       <form
-        style={{ display: 'flex', alignItems: 'center', margin: 12 }}
+        style={{ display: 'flex', alignItems: 'center', margin: '55px' }}
         onSubmit={handleSubmit}
       >
         <TextField style={{ marginRight: 12 }}
@@ -23,7 +23,7 @@ const CreatePackage = () => {
           value={packageName}
           onChange={(event) => setPackageName(event.target.value)}
         />
-        <Button type="submit" variant="contained" color="primary" style={{ padding: '6px 16px', minWidth: 150, maxHeight:50,background: "#51D4BF" }}>
+        <Button type="submit" variant="contained" color="primary" style={{ padding: '6px 16px', minWidth: 150, maxHeight:50,background: "#51D4BF", fontFamily: "DM Sans",letterSpacing: '0.02rem', borderRadius: '10px',fontSize: '1.3rem' }}>
           Add Trip
         </Button>
       </form>

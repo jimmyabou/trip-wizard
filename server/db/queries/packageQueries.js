@@ -37,10 +37,11 @@ const updatePackage = (packageId, packageName) => {
 };
 
 const deletePackage = (packageId) => {
+  console.log(packageId)
   const query = 'DELETE FROM packages WHERE package_id = $1 ';
   const values = [packageId];
-
   return db.query(query, values)
+  
      .catch(error => {
       console.error(error);
     });
