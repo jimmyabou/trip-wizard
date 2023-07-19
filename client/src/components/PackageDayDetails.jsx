@@ -7,6 +7,7 @@ import TodayIcon from "@mui/icons-material/Today";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
+import { grey } from "@mui/material/colors";
 
 const PackageDayDetails = ({ dayNumber, day }) => {
   const {
@@ -59,8 +60,10 @@ const PackageDayDetails = ({ dayNumber, day }) => {
           padding: "10px",
           display: "flex",
           flexDirection: "column",
-          backgroundColor: '#fafafa',
-          borderRadius: '10px'
+          backgroundColor: 'white',
+          borderRadius: '10px',
+          width: '95%',
+          justifyContent: "center"
         }}
       >
         <div
@@ -70,21 +73,46 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", marginLeft: '20px', marginTop: '20px', flexWrap: "wrap", maxWidth: "10%", overflow: "auto" }}>
-            <Typography variant="h5" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem', fontStyle: 'italic', fontWeight: 'bold' }}>
-              Day {dayNumber}{" "}
-              <div >
-                <Typography component="span" style={{ fontFamily: "DM Sans" }}>
-                  <TodayIcon style={{ fontSize: "25px", color: "#9e9e9e", verticalAlign: 'middle' }} />  {day.date.substring(0, 10)}
-                </Typography>
-              </div>
+          <div style={{ display: "flex", flexDirection: "column", marginLeft: '20px', marginTop: '20px', flexWrap: "wrap", minWidth: "25%", overflow: "auto", width: '25%' }}>
+            <Typography variant="h5" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem', fontStyle: 'italic', fontWeight: 'bold', borderBottom: '1px solid lightgrey', width: '88%', display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+              <TodayIcon style={{ fontSize: "30px", color: "rgb(81, 212, 191)" }} />&nbsp;
+              Day {dayNumber}
+              <Typography component="span" style={{ fontFamily: "DM Sans", marginLeft: '10px' }}>
+                {day.date.substring(0, 10)}
+              </Typography>
             </Typography>
-            <Typography variant="h6" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}> {day.day_title}</Typography>
-            <Typography variant="h6" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}>{day.day_description}</Typography>
-            <Typography  variant="h5" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem' }}><i className="fa-regular fa-hourglass-half" style={{ color: "rgb(81, 212, 191)" }}></i> {totalDuration}hrs</Typography>
-            <Typography variant="h5"><i className="fa-solid fa-dollar-sign" style={{ color: "rgb(81, 212, 191)" }}></i> {totalPrice}</Typography>
+
+            <Typography variant="h5" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem', marginTop: '15px', fontStyle: 'italic' }}>{day.day_title}</Typography>
+
+            {day.day_description&&<Typography variant="h6" style={{ fontFamily: "DM Sans", letterSpacing: '0.02rem', borderBottom: '1px solid lightgrey', width: '88%', color: 'grey', paddingBottom: '10px', marginTop: '10px' }}>
+              {day.day_description}
+            </Typography>}
+
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: '15px', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <i className="fa-regular fa-hourglass-half" style={{ fontSize: "25px", color: "rgb(81, 212, 191)", marginRight: '10px' }}></i>
+                <span style={{ fontSize: "22px" }}>Total Duration:</span>
+              </div>
+              <div>
+                <span style={{ fontSize: "22px", marginRight: '3.7rem' }}>{totalDuration} h</span>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: '10px', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <i className="fa-solid fa-dollar-sign" style={{ fontSize: "25px", color: "rgb(81, 212, 191)", marginRight: '10px' }}></i>
+                <span style={{ fontSize: "22px" }}>Total Price:</span>
+              </div>
+              <div>
+                <span style={{ fontSize: "22px", marginRight: '3.7rem' }}>$ {totalPrice}</span>
+              </div>
+            </div>
           </div>
-          <div style={{ display: "flex", maxWidth: "75%", flexWrap: "wrap" }}>
+
+
+
+
+          <div style={{ display: "flex", maxWidth: "75%", flexWrap: "wrap", justifyContent: "center" }}>
             {attractions.map((attraction, index) => (
 
 
@@ -93,18 +121,18 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                 src={attraction.pictures[0]}
                 alt={attraction.name}
                 style={{
-                  width: "4rem",
-                  height: "4rem",
+                  width: "5rem",
+                  height: "5rem",
                   borderRadius: "50%",
                   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.7)",
-                  margin: '4px',
+                  margin: '20px',
                   border: "1px solid rgba(255, 255, 255, 0.1)",
                 }}
               />
 
             ))}
           </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ display: "flex", alignItems: "center", minWidth: '25%', justifyContent: "end", marginRight: '20px' }}>
             <Fab
               color="primary"
               aria-label="Add Attraction"
@@ -169,7 +197,8 @@ const PackageDayDetails = ({ dayNumber, day }) => {
             .map((attraction) => (
               <Card
                 key={attraction.attraction_id}
-                style={{ width: "70%", marginBottom: "10px", borderRadius: '10px' }}
+                style={{ width: "70%", marginBottom: "10px",boxShadow: "none", 
+                border: "none", borderBottom: "1px solid lightgrey", borderRadius: 'none' }}
               >
                 <div
                   style={{
