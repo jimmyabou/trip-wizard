@@ -94,7 +94,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                 <span style={{ fontSize: "22px" }}>Total Duration:</span>
               </div>
               <div>
-                <span style={{ fontSize: "22px", marginRight: '3.7rem' }}>{totalDuration} h</span>
+                <span style={{ fontSize: "22px", marginRight: '5rem' }}>{totalDuration} h</span>
               </div>
             </div>
 
@@ -104,7 +104,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
                 <span style={{ fontSize: "22px" }}>Total Price:</span>
               </div>
               <div>
-                <span style={{ fontSize: "22px", marginRight: '3.7rem' }}>$ {totalPrice}</span>
+                <span style={{ fontSize: "22px", marginRight: '5rem' }}>$ {totalPrice}</span>
               </div>
             </div>
           </div>
