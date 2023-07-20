@@ -124,7 +124,7 @@ const PackageDetails = () => {
           </Button>
         </div>
       </form>
-      <div style={{ margin: "20px" }}>
+      <div style={{ margin: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <PackageDayList days={days}></PackageDayList>
       </div >
       <Modal
@@ -155,7 +155,7 @@ const PackageDetails = () => {
             <CloseIcon />
           </IconButton>
         </div>
-        <Typography variant="h5">Attractions</Typography>
+        <Typography variant="h4" style={{fontFamily: "DM Sans"}}>Attractions</Typography>
         <div
           style={{
             display: "flex",

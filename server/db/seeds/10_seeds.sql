@@ -6,7 +6,7 @@ VALUES
   ('sarah_wilson', '$2a$10$NpHHzDL/qk3B08qbhUPf4eq21IO7rsfg/zxFngtLbw7oc8527nbNa', 'sarah@example.com', '123 Maple St', '111-222-3333'),
   ('alex_davis', '$2a$10$CyDsHi0WmR2PBzMs1iT3JeOTiirmhy25RUW25IhosGWeByq9ijXze', 'alex@example.com', '456 Pine St', '444-555-6666'),
   ('lisa_smith', '$2a$10$4hG/UkS0jc/luOKveLb3t.rzo00UcPGVEQ1KTbEeMr/BAKty9SDPS', 'lisa@example.com', '789 Oak St', '777-888-9999'),
-  ('test', '$2b$10$HXW.LgKfwjoD2pPJz7AlVuNcfE15K5pqglT/Nl5vw4IjN4X2BhIhO', 'test@example.com', '789 Oak St', '777-888-9999');
+  ('bryan', '$2b$10$HXW.LgKfwjoD2pPJz7AlVuNcfE15K5pqglT/Nl5vw4IjN4X2BhIhO', 'bryan@gmail.com', '789 Oak St', '777-888-9999');
 
 INSERT INTO favorite_attractions (user_id, attraction_id)
 VALUES
@@ -15,8 +15,18 @@ VALUES
   (2, 1),
   (2, 3),
   (3, 4),
-  (7,1),
-  (7,2);
+  (7,78),
+  (7,79), 
+  (7, 80), 
+  (7, 81), 
+  (7, 82), 
+  (7, 83), 
+  (7, 48), 
+  (7, 51), 
+  (7, 52),
+  (7, 98),
+  (7, 99),
+  (7, 92);
 
 -- Packages
 INSERT INTO packages (user_id, name)
@@ -28,7 +38,8 @@ VALUES
   (5, 'Beirut Excursion'),
   (6, 'Beach Escape'),
   (7, 'Mountain Retreat'),
-  (7, 'City Explorer');
+  (7, 'City Explorer'), 
+  (7, 'Europe');
 
 -- Days
 INSERT INTO days (package_id, date, day_title, day_description)
@@ -48,7 +59,10 @@ VALUES
   (7, '2022-10-05', 'Mountain Hiking', 'Embark on a challenging hike and explore the stunning mountain trails.'),
   (7, '2022-10-06', 'Nature Photography', 'Capture breathtaking photos of the picturesque mountain landscapes.'),
   (8, '2022-10-15', 'City Landmarks', 'Discover iconic landmarks and attractions in the bustling city.'),
-  (8, '2022-10-16', 'Street Food Tour', 'Savor the local street food and culinary delights of the city.');
+  (8, '2022-10-16', 'Street Food Tour', 'Savor the local street food and culinary delights of the city.'),
+  (9, '2023-07-24', 'Paris', 'Oui oui.'),
+  (9, '2023-07-25', 'Italy', 'Ciao.'),
+  (9, '2023-07-26', 'Porugal', 'Ola.');
 
 -- Package Attractions
 INSERT INTO day_attractions (attraction_id, day_id)
@@ -60,7 +74,13 @@ VALUES
   (5, 3),
   (6, 3),
   (7, 4),
-  (8, 4);
+  (8, 4),
+  (98, 19),
+  (99, 19),
+  (92, 19),
+  (48,18),
+  (51,18),
+  (52,18);
 
 -- Orders
 INSERT INTO orders (user_id, order_date, total_amount)
