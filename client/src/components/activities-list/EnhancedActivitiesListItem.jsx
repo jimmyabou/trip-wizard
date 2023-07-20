@@ -6,7 +6,7 @@ const EnhancedActivitiesListItem = (props) => {
 
   const shortenDescription = (str) => {
     const firstSentence = str.split('. ')[0];
-    const maxLength = 135;
+    const maxLength = 130;
     let result = firstSentence;
 
     if (firstSentence.length > maxLength) {
@@ -26,7 +26,7 @@ const EnhancedActivitiesListItem = (props) => {
 
   return (
     <div className="activity__details-more">
-      <p> {shortenDescription(description)}.</p>
+      <p> {shortenDescription(description)}...</p>
       <div className="activity__details-booking-info">
         <div className="activity__details-price">
           <p>from </p>
