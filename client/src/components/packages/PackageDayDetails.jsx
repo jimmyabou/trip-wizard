@@ -253,3 +253,5 @@ const PackageDayDetails = ({ dayNumber, day }) => {
     </>
   );
 };
+
+export default PackageDayDetails;
