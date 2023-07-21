@@ -1,3 +1,12 @@
+$font-family: "DM Sans";
+$letter-spacing: 0.02rem;
+$primary-color: #51D4BF;
+
+@mixin dm-sans-font {
+  font-family: $font-family;
+  letter-spacing: $letter-spacing;
+}
+
 #add-day-form {
   margin-top: 30px;
   display: flex;
@@ -21,23 +30,23 @@
 
 .date-picker-container {
   position: relative;
-}
 
-#calendar-icon {
-  position: absolute;
-  top: 50%;
-  right: 8px;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
+  #calendar-icon {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
 
-#date-field {
-  cursor: pointer;
-}
+  #date-field {
+    cursor: pointer;
+  }
 
-.date-picker {
-  position: absolute;
-  z-index: 9999;
+  .date-picker {
+    position: absolute;
+    z-index: 9999;
+  }
 }
 
 #add-button {
@@ -45,64 +54,58 @@
   padding: 6px 16px;
   min-width: 150px;
   max-height: 50px;
-  background-color: #51D4BF;
-  font-family:"DM Sans";
-  letter-spacing: '0.02rem';
-  font-size: 1.3rem;
-  border-radius: 10px;
+  background-color: $primary-color;
+  
+   @include dm-sans-font();
+  
+   font-size:1.3rem; 
+   border-radius:10px; 
 }
-//modal displaying attractions to add to Days
+
 .package-day-list-container {
-  margin: 20px;
-  display:flex ;
-  flex-direction: column;
-  align-items: center;
+    margin:20px; 
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
 }
 
-.attractions-modal {
-  
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 90%;
-    background-color: white;
-    padding: 16px;
-    border-radius: 8px;
-    max-height: 200vh;
-    max-width: 130vw;
-    overflow-y: auto;
- 
+.attractions-modal{
+    top:50%; 
+    left:50%; 
+    transform:translate(-50%, -50%); 
+    width:80%; 
+    height:90%; 
+    background-color:white; 
+    padding:16px; 
+    border-radius:8px; 
+    max-height:200vh; 
+    max-width:130vw; 
+    overflow-y:auto; 
+
+     #modal-header{
+        display:flex; 
+        justify-content:flex-end; 
+        width:100%; 
+     }
+
+     .modal-activities-list{
+        display:flex; 
+        flex-wrap:wrap; 
+        justify-content:center; 
+
+     }
 }
 
-#modal-header {
-  display: flex;
-  justify-content: flex-end;
-  width:100%;
+#save-button{
+   position :sticky ; bottom :10px ; left :90% ; padding :6px   16px ; min-width :150px ; max-height :50px ; background-color :$primary-color ;
+   
+   @include dm-sans-font();
+   
+   font-size :1.3rem ; border-radius :10px ;
 }
 
-.modal-activities-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  
-}
-
-#save-button {
-  position: sticky;
-  bottom: 10px;
-  left: 90%;
-  padding: 6px 16px;
-  min-width: 150px;
-  max-height: 50px;
-  background-color: #51D4BF;
-  font-family:"DM Sans";
-  letter-spacing: '0.02rem';
-  font-size: 1.3rem;
-  border-radius: 10px;
-}
 #Attractions-title-modal{
-  font-family:"DM Sans";
-  letter-spacing: '0.02rem';
-  font-size: 2rem;
+   @include dm-sans-font();
+   
+   font-size :2rem ;
 }

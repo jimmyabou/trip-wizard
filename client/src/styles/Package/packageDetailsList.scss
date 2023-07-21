@@ -1,3 +1,13 @@
+$font-family: "DM Sans";
+$letter-spacing: 0.02rem;
+$primary-color: #51D4BF;
+$secondary-color: #EAC435;
+
+@mixin dm-sans-font {
+  font-family: $font-family;
+  letter-spacing: $letter-spacing;
+}
+
 .package-list-container {
   display: flex;
   flex-wrap: wrap;
@@ -7,53 +17,53 @@
 .package-card {
   margin: 12px;
   border-radius: 10px;
-  font-family: "DM Sans";
-}
+  
+   @include dm-sans-font();
+  
+   #package-card-media {
+    height: 140px;
+    width: 25rem;
+    height: 16rem;
+   }
 
-#package-card-media {
-  height: 140px;
-  width: 25rem;
-  height: 16rem;
-}
+   .card-content-wrapper {
+    display: flex;
+    justify-content: center;
+    font-style: italic;
 
-.card-content-wrapper {
-  display: flex;
-  justify-content: center;
-  font-style: italic;
-}
+     #card-content {
+      border-bottom: 1px solid lightgrey;
+      width: 88%;
+     }
+   }
 
-#card-content {
-  border-bottom: 1px solid lightgrey;
-  width: 88%;
-}
+   .package-name {
+     @include dm-sans-font();
+   }
 
-.package-name {
-  font-family: "DM Sans";
-  letter-spacing: 0.02rem;
-}
+   .button-delete-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-top: auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
 
-.button-delete-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-  margin-top: auto;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
+     #reserve-button {
+      margin: 8px;
+      width: 8.5rem;
+      border-radius: 25px;
+      background-color:$secondary-color ;
+      height:3rem ;
+      font-size :1.2rem ;
+      color:black ;
+     }
 
-#reserve-button {
-  margin: 8px;
-  width: 8.5rem;
-  border-radius: 25px;
-  background-color: #EAC435;
-  height: 3rem;
-  font-size: 1.2rem;
-  color: black;
-}
-
-#delete-icon {
-  color: grey;
-  cursor: pointer;
-  font-size: 40px;
+     #delete-icon {
+      color :grey ;
+      cursor:pointer ;
+      font-size :40px ;
+     }
+   }
 }

@@ -1,3 +1,15 @@
+$font-family: "DM Sans";
+$letter-spacing: 0.02rem;
+$border-color: lightgrey;
+$primary-color: rgb(81, 212, 191);
+$icon-size: 25px;
+$text-size: 22px;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
 .day-info-container {
   display: flex;
   flex-direction: column;
@@ -7,237 +19,224 @@
   min-width: 25%;
   width: 25%;
 }
+
 #card-container {
   width: 95%;
   display:flex;
   flex-direction: column;
   margin-bottom: 20px;
-  
 }
+
 .day-details-container{
   display:flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .day-title {
-  font-family: "DM Sans";
-  letter-spacing: 0.02rem;
+  font-family: $font-family;
+  letter-spacing: $letter-spacing;
   font-style: italic;
   font-weight: bold;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid $border-color;
   width: 88%;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+
+    .day-title-icon {
+      font-size: $icon-size +5px ;
+      color: $primary-color;
+    }
 }
+
 .day-actions-container {
-  display: flex;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
-.day-title-icon {
-  font-size: 30px;
-  color: rgb(81, 212, 191);
+    display:flex;
+    position:absolute;
+    bottom:10px;
+    right:10px; 
 }
 
 .day-date {
-  font-family: "DM Sans";
-  margin-left: 10px;
+    font-family:$font-family ;
+    margin-left :10px ;
 }
 
 .day-day-title {
-  font-family: "DM Sans";
-  letter-spacing: 0.02rem;
-  margin-top: 15px;
-  font-style: italic;
+    font-family:$font-family ;
+    letter-spacing:$letter-spacing ;
+    margin-top :15px ;
+    font-style :italic ;
 }
+
 .attractions-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+    @include flex-center();
+    flex-wrap :wrap ;
 }
+
 .attraction-image {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-  margin: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+    width :5rem ;
+    height :5rem ;
+    border-radius :50% ;
+    box-shadow :0 2px8px rgba(0,0,0,0.7) ;
+    margin :20px ;
+    border :1px solid rgba(255,255,255,0.1) ;
 }
+
 .day-description {
-  font-family: "DM Sans";
-  letter-spacing: 0.02rem;
-  border-bottom: 1px solid lightgrey;
-  width: 88%;
-  color: grey;
-  padding-bottom: 10px;
-  margin-top: 10px;
+    font-family:$font-family ;
+    letter-spacing:$letter-spacing ;
+    border-bottom :1px solid $border-color ;
+    width :88% ;
+    color :grey ;
+    padding-bottom :10px ;
+    margin-top :10px ;
 }
 
-.total-duration-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-  align-items: center;
-}
-
-.total-duration-icon {
-  font-size: 25px;
-  color: rgb(81, 212, 191);
-  margin-right: 10px;
-}
-
-.total-duration-text {
-  font-size: 22px;
-}
-
-.total-duration-value {
-  font-size: 22px;
-  margin-right: 3.7rem;
-}
-
+.total-duration-container,
 .total-price-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  align-items: center;
+   display:flex; 
+   justify-content :space-between ; 
+   align-items:center; 
+   margin-top :15px ; 
+
+   .total-duration-icon,
+   .total-price-icon{
+      font-size:$icon-size; 
+      color:$primary-color; 
+      margin-right :10px ; 
+   }
+
+   .total-duration-text,
+   .total-price-text{
+      font-size:$text-size; 
+   }
+
+   .total-duration-value,
+   .total-price-value{
+      font-size:$text-size; 
+      margin-right :3.7rem ; 
+   }
 }
 
-.total-price-icon {
-  font-size: 25px;
-  color: rgb(81, 212, 191);
-  margin-right: 10px;
+.attractionsContainer{
+   @include flex-center();
+   flex-wrap :wrap ; 
+   margin :20px0 ; 
 }
 
-.total-price-text {
-  font-size: 22px;
+.attractionImage{
+   width :5rem ; 
+   height :5rem ; 
+   border-radius :50% ; 
+   box-shadow :02px8px rgba(0,0,0,0.7) ; 
+   margin :10px ; 
+   border :1px solid rgba(255,255,255,0.1) ; 
 }
 
-.total-price-value {
-  font-size: 22px;
-  margin-right: 3.7rem;
-}
+.buttonsContainer{
+   display:flex; 
+   justify-content:end; 
+   align-items:center; 
+   min-width:25%; 
+   margin-right:20px; 
 
-.attractionsContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 20px 0; 
-}
+     #addFab{
+        background-color:#51D4BF; 
+        width:56px; 
+        height:56px; 
+        margin-right:20px; 
+        z-index:0; 
 
-.attractionImage {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-  margin: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.buttonsContainer {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  min-width: 25%;
-  margin-right: 20px;
-}
+         #addIcon{
+            font-size:32px; 
+         }
+     }
 
-#addFab {
-  background-color: #51D4BF;
-  width: 56px;
-  height: 56px;
-  margin-right: 20px;
-  z-index: 0;
-}
-
-#addIcon {
-  font-size: 32px;
-}
-
-#deleteIcon {
-  color: grey;
-  cursor: pointer;
-  margin-left: 10px;
-  font-size: 40px;
-  margin-right: 20px;
+     #deleteIcon{
+        color:grey; 
+        cursor:pointer; 
+        margin-left:10px; 
+        font-size:40px; 
+        margin-right:20px;  
+     }
 }
 
 // attraction list under each day 
 
 #attractionsDetailsContainer{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-#expandIconContainer {
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-}
+   @include flex-center();
+   flex-direction:column; 
+   align-items: center;
 
-.expandIcon {
-  font-size: 40px;
-  color: #9e9e9e;
-}
+     #expandIconContainer{
+         @include flex-center();
+         cursor:pointer;
 
-.expanded {
-  transform: rotate(180deg);
-  color: #9e9e9e;
+         .expandIcon{
+            font-size:40px;  
+            color:#9e9e9e;
+         }
+            .expanded{
+               transform:rotate(180deg);  
+               color:#9e9e9e;  
+            }
+         
+     }
 }
 
 // Container for each attraction card 
-#attractionCardContainer {
-  width: 70%;
-  margin-bottom: 10px;
-  box-shadow: none;
-  border: none;
-  border-bottom: 1px solid lightgrey;
-  border-radius: none;
-}
 
-.attractionCardContent {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  margin: 20px;
-}
+#attractionCardContainer{
+   width:70%;  
+   margin-bottom:10px;  
+   box-shadow:none;  
+   border:none;  
+   border-bottom:1px solid $border-color;  
+   border-radius:none; 
 
-.attractionImageList {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 5%;
-  margin-right: 10px;
-  object-fit: fit;
-}
+   .attractionCardContent{
+      display:flex;  
+      align-items:center;  
+      margin-bottom:10px;  
+      margin:20px; 
 
-.attractionDetails {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
+      .attractionImageList{
+         width:5rem;  
+         height:5rem;  
+         border-radius:5%;  
+         margin-right:10px;  
+         object-fit:fit; 
+      }
 
-.attractionDuration, .attractionPrice {
-  width: max-content;
-}
+      .attractionDetails{
+         display:flex; 
+         flex-direction:column; 
+         margin-left:20px;
 
-.attractionName {
-  font-family: "DM Sans";
-  letter-spacing: 0.02rem;
-  font-style: italic;
-}
+         .attractionDuration,
+         .attractionPrice{
+            width:max-content;
+         }
 
-.attractionDescription {
-  font-family: "DM Sans";
-  letter-spacing: 0.02rem;
+         .attractionName{
+            font-family:$font-family;
+            letter-spacing:$letter-spacing;
+            font-style:italic;
+         }
+
+         .attractionDescription{
+            font-family:$font-family;
+            letter-spacing:$letter-spacing;
+         }
+      }
+   }
 }
 
 #expandIcon {
   font-size: 40px;
   color: #9e9e9e;
 }
-//add attractions modal button
-
 
 #attractionListItemContainer {
   position: relative;
