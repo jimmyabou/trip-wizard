@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { TextField, Button, Card, Typography,  IconButton, Fab, } from "@mui/material";
+import { TextField, Button, Card, Typography, IconButton, Fab, } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { PlannerContext } from "../providers/PlannerContext";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
@@ -10,6 +10,7 @@ import PackageDayList from "./PackageDayList";
 import PackageDayModalActivitiesList from "./PackageDayModalActivitiesList";
 import UserContext from '../providers/UserContext';
 import Modal from "react-modal";
+import '../styles/Package/packageDetails.scss'
 
 
 const PackageDetails = () => {
@@ -65,43 +66,34 @@ const PackageDetails = () => {
 
   return (
     <>
-      <form
-        onSubmit={() => handleAddDay(packageId)}
-        style={{ marginTop: "30px", display: "flex", justifyContent: "center" }}
-      >
-        <div style={{ display: "flex", alignItems: "center", zIndex: 0  }}>
+      <form id="add-day-form" onSubmit={() => handleAddDay(packageId)}>
+        <div className="form-container">
           <TextField
+            id="title-field"
             label="Title"
             variant="outlined"
-            style={{ marginRight: "10px", marginLeft: "20px" }}
             value={newDayTitle}
             onChange={(event) => setNewDayTitle(event.target.value)}
           />
           <TextField
+            id="description-field"
             label="Description"
             variant="outlined"
-            style={{ marginRight: "10px" }}
             value={newDayDescription}
             onChange={(event) => setNewDayDescription(event.target.value)}
           />
-          <div style={{ position: "relative" }}>
+          <div className="date-picker-container">
             <CalendarTodayIcon
-              style={{
-                position: "absolute",
-                top: "50%",
-                right: "8px",
-                transform: "translateY(-50%)",
-                cursor: "pointer",
-              }}
+              id="calendar-icon"
               onClick={toggleDatePicker}
             />
             <TextField
-              style={{ cursor: "pointer" }}
+              id="date-field"
               value={newDayDate.toLocaleDateString()}
               onClick={toggleDatePicker}
             />
             {isDatePickerOpen && (
-              <div style={{ position: "absolute", zIndex: "9999" }}>
+              <div className="date-picker">
                 <DatePicker
                   inline
                   selected={newDayDate}
@@ -114,55 +106,30 @@ const PackageDetails = () => {
             )}
           </div>
           <Button
+            id="add-button"
             type="submit"
             variant="contained"
             color="primary"
-
-            style={{ marginLeft: "20px", padding: '6px 16px', minWidth: 150, maxHeight: 50, background: "#51D4BF", fontFamily: "DM Sans", letterSpacing: '0.02rem', borderRadius: '10px', fontSize: '1.3rem' }}
           >
             Add
           </Button>
         </div>
       </form>
-      <div style={{ margin: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <div className="package-day-list-container">
         <PackageDayList days={days}></PackageDayList>
-      </div >
+      </div>
       <Modal
+        className="attractions-modal"
         isOpen={isOpen}
         onRequestClose={handleCloseModal}
-        style={{
-          content: {
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "80%",
-            height: '90%',
-            backgroundColor: "white",
-            padding: "16px",
-            borderRadius: "8px",
-            maxHeight: "200vh",
-            maxWidth: "130vw",
-            overflowY: "auto",
-          },
-          overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-          },
-        }}
       >
-        <div style={{ display: "flex", justifyContent: "start",marginLeft: "auto" }}>
+        <div id="modal-header">
           <IconButton aria-label="close" onClick={handleCloseModal}>
             <CloseIcon />
           </IconButton>
         </div>
-        <Typography variant="h4" style={{fontFamily: "DM Sans"}}>Attractions</Typography>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <Typography id='Attractions-title-modal' variant="h5">Attractions</Typography>
+        <div className="modal-activities-list">
           <PackageDayModalActivitiesList
             attractions={attractions}
             handleAddAttraction={handleAddAttraction}
@@ -170,27 +137,15 @@ const PackageDetails = () => {
           />
         </div>
         <Button
+          id="save-button"
           variant="contained"
           color="primary"
           onClick={handleSaveAttractions}
-          style={{
-            position: "sticky",
-            bottom: "10px",
-            left: "2000px",
-            borderRadius: "10%",
-            width: "100px",
-            height: "50px",
-            zIndex: "999",
-            background: "#51D4BF",
-            fontFamily: "DM Sans",
-            letterSpacing: '0.02rem',
-            borderRadius: '10px',
-            fontSize: '1.3rem'
-          }}
         >
           Save
         </Button>
       </Modal>
+
     </>
   );
 };

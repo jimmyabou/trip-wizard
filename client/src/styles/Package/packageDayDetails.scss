@@ -1,0 +1,262 @@
+.day-info-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  min-width: 25%;
+  width: 25%;
+}
+#card-container {
+  width: 95%;
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  
+}
+.day-details-container{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.day-title {
+  font-family: "DM Sans";
+  letter-spacing: 0.02rem;
+  font-style: italic;
+  font-weight: bold;
+  border-bottom: 1px solid lightgrey;
+  width: 88%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.day-actions-container {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.day-title-icon {
+  font-size: 30px;
+  color: rgb(81, 212, 191);
+}
+
+.day-date {
+  font-family: "DM Sans";
+  margin-left: 10px;
+}
+
+.day-day-title {
+  font-family: "DM Sans";
+  letter-spacing: 0.02rem;
+  margin-top: 15px;
+  font-style: italic;
+}
+.attractions-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.attraction-image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  margin: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.day-description {
+  font-family: "DM Sans";
+  letter-spacing: 0.02rem;
+  border-bottom: 1px solid lightgrey;
+  width: 88%;
+  color: grey;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.total-duration-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.total-duration-icon {
+  font-size: 25px;
+  color: rgb(81, 212, 191);
+  margin-right: 10px;
+}
+
+.total-duration-text {
+  font-size: 22px;
+}
+
+.total-duration-value {
+  font-size: 22px;
+  margin-right: 3.7rem;
+}
+
+.total-price-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.total-price-icon {
+  font-size: 25px;
+  color: rgb(81, 212, 191);
+  margin-right: 10px;
+}
+
+.total-price-text {
+  font-size: 22px;
+}
+
+.total-price-value {
+  font-size: 22px;
+  margin-right: 3.7rem;
+}
+
+.attractionsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0; 
+}
+
+.attractionImage {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  margin: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.buttonsContainer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  min-width: 25%;
+  margin-right: 20px;
+}
+
+#addFab {
+  background-color: #51D4BF;
+  width: 56px;
+  height: 56px;
+  margin-right: 20px;
+  z-index: 0;
+}
+
+#addIcon {
+  font-size: 32px;
+}
+
+#deleteIcon {
+  color: grey;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 40px;
+  margin-right: 20px;
+}
+
+// attraction list under each day 
+
+#attractionsDetailsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#expandIconContainer {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.expandIcon {
+  font-size: 40px;
+  color: #9e9e9e;
+}
+
+.expanded {
+  transform: rotate(180deg);
+  color: #9e9e9e;
+}
+
+// Container for each attraction card 
+#attractionCardContainer {
+  width: 70%;
+  margin-bottom: 10px;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  border-radius: none;
+}
+
+.attractionCardContent {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin: 20px;
+}
+
+.attractionImageList {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5%;
+  margin-right: 10px;
+  object-fit: fit;
+}
+
+.attractionDetails {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.attractionDuration, .attractionPrice {
+  width: max-content;
+}
+
+.attractionName {
+  font-family: "DM Sans";
+  letter-spacing: 0.02rem;
+  font-style: italic;
+}
+
+.attractionDescription {
+  font-family: "DM Sans";
+  letter-spacing: 0.02rem;
+}
+
+#expandIcon {
+  font-size: 40px;
+  color: #9e9e9e;
+}
+//add attractions modal button
+
+
+#attractionListItemContainer {
+  position: relative;
+}
+
+#addAttractionFabContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  
+}
+
+#addAttractionIcon {
+  font-size: 50px;
+  color: black;
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

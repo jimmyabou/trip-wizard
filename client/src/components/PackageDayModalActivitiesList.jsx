@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import ActivitiesListItem from './activities-list/ActivitiesListItem.jsx'
 import { Fab } from '@mui/material';
 import AddIcon from "@mui/icons-material/Add";
+import '../styles/Package/packageDayDetails.scss'
+
 
 const PackageDayModalActivitiesList = (props) => {
 
@@ -24,31 +26,20 @@ const PackageDayModalActivitiesList = (props) => {
       </div>
       < ul className="activity-list" >
         {unselectedAttractions.map(attraction => (
-          <div style={{ position: 'relative' }}>
+          <div id="attractionListItemContainer">
             <ActivitiesListItem attraction={attraction} key={attraction.attraction_id} />
-            <div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                opacity: 0.5,
-              }}
-            >
+            <div id="addAttractionFabContainer">
               <Fab
                 color="primary"
                 aria-label="Add Attraction"
                 onClick={() => handleAddAttraction(attraction.attraction_id)}
-                style={{
-                  backgroundColor: "white",
-                  width: "100px",
-                  height: "100px",
-                }}
               >
-                <AddIcon style={{ fontSize: "64px", color: 'black' }} />
+                <AddIcon id="addAttractionIcon" />
               </Fab>
             </div>
           </div>
+
+
         ))}
       </ul >
     </main>
