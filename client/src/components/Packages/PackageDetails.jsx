@@ -2,15 +2,15 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { TextField, Button, Card, Typography, IconButton, Fab, } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { PlannerContext } from "../providers/PlannerContext";
+import { PlannerContext } from "../../providers/PlannerContext";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import PackageDayList from "./PackageDayList";
 import PackageDayModalActivitiesList from "./PackageDayModalActivitiesList";
-import UserContext from '../providers/UserContext';
+import UserContext from '../../providers/UserContext';
 import Modal from "react-modal";
-import '../styles/Package/packageDetails.scss'
+import '../../styles/Package/packageDetails.scss'
 
 const PackageDetails = () => {
   // Access values and functions from the PlannerContext and UserContext

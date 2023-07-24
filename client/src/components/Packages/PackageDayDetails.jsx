@@ -1,14 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Card, Typography, Fab, } from "@mui/material";
-import { PlannerContext } from "../providers/PlannerContext";
+import { PlannerContext } from "../../providers/PlannerContext";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import TodayIcon from "@mui/icons-material/Today";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
-import '../styles/Package/packageDayDetails.scss'
-
+import '../../styles/Package/packageDayDetails.scss'
 
 const PackageDayDetails = ({ dayNumber, day }) => {
   // import values and functions from the PlannerContext

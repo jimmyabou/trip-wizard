@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { TextField, Button, Box } from "@mui/material";
-import UserContext from "../providers/UserContext";
+import UserContext from "../../providers/UserContext";
 import PackageList from "./PackageList";
 
 const CreatePackage = () => {

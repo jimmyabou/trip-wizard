@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
-import ActivitiesListItem from './activities-list/ActivitiesListItem.jsx'
+import ActivitiesListItem from '../activities-list/ActivitiesListItem.jsx'
 import { Fab } from '@mui/material';
 import AddIcon from "@mui/icons-material/Add";
-import '../styles/Package/packageDayDetails.scss'
+import '../../styles/Package/packageDayDetails.scss'
 
 
 const PackageDayModalActivitiesList = (props) => {

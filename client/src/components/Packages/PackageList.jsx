@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
-import UserContext from '../providers/UserContext';
+import UserContext from '../../providers/UserContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Card, CardContent, Typography, Button, CardMedia, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Package/packageDetailsList.scss';
+import '../../styles/Package/packageDetailsList.scss';
 
 const PackageList = () => {
   // import necesary values and functions from UserContext using the useContext hook
