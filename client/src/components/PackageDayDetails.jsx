@@ -7,28 +7,30 @@ import TodayIcon from "@mui/icons-material/Today";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
-import { grey } from "@mui/material/colors";
 import '../styles/Package/packageDayDetails.scss'
 
 
 const PackageDayDetails = ({ dayNumber, day }) => {
+  // import values and functions from the PlannerContext
   const {
     handleDeleteDay,
     handleOpenModal,
     updateDayAttractions,
     setUpdateDayAttractions
   } = useContext(PlannerContext);
+
   const [isExpanded, setIsExpanded] = useState(false);
+  // Local state to store the list of attractions for the day
   const [attractions, setAttractions] = useState([]);
   const [totalDuration, setTotalDuration] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
+    // Function to fetch attractions for the specific day
     const getAttractionsByDay = async (dayId) => {
       try {
         let response = await axios.get(`/getAttractionsByDay/${dayId}`);
         setAttractions(response.data.attractions.attractions);
-        console.log(response.data.attractions)
         setTotalDuration(response.data.attractions.totalDuration / 60);
         setTotalPrice(response.data.attractions.totalPrice);
       } catch (error) {
@@ -36,19 +38,23 @@ const PackageDayDetails = ({ dayNumber, day }) => {
       }
     };
 
+    // call the function to get the attractions for the each day
     getAttractionsByDay(day.day_id);
-    setUpdateDayAttractions(null)
+    setUpdateDayAttractions(null);
 
   }, [updateDayAttractions]);
 
+  // Function to toggle the expansion of the attractions section
   async function handleExpand() {
     setIsExpanded(!isExpanded);
   }
 
+  // Function to delete an attraction from the day
   const deleteAttractionFromDay = async (dayId, attractionId) => {
     try {
       await axios.delete('/deleteAttractionFromDay', { data: { dayId, attractionId } });
-      setUpdateDayAttractions('trigger delete')
+      // re-fetch attractions for the day after deletion to update the list
+      setUpdateDayAttractions('trigger delete');
     } catch (error) {
       console.error(error);
     }
@@ -61,7 +67,7 @@ const PackageDayDetails = ({ dayNumber, day }) => {
           <div className="day-info-container">
             <Typography variant="h5" className="day-title">
               <TodayIcon className="day-title-icon" />&nbsp;
-              Day {dayNumber}
+              Day {dayNumber}&nbsp;&nbsp;
               <Typography component="span" className="day-date">
                 {day.date.substring(0, 10)}
               </Typography>

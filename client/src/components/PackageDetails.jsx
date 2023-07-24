@@ -12,8 +12,8 @@ import UserContext from '../providers/UserContext';
 import Modal from "react-modal";
 import '../styles/Package/packageDetails.scss'
 
-
 const PackageDetails = () => {
+  // Access values and functions from the PlannerContext and UserContext
   const { user } = useContext(UserContext);
   const {
     days,
@@ -24,43 +24,30 @@ const PackageDetails = () => {
     newDayDate,
     setNewDayDate,
     dayAdded,
-    setDayAdded,
     isDatePickerOpen,
     toggleDatePicker,
     isOpen,
-    setIsOpen,
     attractions,
     selectedAttractions,
-    setSelectedAttractions,
     fetchAttractions,
-    setFetchAttractions,
-    activeDayId,
-    setActiveDayId,
-    expanded,
-    handleDeleteDay,
-    handleOpenModal,
     handleCloseModal,
     handleAddAttraction,
-    handleRemoveAttraction,
     handleSaveAttractions,
     handleAddDay,
-    handleExpand,
-    setDays,
-    setAttractions,
     fetchDays,
-    getAttractions,
     getPackageFavoritedattractions,
-    setPackageId,
   } = useContext(PlannerContext);
 
+  // Extract packageId from the URL 
   const { packageId } = useParams();
 
+  // Fetch the list of days for the selected package
   useEffect(() => {
     fetchDays(packageId);
   }, [dayAdded]);
 
+  // Fetch favored attractions related to the user
   useEffect(() => {
-    // getAttractions();
     getPackageFavoritedattractions(user.id);
   }, [fetchAttractions]);
 
@@ -145,11 +132,8 @@ const PackageDetails = () => {
           Save
         </Button>
       </Modal>
-
     </>
   );
 };
 
 export default PackageDetails;
-
-

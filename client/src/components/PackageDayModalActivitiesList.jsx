@@ -6,17 +6,21 @@ import '../styles/Package/packageDayDetails.scss'
 
 
 const PackageDayModalActivitiesList = (props) => {
+  // State to store remainig attractions to show in the modal for the user to add to a day
+  const [unselectedAttractions, setUnselectedAttractions] = useState([]);
 
-  const [unselectedAttractions, setUnselectedAttractions] = useState([])
-  const { attractions, pageTitle, username, button, handleAddAttraction, selectedAttractions, isOpen } = props;
+  const { attractions, pageTitle, username, handleAddAttraction, selectedAttractions, isOpen } = props;
+
+  // Function to filter unselected attractions from the list of all attractions and display them in the Modal
   const filterUnselectedAttractions = () => {
     const filteredAttractions = attractions.filter(attraction => !selectedAttractions.includes(attraction.attraction_id));
     setUnselectedAttractions(filteredAttractions);
   };
 
+  // useEffect to refresh the list of attractions in Modal everytime a user adds an attraction to any day
   useEffect(() => {
     filterUnselectedAttractions();
-  }, [attractions, selectedAttractions, isOpen]);
+  }, [selectedAttractions]);
 
   return (
     <main>
