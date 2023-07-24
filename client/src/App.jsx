@@ -10,14 +10,14 @@ import CategoryFilters from './components/category-filter/CategoryFilters';
 import LoginAlertModal from './components/modals/LoginAlertModal';
 import DescModal from './components/modals/DescModal';
 import LoadingSpinner from './components/Loading';
-import PackageDetails from './components/PackageDetails';
+import PackageDetails from './components/Packages/PackageDetails';
 // CONTEXTS \\
 import UserContext from './providers/UserContext';
 import { AttractionsContext } from './providers/AttractionsContext';
 
 // STYLES \\
 import './styles/Main.scss';
-import CreatePackage from './components/CreatePackage';
+import CreatePackage from './components/Packages/CreatePackage';
 
 const App = () => {
 

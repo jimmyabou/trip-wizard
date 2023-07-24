@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from 'axios';
+import React, { useContext } from "react";
 import { TextField, Button, Box } from "@mui/material";
-import UserContext from "../providers/UserContext";
+import UserContext from "../../providers/UserContext";
 import PackageList from "./PackageList";
 
 const CreatePackage = () => {
+    // import values and functions from the UserContext
   const { user, packageName,  createPackage,setPackageName } = useContext(UserContext);
+  // Handler function to create a new package for the logged in user with package name provided from the form field 
   const handleSubmit =  (event) => {
     const userId=user.id
     event.preventDefault();
