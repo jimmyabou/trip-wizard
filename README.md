@@ -24,6 +24,7 @@ create a .env file in server and populate with your relative credentials and por
 
 finally on the server side terminal run the following command to create the tables and seed the database  
     $ npm run db:reset    
-  
-
+# Project Screenshots
+### Home Page
+![./screenshots/dashboard.png](https://github.com/jimmyabou/trip-wizard/blob/master/screenshots/home.png?raw=true)
 
