@@ -28,3 +28,5 @@ finally on the server side terminal run the following command to create the tabl
 ### Home Page
 ![./screenshots/dashboard.png](https://github.com/jimmyabou/trip-wizard/blob/master/screenshots/home.png?raw=true)
 
+### Search and filter
+![search](https://github.com/jimmyabou/trip-wizard/blob/master/screenshots/serach.png?raw=true)
