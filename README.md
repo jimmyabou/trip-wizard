@@ -27,7 +27,7 @@ from the terminal type
 once you are in the PostgreSQL command-line interface (CLI)   
 create the database on your local postgress  
     # CREATE DATABASE final  
-username, password, and database name with the port are setup in the .env file //username :labber password:labber  
+username, password, and database name with the port are setup in the .env file
 
 finally on the server side terminal run the following command to create the tables and seed the database  
     $ npm run db:reset    
