@@ -1,6 +1,7 @@
 # trip-wizard  
-Trip Wizard is a full-stack application we built to facilitate the finding, scheduling, and booking of activities for your next trip
-#Setup
+Trip Wizard is a full-stack application we built to facilitate the finding, scheduling, and booking of activities for your next trip.
+
+# Setup
 after pulling the repositry into your local git folder  
 go to the client folder     
     $ npm install       //install all dependencies  
