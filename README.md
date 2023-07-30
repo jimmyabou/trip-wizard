@@ -36,10 +36,9 @@ finally on the server side terminal run the following command to create the tabl
 ### Details Modal
 ![Modal](https://github.com/jimmyabou/trip-wizard/blob/master/screenshots/modal_home.png?raw=true)
 ### Custom Package Page
-![]()
 ![Package](https://github.com/jimmyabou/trip-wizard/blob/master/screenshots/create_packages.png?raw=true)
 ### Add Day to Package
-![Add_day](![image](https://github.com/jimmyabou/trip-wizard/assets/128553101/c9d89963-7326-4abb-8d8a-cbc78d20cf4d)
+![Add_day](https://github.com/jimmyabou/trip-wizard/assets/128553101/c9d89963-7326-4abb-8d8a-cbc78d20cf4d)
 ### Add ttractions to each day
 ![Add_attractions](https://github.com/jimmyabou/trip-wizard/blob/master/screenshots/select_attraction_modal.png?raw=true)
 ### Full comprehensive itinerary displayed
