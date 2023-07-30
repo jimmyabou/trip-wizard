@@ -31,6 +31,6 @@ username, password, and database name with the port are setup in the .env file
 
 finally on the server side terminal run the following command to create the tables and seed the database  
     $ npm run db:reset    
-    //you can run this command everytime you change anything in the table structure of want to add new seeds. this comand drops the tables and recreates all  
+  
 
 
