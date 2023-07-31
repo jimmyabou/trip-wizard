@@ -1,5 +1,5 @@
 # trip-wizard  
-Trip Wizard is a full-stack application we built to facilitate the finding, scheduling, and booking of activities for your next trip.
+Trip Wizard is a full-stack application to facilitate the finding, scheduling, and booking of activities for your next trip.
 
 # Setup
 after pulling the repositry into your local git folder  
